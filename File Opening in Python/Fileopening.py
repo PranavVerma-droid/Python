@@ -19,3 +19,10 @@ import os
 file = open("C:/Users/Pranav Verma/Desktop/Github/My-Python-Repo/File Opening in Python/Demo.txt", 'r')
 print(file.read(6))
 file.close()
+
+"""File Handling Example 4"""
+import os
+
+file = open("C:/Users/Pranav Verma/Desktop/Github/My-Python-Repo/File Opening in Python/Demo.txt", 'r')
+print(file.readlines())
+file.close()
