@@ -1,5 +1,5 @@
 x = 10
-print("Starting Console")
+print("Starting Console. Pls Wait...")
 
 mylist = [10, 20, 30, 'Pranav', 30]
 print(mylist)
