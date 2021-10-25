@@ -13,6 +13,7 @@ greet("Pranav")
 
 def add_numbers(n1, n2):
     result = n1 + n2
-    print('The sum is:', result)
+    return result
 
-add_numbers(15, 16)
+result = add_numbers(15, 16)
+print(result)
