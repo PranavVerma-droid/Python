@@ -1,4 +1,4 @@
-from collections import  ChainMap #imports Chainmap from collections
+from collections import ChainMap #imports Chainmap from collections
 
 a = {1: '3' , 2: '4'}#Chainmap helps us to sort out dictonaries, lists and tupples
 b = {3: '1' , 4: '2'}#Chainmap helps us to sort out dictonaries, lists and tupples
