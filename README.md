@@ -1,4 +1,4 @@
 # My Python Repo
  My Python Repo (with Jupyter Notebook)
  
- Codecademy[Codecademy]
+Done using W3Schools and Codecademy.
