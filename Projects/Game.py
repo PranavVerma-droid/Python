@@ -14,3 +14,6 @@ print("8. Priest")
 
 character = input("Choose your Character: ")
 
+if (character == 1):
+    print("Congratulations! ")
+
