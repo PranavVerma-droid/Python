@@ -6,7 +6,7 @@ class Notepad(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 
         # Set the title for the notepad
-        self.title("Notepad")
+        self.title("Notepad - Made in Python by PranavVerma-droid")
 
         # Create a text widget
         self.text = tk.Text(self, wrap="word")
@@ -34,7 +34,7 @@ class Notepad(tk.Tk):
 
     def new_file(self):
         self.text.delete("1.0", "end")
-        self.title("Notepad")
+        self.title("Notepad - Made in Python by PranavVerma-droid")
 
     def open_file(self):
         file = filedialog.askopenfile(parent=self, mode="rb", title="Open a file")
@@ -43,7 +43,7 @@ class Notepad(tk.Tk):
             self.text.delete("1.0", "end")
             self.text.insert("1.0", contents)
             file.close()
-            self.title(file.name + " - Notepad")
+            self.title(file.name + " => Notepad - Made in Python by PranavVerma-droid")
 
     def save_file(self):
         file = filedialog.asksaveasfile(mode="w", defaultextension=".txt", filetypes=[("Text Documents", "*.txt"), ("All Files", "*.*")])
@@ -51,7 +51,7 @@ class Notepad(tk.Tk):
             contents = self.text.get("1.0", "end")
             file.write(contents)
             file.close()
-            self.title(file.name + " - Notepad")
+            self.title(file.name + " => Notepad - Made in Python by PranavVerma-droid")
 
     def cut(self):
         self.text.event_generate("<<Cut>>")
