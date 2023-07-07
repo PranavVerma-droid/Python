@@ -4,7 +4,7 @@ from turtle import *
 
 
 bgcolor("black")
-speed(3)
+speed(1)
 showturtle()
 color("orange")
 
