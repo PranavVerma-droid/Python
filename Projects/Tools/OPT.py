@@ -13,10 +13,6 @@ account_sid = ""
 auth_token = ""
 
 
-
-
-
-
 # resend the OTP
 def resendOTP():
     n = random.randint(1000, 9999)
