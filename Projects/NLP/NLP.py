@@ -17,7 +17,7 @@ nltk.download('words')
 
 
 # Tokenization
-text = "This is a sample sentence. Tokenization is the first step in NLP."
+text = "The curious cat with fluffy white fur and sparkling green eyes cautiously crept through the tall trees."
 tokens = word_tokenize(text)
 print("Tokens:", tokens)
 
