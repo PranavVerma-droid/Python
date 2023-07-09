@@ -1,6 +1,6 @@
 # My Python Repo
  🐍 <b>My Python Repo</b> 🐍 <br><br>
- Written Using <b>Python3</b> Notebook.<br><br>
+ Written Using <b>Python3</b><br><br>
  Written by [PranavVerma-droid](https://web.craftingrealm.tk).<br>
  This Code has been [licensed](LICENSE).<br><br>
 <b>Learnt Using [W3Schools] and [CodeCademy]. <br></b>
