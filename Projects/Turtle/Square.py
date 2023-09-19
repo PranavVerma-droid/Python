@@ -30,12 +30,12 @@ def draw_square(sideLength):
     hideturtle()
 
 
-def text():
+def text(textinput):
     penup()
     showturtle()
     goto(-132, 0)
     pendown()
-    write("PranavVerma-droid", font=("Jetbrains Mono", 20, "normal"))
+    write(textinput, font=("Jetbrains Mono", 20, "normal"))
     penup()
     goto(0,0)
     hideturtle()
@@ -46,7 +46,7 @@ def text():
     
 
 draw_square(500)
-text()
+text("PranavVerma-droid")
 
 
 
