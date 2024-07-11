@@ -8,3 +8,6 @@ Coded using <b>Visual Studio Code</b>.<br>
 
 All code inside [Here](Projects) has been written my Me [(Pranav Verma)](https://web.craftingrealm.tk)
 
+## Certificates:
+- [Python Basic - HackerRank](Certification/Python-Basic-Certificate.pdf)
+
