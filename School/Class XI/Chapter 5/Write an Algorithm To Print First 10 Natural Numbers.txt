@@ -1,0 +1,7 @@
+1. START
+2. SET Variable i equal to 1
+3. Display i
+4. Add 1 to i
+5. if i is equal to 11, goto step 7, else goto step 6
+6. Goto Step 3
+7. STOP
