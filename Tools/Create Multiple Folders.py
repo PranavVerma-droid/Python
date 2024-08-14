@@ -4,7 +4,7 @@ import sys
 parent_dir = "C:\\Users\\prana\\Desktop\\A LOT OF FOLDERS"
 confirm = input("Are you sure that you want to Continue? ")
 
-if confirm not in "YESyes":
+if confirm not in "YESyes1":
     print("Exiting.")
     sys.exit(0)
 

@@ -1,2 +1,4 @@
 Projects/Games/combat/__pycache__
 .idea
+.ipynb_checkpoints
+.vscode
