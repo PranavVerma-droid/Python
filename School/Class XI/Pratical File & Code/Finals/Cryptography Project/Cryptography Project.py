@@ -1,20 +1,18 @@
+# This file contains the simpler version of my cryprography project for my Finals.
+# Made by Pranav Verma.
+
 def encode_message(message, shift):
     encoded = ""
     for char in message:
-        # Check if the character is a letter
         if char.isalpha():
-            # Shift within the alphabet (upper and lower case separately)
             base = ord('A') if char.isupper() else ord('a')
-            # Shift character and wrap around alphabet
             encoded += chr((ord(char) - base + shift) % 26 + base)
         else:
-            # Non-alphabetic characters remain the same
             encoded += char
     return encoded
 
 
 def decode_message(encoded_message, shift):
-    # Decoding is just encoding with a negative shift
     return encode_message(encoded_message, -shift)
 
 

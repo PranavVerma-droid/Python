@@ -1,23 +1,53 @@
+# This file contains the Advanced Version of my Cryptography Project.
+# Made by Pranav Verma.
+
 import random
+import math
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
 
 def generate_keys():
-    p = random.randint(50, 100)
-    q = random.randint(50, 100)
-    n = p * q
+    primes = []
+    for i in range(50, 101):
+        is_prime = True
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(i)
 
-    e = random.randint(1, 100)
-    d = random.randint(1, 100)
+    p = random.choice(primes)
+    q = random.choice(primes)
+    while p == q:
+        q = random.choice(primes)
+
+    n = p * q
+    phi = (p - 1) * (q - 1)
+
+    e = random.randint(2, phi - 1)
+    while gcd(e, phi) != 1:
+        e = random.randint(2, phi - 1)
+
+    d = pow(e, -1, phi)
 
     return ((e, n), (d, n))
 
 def encrypt_message(message, public_key):
     e, n = public_key
-    encrypted_message = [(ord(char) + e) % 256 for char in message]
-    return encrypted_message
+    encrypted_message = []
+    for char in message:
+        encrypted_char = (ord(char) ** e) % n
+        encrypted_message.append(str(encrypted_char))
+    return ' '.join(encrypted_message)
 
 def decrypt_message(encrypted_message, private_key):
     d, n = private_key
-    decrypted_message = ''.join([chr((char - d) % 256) for char in encrypted_message])
+    encrypted_chars = encrypted_message.split()
+    decrypted_message = ''.join([chr((int(char) ** d) % n) for char in encrypted_chars])
     return decrypted_message
 
 def main():
@@ -45,16 +75,16 @@ def main():
 
     elif choice == "2":
         private_key_input = input("Enter your private key (d,n) separated by a comma: ")
-        d, n = map(int, private_key_input.split(','))
-        private_key = (d, n)
-
-        encrypted_message_input = input("Enter the encrypted message as comma-separated numbers: ")
         try:
-            encrypted_message = [int(x) for x in encrypted_message_input.split(',')]
-            decrypted_message = decrypt_message(encrypted_message, private_key)
-            print("Decrypted Message:", decrypted_message)
+            d, n = map(int, private_key_input.split(','))
+            private_key = (d, n)
         except ValueError:
-            print("Invalid input. Please enter numbers separated by commas.")
+            print("Invalid key format. Please enter the key as comma-separated integers.")
+            return
+
+        encrypted_message_input = input("Enter the encrypted message as space-separated numbers: ")
+        decrypted_message = decrypt_message(encrypted_message_input, private_key)
+        print("Decrypted Message:", decrypted_message)
 
     elif choice == "3":
         public_key, private_key = generate_keys()
