@@ -1,5 +1,26 @@
-# This file contains the Advanced Version of my Cryptography Project.
-# Made by Pranav Verma.
+# This file contains the Final Version of my Cryptography Algorithm.
+# ! STILL IN DEVELOPMENT
+# Made by Pranav Verma, XI Raman.
+
+"""
+Basic Principle:
+
+The Idea:
+This program generates two sets of keys: a private key and a public key.
+Imagine you want to send a message over the internet. Even if you delete the message, it can still be stored on a server.
+You might think you could encrypt the message with just one key, but then how would you securely send the key to the recipient?
+This is where the RSA Algorithm comes in.
+My algorithm is a simplified version of the RSA Algorithm, which is widely used today for secure data transmission, such as in HTTPS protocols.
+
+How to use this program:
+1. Generate a pair of keys (public and private) using this program.
+2. Share the public key with the person who wants to send you a secret message.
+3. The sender will use the public key to encrypt their message using this program and send the encrypted message back to you.
+4. Use your private key to decrypt the received message using this program.
+5. If you want to send a message back, the sender can generate their own key pair and share their public key with you.
+
+In summary, each party will have a pair of keys: a private key for decryption and a public key for encryption. This ensures secure message transmission.
+"""
 
 import random
 import math
@@ -50,50 +71,42 @@ def decrypt_message(encrypted_message, private_key):
     decrypted_message = ''.join([chr((int(char) ** d) % n) for char in encrypted_chars])
     return decrypted_message
 
-def main():
-    print("Welcome to the Public Key Message Encoder/Decoder!")
 
-    print("\nChoose an option:")
-    print("1. Encrypt a message")
-    print("2. Decrypt a message")
-    print("3. Generate keys")
+print("Welcome to the Public Key Message Encoder/Decoder!")
 
-    choice = input("Enter your choice (1, 2, or 3): ")
+print("\nChoose an option:")
+print("1. Encrypt a message")
+print("2. Decrypt a message")
+print("3. Generate keys")
 
-    if choice == "1":
-        public_key_input = input("Enter your public key (e,n) separated by a comma: ")
-        try:
-            e, n = map(int, public_key_input.split(','))
-            public_key = (e, n)
-        except ValueError:
-            print("Invalid key format. Please enter the key as comma-separated integers.")
-            return
+choice = input("Enter your choice (1, 2, or 3): ")
 
-        message = input("Enter the message to encrypt: ")
-        encrypted_message = encrypt_message(message, public_key)
-        print("Encrypted Message:", encrypted_message)
+if choice == "1":
+    public_key_input = input("Enter your public key (e,n) separated by a comma: ")
+    e, n = [int(x) for x in public_key_input.split(',')]
+    public_key = (e, n)
 
-    elif choice == "2":
-        private_key_input = input("Enter your private key (d,n) separated by a comma: ")
-        try:
-            d, n = map(int, private_key_input.split(','))
-            private_key = (d, n)
-        except ValueError:
-            print("Invalid key format. Please enter the key as comma-separated integers.")
-            return
+    message = input("Enter the message to encrypt: ")
+    encrypted_message = encrypt_message(message, public_key)
+    print("Encrypted Message:", encrypted_message)
 
-        encrypted_message_input = input("Enter the encrypted message as space-separated numbers: ")
-        decrypted_message = decrypt_message(encrypted_message_input, private_key)
-        print("Decrypted Message:", decrypted_message)
+elif choice == "2":
+    private_key_input = input("Enter your private key (d,n) separated by a comma: ")
+    d, n = [int(x) for x in private_key_input.split(',')]
+    private_key = (d, n)
 
-    elif choice == "3":
-        public_key, private_key = generate_keys()
-        print("New keys generated:")
-        print("Public Key (e,n):", public_key)
-        print("Private Key (d,n):", private_key)
 
-    else:
-        print("Please Enter 1, 2, or 3.")
+    encrypted_message_input = input("Enter the encrypted message as space-separated numbers: ")
+    decrypted_message = decrypt_message(encrypted_message_input, private_key)
+    print("Decrypted Message:", decrypted_message)
 
-if __name__ == "__main__":
-    main()
+elif choice == "3":
+    public_key, private_key = generate_keys()
+    print("New keys generated:")
+    print("Public Key (e,n):", public_key)
+    print("Private Key (d,n):", private_key)
+    print("Try Rerunning the Program and Encrypting an Message.")
+
+else:
+    print("Please Enter 1, 2, or 3.")
+
