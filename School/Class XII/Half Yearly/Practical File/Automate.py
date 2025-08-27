@@ -10,18 +10,37 @@ import win32ui
 from ctypes import windll
 
 def extract_questions_and_code(tex_file):
-    """Extracts question numbers and Python code from a LaTeX file."""
+    """Extracts section names, question numbers and Python code from a LaTeX file."""
     with open(tex_file, 'r') as file:
         tex_content = file.read()
 
-    # Regex to match \subsection*{Q + number) and \begin{lstlisting} code \end{lstlisting}
-    pattern = re.compile(r"\\subsection\*\{Q(\d+)\).*?\}\s*\\begin\{lstlisting\}.*?\n(.*?)\\end\{lstlisting\}", re.S)
-    matches = pattern.findall(tex_content)
-    return matches
+    # First extract sections and their content
+    sections = re.split(r'\\section\{([^}]+)\}', tex_content)[1:]  # Skip content before first section
+    
+    all_matches = []
+    
+    for i in range(0, len(sections), 2):
+        if i + 1 < len(sections):
+            section_name = sections[i].strip()
+            section_content = sections[i + 1]
+            
+            # Clean section name for filename (remove special characters)
+            clean_section = re.sub(r'[^\w\s-]', '', section_name).strip()
+            clean_section = re.sub(r'[-\s]+', '_', clean_section)
+            
+            # Find questions in this section
+            pattern = re.compile(r"\\subsection\*\{Q(\d+)\).*?\}\s*\\begin\{lstlisting\}.*?\n(.*?)\\end\{lstlisting\}", re.S)
+            matches = pattern.findall(section_content)
+            
+            # Add section info to each match
+            for qnum, code in matches:
+                all_matches.append((clean_section, qnum, code))
+    
+    return all_matches
 
-def save_code_to_file(code, question_number):
+def save_code_to_file(code, section_name, question_number):
     """Saves extracted Python code to a temporary Python file."""
-    file_name = f"temp_{question_number}.py"
+    file_name = f"temp_{section_name}_{question_number}.py"
     with open(file_name, 'w') as file:
         file.write(code)
     return file_name
@@ -72,11 +91,11 @@ def capture_window(hwnd):
 
     return image
 
-def run_code_and_capture_output(script_file, question_number, images_dir):
+def run_code_and_capture_output(script_file, section_name, question_number, images_dir):
     """Runs the Python script in a new command prompt and captures the output as a screenshot."""
     while True:  # Add retry loop
-        unique_title = f"Q{question_number}"
-        terminal_command = f'start "Q{question_number}" cmd /k "title Q{question_number} && python {script_file}"'
+        unique_title = f"{section_name}_Q{question_number}"
+        terminal_command = f'start "{section_name}_Q{question_number}" cmd /k "title {section_name}_Q{question_number} && python {script_file}"'
         subprocess.Popen(terminal_command, shell=True)
         time.sleep(3)
 
@@ -91,7 +110,7 @@ def run_code_and_capture_output(script_file, question_number, images_dir):
             time.sleep(1)
 
         if not terminal_window:
-            raise Exception(f"Could not find CMD window for question {question_number}")
+            raise Exception(f"Could not find CMD window for question {section_name} Q{question_number}")
 
         try:
             # Resize window without activating it
@@ -99,7 +118,7 @@ def run_code_and_capture_output(script_file, question_number, images_dir):
             terminal_window.moveTo(0, 0)
             time.sleep(1)
 
-            print(f"Waiting for user to complete inputs for question {question_number}.")
+            print(f"Waiting for user to complete inputs for {section_name} question {question_number}.")
             print("Press Enter to continue, or 'A' + Enter to try again.")
             user_input = input().strip().upper()
             
@@ -109,7 +128,7 @@ def run_code_and_capture_output(script_file, question_number, images_dir):
                 continue  # Retry the current question
             
             # Capture window content using Win32 API
-            screenshot_path = os.path.join(images_dir, f"{question_number}.png")
+            screenshot_path = os.path.join(images_dir, f"{section_name}_{question_number}.png")
             hwnd = terminal_window._hWnd
             screenshot = capture_window(hwnd)
             screenshot.save(screenshot_path)
@@ -126,7 +145,7 @@ def run_code_and_capture_output(script_file, question_number, images_dir):
                     pass
             raise
 
-def update_tex_with_image(tex_file, question_number, image_path):
+def update_tex_with_image(tex_file, section_name, question_number, image_path):
     """Inserts the image path into the LaTeX document under the respective question."""
     with open(tex_file, 'r') as file:
         tex_content = file.read()
@@ -161,38 +180,56 @@ def main():
     # Extract questions and code
     questions_and_code = extract_questions_and_code(tex_file)
     
-    # Ask for starting question number
+    # Display available sections and questions
+    print("Available sections and questions:")
+    current_section = ""
+    for section, qnum, _ in questions_and_code:
+        if section != current_section:
+            current_section = section
+            print(f"\n{section}:")
+        print(f"  Q{qnum}")
+    
+    # Ask for starting section and question number
     while True:
         try:
+            start_section = input("\nEnter the section name to start from: ").strip()
             start_question = int(input("Enter the question number to start from: "))
-            if any(int(qnum) == start_question for qnum, _ in questions_and_code):
+            
+            # Check if the combination exists
+            if any(section == start_section and int(qnum) == start_question 
+                   for section, qnum, _ in questions_and_code):
                 break
-            print("Question number not found in the file. Please try again.")
+            print("Section and question combination not found. Please try again.")
         except ValueError:
-            print("Please enter a valid number.")
+            print("Please enter a valid number for the question.")
 
     temp_files = []
 
-    # Filter questions to start from the selected number
-    filtered_questions = [(qnum, code) for qnum, code in questions_and_code 
-                         if int(qnum) >= start_question]
+    # Filter questions to start from the selected section and number
+    start_found = False
+    filtered_questions = []
+    for section, qnum, code in questions_and_code:
+        if section == start_section and int(qnum) == start_question:
+            start_found = True
+        if start_found:
+            filtered_questions.append((section, qnum, code))
 
-    for question_number, code in filtered_questions:
-        print(f"Processing question {question_number}...")
+    for section_name, question_number, code in filtered_questions:
+        print(f"Processing {section_name} question {question_number}...")
         
         # Save the Python code to a file
-        script_file = save_code_to_file(code, question_number)
+        script_file = save_code_to_file(code, section_name, question_number)
         temp_files.append(script_file)
 
         try:
             # Run the code and capture its output
-            image_path = run_code_and_capture_output(script_file, question_number, images_dir)
+            image_path = run_code_and_capture_output(script_file, section_name, question_number, images_dir)
 
             # Update the LaTeX file with the relative image path
-            update_tex_with_image(tex_file, question_number, image_path)
+            update_tex_with_image(tex_file, section_name, question_number, image_path)
 
         except Exception as e:
-            print(f"Error processing question {question_number}: {e}")
+            print(f"Error processing {section_name} question {question_number}: {e}")
 
     # Clean up temporary Python files
     clean_up_temp_files(temp_files)
