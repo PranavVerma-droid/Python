@@ -38,7 +38,7 @@
 \maketitle
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{logo/lvis-logo.png}
+\includegraphics[width=1\textwidth]{logo/lvis-logo.png}
 \end{center}
 
 \vspace*{\fill}
@@ -56,9 +56,6 @@ for i in range(n):
         l[i]=l[i]*2
 print(l)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_1.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_1.png}
-\includegraphics[width=\linewidth]{images/Functions_1.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_1.png}
 
 \subsection*{Q2) Write a program to count the frequency of an element in a list.}
@@ -67,9 +64,6 @@ l=eval(input("Enter an Input: "))
 e=eval(input('Enter the element to be counted: '))
 print(l.count(e))
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_2.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_2.png}
-\includegraphics[width=\linewidth]{images/Functions_2.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_2.png}
 
 \subsection*{Q3) Write a program to shift elements of a list so that the first element moves to the second index and second index move to the third index and so on, and the last element shifts to the first position.}
@@ -80,9 +74,6 @@ l.pop(-1)
 l.insert(0,x)
 print(l)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_3.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_3.png}
-\includegraphics[width=\linewidth]{images/Functions_3.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_3.png}
 
 \subsection*{Q4) A list NUM contains the elements: 3,25,13,6,35,8,14,45. Write a program to swap the content with the next value divisible by 5 so that the resultant list will look like: 25,3,13,35,6,8,45,14.}
@@ -94,9 +85,6 @@ for i in range(n):
         l[i-1],l[i]=l[i],l[i-1]
 print(l)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_4.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_4.png}
-\includegraphics[width=\linewidth]{images/Functions_4.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_4.png}
 
 \subsection*{Q5) Write a program to accept values from a user in a tuple. Add a tuple to it and display its elements one by one. Also display its maximum and minimum values.}
@@ -111,9 +99,6 @@ for i in t:
     print(i)
 print(max(t),min(t),end='\n')
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_5.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_5.png}
-\includegraphics[width=\linewidth]{images/Functions_5.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_5.png}
 
 \subsection*{Q6) Write a program to input any values for two tuples. Print it, interchange it and then compare them.}
@@ -130,9 +115,6 @@ if t1<t2:
 else:
     print('t1 is greater')
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_6.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_6.png}
-\includegraphics[width=\linewidth]{images/Functions_6.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_6.png}
 
 \subsection*{Q7) Write a python program to input 'n' classes and names of class teachers to store them in a dictionary and display the same. Also accept a particular class from the user and display the name of the class teacher of that class.}
@@ -145,9 +127,6 @@ for i in range(n):
     d[x]=y
 print(d)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Stack_Operations_7.png}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_7.png}
-\includegraphics[width=\linewidth]{images/Functions_7.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_7.png}
 
 \subsection*{Q8) Write a program to store students names and their percentage in a dictionary and delete a particular student name from the dictionary. Also display the dictionary after deletion.}
@@ -158,8 +137,6 @@ if x in d:
     del d[x]
 print(d)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_8.png}
-\includegraphics[width=\linewidth]{images/Functions_8.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_8.png}
 
 \subsection*{Q9) Write a Python program to input names of 'n' customers and their details like items bought, cost and phone number, etc., store them in a dictionary and display all the details in a tabular form.}
@@ -176,8 +153,6 @@ print('Name','\t Item','\t Cost','\t Contact Number')
 for i in d:
     print(i,'\t ', d[i][0],'\t ',d[i][1],'\t ',d[i][2])
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_9.png}
-\includegraphics[width=\linewidth]{images/Functions_9.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_9.png}
 
 \subsection*{Q10) Write a Python program to capitalize the first and last letters of each word of a given string.}
@@ -191,8 +166,6 @@ for i in l:
     x+=j+''
 print(x)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Data_File_Handling_10.png}
-\includegraphics[width=\linewidth]{images/Functions_10.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_10.png}
 
 \subsection*{Q11) Write a Python program to remove duplicate characters of a given string.}
@@ -204,7 +177,6 @@ for i in s:
         x+=i
 print(x)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Functions_11.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_11.png}
 
 \subsection*{Q12) Write a Python program compute the sum of digits of a given number}
@@ -217,7 +189,6 @@ while x>0:
     x=x//10
 print(s)
 \end{lstlisting}
-\includegraphics[width=\linewidth]{images/Functions_12.png}
 \includegraphics[width=\linewidth]{images/Review_of_Python_Basics_12.png}
 
 \subsection*{Q13) Write a Python program to find the second most repeated word in a given string.}
@@ -345,6 +316,7 @@ b=float(input("Enter the Base of Triangle: "))
 h=float(input("Enter the Height of Triangle: "))
 print("The Area of the given Triangle is",calculate_area(b,h))
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_1.png}
 
 \subsection*{Q2) Modify the function given in the previous question to take a third parameter called shape type. Shaped type should be either triangle or rectangle. Based on the shape, it should calculate the area.}
 \begin{lstlisting}[language=Python]
@@ -366,6 +338,7 @@ b=float(input("Enter the Dimensions: "))
 h=float(input("Enter the Dimensions: "))
 print("The Area of the given Figure is",calculate_area(shape,b,h))
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_2.png}
 
 \subsection*{Q3) Write a function, print\_pattern(), that takes integer number as argument and print the following pattern if the input is 3: *, **, *** If the input is 4, then it should print: *, **, ***, ****.}
 \begin{lstlisting}[language=Python]
@@ -377,6 +350,7 @@ def pattern(N):
 n=int(input("Enter a Number: "))
 pattern(n)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_3.png}
 
 \subsection*{Q4) Write a function that takes amount dollars and dollar-to-rupee conversion price and then returns the amount converted to rupees. Create the function in both void and non-void forms.}
 \begin{lstlisting}[language=Python]
@@ -389,6 +363,7 @@ m=float(input("Enter the Money in USD: "))
 Void(m)
 print(Non_Void(m))
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_4.png}
 
 \subsection*{Q5) Write a function to calculate the value of a box with appropriate default values for its parameters. Your function should have the following input parameters: Length of box, Width of box, Height of box.}
 \begin{lstlisting}[language=Python]
@@ -400,6 +375,7 @@ w=float(input("Enter the Width of Box: "))
 h=float(input("Enter the Height of Box: "))
 print("The Volume of the given Box is",Volume(l,w,h))
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_5.png}
 
 \subsection*{Q6) Write a program to find the greatest common divisor between two numbers.}
 \begin{lstlisting}[language=Python]
@@ -417,6 +393,7 @@ n1=int(input("Enter a Number: "))
 n2=int(input("Enter a Number: "))
 GCF(n1,n2)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_6.png}
 
 \subsection*{Q7) Write a Python function to multiply all the numbers in a list.}
 \begin{lstlisting}[language=Python]
@@ -428,6 +405,7 @@ def Multiply(l1):
 l=eval(input("Enter a Number List: "))
 print("The Product of Elements of given list is",Multiply(l))
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_7.png}
 
 \subsection*{Q8) Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number whose factorial is to be calculated as the argument.}
 \begin{lstlisting}[language=Python]
@@ -439,6 +417,7 @@ def Multiply(l1):
 l=eval(input("Enter a Number List: "))
 print("The Factorial of",l,"is",Multiply(l))
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_8.png}
 
 \subsection*{Q9) Write a Python function that takes a number as a parameter and checks whether the number is prime or not.}
 \begin{lstlisting}[language=Python]
@@ -457,6 +436,7 @@ def Prime(l1):
 l=eval(input("Enter a Number List: "))
 Prime(l)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_9.png}
 
 \subsection*{Q10) Write a Python function that checks whether a passed string is a palindrome or not.}
 \begin{lstlisting}[language=Python]
@@ -472,6 +452,7 @@ def palindrome(x):
 s=input("Enter a Input: ")
 palindrome(s)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_10.png}
 
 \subsection*{Q11) Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated after sorting them alphabetically.}
 \begin{lstlisting}[language=Python]
@@ -483,6 +464,7 @@ def Sorter(s):
 S=input("Enter a input: ")
 Sorter(S)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_11.png}
 
 \subsection*{Q12) Write a method in Python to find and display prime numbers from 2 to N. The value of N should be passed as an argument to the method.}
 \begin{lstlisting}[language=Python]
@@ -503,6 +485,7 @@ def P_S(N):
 l=eval(input("Enter a Number List: "))
 P_S(l)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_12.png}
 
 \section{Data File Handling}
 
@@ -538,6 +521,7 @@ def Athletics():
             print("End of File!!")
 # Athletics()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_1.png}
 
 \subsection*{Q2) Write a program to count the words 'to' and 'the' present in text file 'Poem.txt'.}
 \begin{lstlisting}[language=Python]
@@ -552,6 +536,7 @@ for i in range(x,y+1):
     count+=1
 print(count)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_2.png}
 
 \subsection*{Q3) Write a program to count the number of uppercase alphabets present in text file 'Poem.txt'.}
 \begin{lstlisting}[language=Python]
@@ -565,6 +550,7 @@ for i in x:
         count+=1
 print(count)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_3.png}
 
 \subsection*{Q4) Write a program that copies one file to another and reads the filenames from the user.}
 \begin{lstlisting}[language=Python]
@@ -577,6 +563,7 @@ with open(a,"w") as F:
     F.writelines(MyS)
     F.close()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_4.png}
 
 \subsection*{Q5) Write a program that appends the contents of one file to another and takes the filenames from the user.}
 \begin{lstlisting}[language=Python]
@@ -588,6 +575,7 @@ a=input("Enter a New Name for Location on Desktop: ")
 with open(a,"a") as F:
     F.writelines(MyS)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_5.png}
 
 \subsection*{Q6) Write a program that reads characters from the keyboard one by one. All lowercase characters get stored in the file 'LOWER', all uppercase characters get stored in the file 'UPPER' and all the other characters get stored in the file 'OTHERS'.}
 \begin{lstlisting}[language=Python]
@@ -610,6 +598,7 @@ for i in a:
             f.write(i)
             f.close()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_6.png}
 
 \subsection*{Q7) Consider binary file 'items.dat' containing records stored in the given format: \{item\_id: [item\_name, amount]\}. Write a function, copy\_new(), that copies all records whose amount is greater than 1000 from 'items.dat' to 'new\_items.dat'.}
 \begin{lstlisting}[language=Python]
@@ -645,6 +634,7 @@ def copy_new():
             print("End of File!!")
 copy_new()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_7.png}
 
 \subsection*{Q8) Anant has been asked to display the names of all students who have scored less than 40 for Remedial Classes. Write a user-defined function to display the names of the students from the binary file 'Student.dat' who have less than 40.}
 \begin{lstlisting}[language=Python]
@@ -676,6 +666,7 @@ def copy_new():
             print("End of File!!")
 copy_new()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_8.png}
 
 \subsection*{Q9) Given a binary file, 'STUDENT.dat', containing records of the following type: [S\_Admno, S\_Name, Percentage] Where these three values are: S\_Admno - Admission Number of student (string) S\_Name - Name of student (string) Percentage - percentage obtained by student (float) Write a function in Python that would read the contents of the file 'STUDENT.dat' and that would display the details of those students whose percentage is below 65.}
 \begin{lstlisting}[language=Python]
@@ -713,6 +704,7 @@ def copy_new():
             print("End of File!!")
 copy_new()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_9.png}
 
 \subsection*{Q10) Create CSV file 'Groceries' to store information of different items existing in a shop. The information is to be stored with respect to each item code, name, price, qty. Write a program to accept the data from the user and store it permanently in the CSV file.}
 \begin{lstlisting}[language=Python]
@@ -741,6 +733,7 @@ with open("Groceries.csv", "r", newline='') as f:
     for row in reader:
         print(row)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_10.png}
 
 \section{Stack Operations}
 
@@ -790,6 +783,54 @@ sort_stack(stack)
 print(stack)
 \end{lstlisting}
 
+\subsection*{Q1) Write a program to implement pop and push functions on a stack containing package name as records.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push(item):
+    stack.append(item)
+
+def pop():
+    if not stack:
+        return "Underflow"
+    return stack.pop()
+
+# Example usage
+push("Package1")
+push("Package2")
+print(stack)
+popped_item = pop()
+print(popped_item)
+print(stack)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_1.png}
+
+\subsection*{Q2) Write a program to sort a stack into ascending order without using another stack.}
+\begin{lstlisting}[language=Python]
+def sort_stack(stack):
+    if stack:
+        # Remove the top element
+        temp = stack.pop()
+        # Sort the remaining stack
+        sort_stack(stack)
+        # Insert the temp back in sorted position
+        sorted_insert(stack, temp)
+
+def sorted_insert(stack, element):
+    if not stack or stack[-1] <= element:
+        stack.append(element)
+    else:
+        temp = stack.pop()
+        sorted_insert(stack, element)
+        stack.append(temp)
+
+# Example usage
+stack = [3, 1, 2]
+sort_stack(stack)
+print(stack)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_2.png}
+
 \subsection*{Q3) Write a program to implement pop and push operations on a stack. The push operation should add numbers from a list which have 5 digits or more. The pop operation should print underflow if stack is empty.}
 \begin{lstlisting}[language=Python]
 stack = []
@@ -820,6 +861,7 @@ print(pop())
 print(stack)
 print(pop())  # Should print "Underflow"
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_3.png}
 
 \subsection*{Q4) Write a program to implement push and display operations on a stack with hostel number, total students and total rooms as record.}
 \begin{lstlisting}[language=Python]
@@ -842,6 +884,7 @@ push_hostel_record(101, 50, 25)
 push_hostel_record(102, 45, 22)
 display_stack()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_4.png}
 
 \subsection*{Q5) Write a program to implement push and display operations on a stack which has book number and name as records.}
 \begin{lstlisting}[language=Python]
@@ -863,6 +906,7 @@ push_book_record("B001", "Python Programming")
 push_book_record("B002", "Data Structures")
 display_stack()
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_5.png}
 
 \subsection*{Q6) Write a program to push elements in a stack from a list that are even. Also implement pop function.}
 \begin{lstlisting}[language=Python]
@@ -885,6 +929,7 @@ print(stack)
 print(pop())
 print(stack)
 \end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_6.png}
 
 \subsection*{Q7) Write a program to push student names from a dictionary into a stack who have won more than 3 medals. Also it prints the the no of names pushed and overflow if the no of items exceed 15.}
 \begin{lstlisting}[language=Python]
@@ -920,5 +965,5 @@ print(stack)
 print(pop())
 print(stack)
 \end{lstlisting}
-
+\includegraphics[width=\linewidth]{images/Stack_Operations_7.png}
 \end{document}

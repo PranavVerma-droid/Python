@@ -155,10 +155,25 @@ def update_tex_with_image(tex_file, section_name, question_number, image_path):
     match = re.search(subsection_pattern, tex_content, re.S)
 
     if match:
-        # Add the \includegraphics command after the \end{lstlisting}
+        # Check if this specific image is already inserted
         relative_path = os.path.relpath(image_path, start=os.path.dirname(tex_file))
-        updated_section = match.group(1) + f"\n\\includegraphics[width=\\linewidth]{{{relative_path.replace(os.sep, '/')}}}"
-        tex_content = tex_content.replace(match.group(1), updated_section)
+        image_line = f"\\includegraphics[width=\\linewidth]{{{relative_path.replace(os.sep, '/')}}}"
+        
+        # If this exact image line doesn't exist after this question, add it
+        if image_line not in tex_content[match.end():match.end()+200]:
+            # Remove any existing includegraphics lines immediately after this lstlisting block
+            after_match = tex_content[match.end():]
+            # Find all includegraphics lines that come right after
+            graphics_pattern = r'(\n\\includegraphics\[width=\\linewidth\]\{[^}]+\})*'
+            graphics_match = re.match(graphics_pattern, after_match)
+            
+            if graphics_match:
+                # Remove existing graphics lines
+                tex_content = tex_content[:match.end()] + after_match[graphics_match.end():]
+            
+            # Add the new image
+            updated_section = match.group(1) + f"\n{image_line}"
+            tex_content = tex_content.replace(match.group(1), updated_section)
 
     with open(tex_file, 'w') as file:
         file.write(tex_content)
