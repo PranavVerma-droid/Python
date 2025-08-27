@@ -151,7 +151,7 @@ def clean_up_temp_files(files):
             os.remove(file)
 
 def main():
-    tex_file = r"/home/pranavverma/Github/Languages/Python3/School/Class XII/Half Yearly/Practical File/Practical File.tex"
+    tex_file = r"C:\Users\Administrator\Downloads\Python\School\Class XII\Half Yearly\Practical File\Practical File.tex"
     images_dir = os.path.join(os.path.dirname(tex_file), "images")
 
     # Create images directory if it doesn't exist
