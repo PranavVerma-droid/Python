@@ -1,0 +1,1453 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\title{LOTUS VALLEY INTERNATIONAL SCHOOL: Computer Science Practical File}
+\author{Pranav Verma (Roll No. 7, XII Aryabhatta)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\includegraphics[width=1\textwidth]{logo/lvis-logo.png}
+\end{center}
+
+\vspace*{\fill}
+
+\tableofcontents
+
+\section{Review of Python Basics}
+
+\subsection*{Q1) Write a program to multiply an element by two, if it is an odd index for a given list containing both numbers and strings.}
+\begin{lstlisting}[language=Python]
+l=eval(input("Enter an Input: "))
+n=len(l)
+for i in range(n):
+    if i%2!=0:
+        l[i]=l[i]*2
+print(l)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_1.png}
+
+\subsection*{Q2) Write a program to count the frequency of an element in a list.}
+\begin{lstlisting}[language=Python]
+l=eval(input("Enter an Input: "))
+e=eval(input('Enter the element to be counted: '))
+print(l.count(e))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_2.png}
+
+\subsection*{Q3) Write a program to shift elements of a list so that the first element moves to the second index and second index move to the third index and so on, and the last element shifts to the first position.}
+\begin{lstlisting}[language=Python]
+l=eval(input('Enter an Input: '))
+x=l[-1]
+l.pop(-1)
+l.insert(0,x)
+print(l)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_3.png}
+
+\subsection*{Q4) A list NUM contains the elements: 3,25,13,6,35,8,14,45. Write a program to swap the content with the next value divisible by 5 so that the resultant list will look like: 25,3,13,35,6,8,45,14.}
+\begin{lstlisting}[language=Python]
+l=eval(input('Enter an Input: '))
+n=len(l)
+for i in range(n):
+    if l[i]%5==0:
+        l[i-1],l[i]=l[i],l[i-1]
+print(l)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_4.png}
+
+\subsection*{Q5) Write a program to accept values from a user in a tuple. Add a tuple to it and display its elements one by one. Also display its maximum and minimum values.}
+\begin{lstlisting}[language=Python]
+n=int(input('Enter No. of Elements: '))
+t=()
+for i in range(n):
+    x=eval(input('Enter a Value: '))
+    t+=x,
+print(t)
+for i in t:
+    print(i)
+print(max(t),min(t),end='\n')
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_5.png}
+
+\subsection*{Q6) Write a program to input any values for two tuples. Print it, interchange it and then compare them.}
+\begin{lstlisting}[language=Python]
+t1=eval(input("Enter the Input: "))
+t2=eval(input("Enter the Input: "))
+print(t1, t2)
+x=t2
+t2=t1
+t1=x
+print(t1, t2)
+if t1<t2:
+    print('t2 is greater')
+else:
+    print('t1 is greater')
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_6.png}
+
+\subsection*{Q7) Write a python program to input 'n' classes and names of class teachers to store them in a dictionary and display the same. Also accept a particular class from the user and display the name of the class teacher of that class.}
+\begin{lstlisting}[language=Python]
+n=int(input('Enter No. of entries: '))
+d={}
+for i in range(n):
+    x=input('Enter the Class name: ')
+    y=input('Enter Class Teacher Name: ')
+    d[x]=y
+print(d)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_7.png}
+
+\subsection*{Q8) Write a program to store students names and their percentage in a dictionary and delete a particular student name from the dictionary. Also display the dictionary after deletion.}
+\begin{lstlisting}[language=Python]
+d=eval(input('Enter a Dictionary: '))
+x=input('Enter the name of the student to be deleted: ')
+if x in d:
+    del d[x]
+print(d)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_8.png}
+
+\subsection*{Q9) Write a Python program to input names of 'n' customers and their details like items bought, cost and phone number, etc., store them in a dictionary and display all the details in a tabular form.}
+\begin{lstlisting}[language=Python]
+d={}
+n=int(input('Enter No. of Customers: '))
+for i in range(n):
+    name=input('Enter name of Customer: ')
+    item=input('Enter item bought: ')
+    cost=eval(input('Enter the cost of item: '))
+    ph_no=int(input('Enter contact no.: '))
+    d[name]=[item,cost,ph_no]
+print('Name','\t Item','\t Cost','\t Contact Number')
+for i in d:
+    print(i,'\t ', d[i][0],'\t ',d[i][1],'\t ',d[i][2])
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_9.png}
+
+\subsection*{Q10) Write a Python program to capitalize the first and last letters of each word of a given string.}
+\begin{lstlisting}[language=Python]
+s=input('Enter a string: ')
+j=''
+x=''
+l=s.split()
+for i in l:
+    j=i[0].upper()+i[1:-1]+i[-1].upper()
+    x+=j+''
+print(x)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_10.png}
+
+\subsection*{Q11) Write a Python program to remove duplicate characters of a given string.}
+\begin{lstlisting}[language=Python]
+s=input('Enter a string: ')
+x=''
+for i in s:
+    if i not in x:
+        x+=i
+print(x)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_11.png}
+
+\subsection*{Q12) Write a Python program compute the sum of digits of a given number}
+\begin{lstlisting}[language=Python]
+x=int(input('Enter a number: '))
+s=0
+while x>0:
+    b=x%10
+    s+=b
+    x=x//10
+print(s)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_12.png}
+
+\subsection*{Q13) Write a Python program to find the second most repeated word in a given string.}
+\begin{lstlisting}[language=Python]
+s = input("Enter a string: ")
+words = s.split()
+freq = {}
+for word in words:
+    freq[word] = freq.get(word, 0) + 1
+sorted_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+if len(sorted_freq) < 2:
+    print("No second most repeated word found.")
+else:
+    print("Second most repeated word:", sorted_freq[1][0])
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_13.png}
+
+\subsection*{Q14) Write a Python program to change a given string to a new string where the first and last string have been exchanged.}
+\begin{lstlisting}[language=Python]
+s=input('Enter a string: ')
+x=len(s)
+a=s[-1]+s[1:x-1]+s[0]
+print(a)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_14.png}
+
+\subsection*{Q15) Write a Python program to multiply all the elements in a list.}
+\begin{lstlisting}[language=Python]
+l=eval(input('Enter a list: '))
+p=1
+for i in l:
+    p*=i
+print(p)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_15.png}
+
+\subsection*{Q16) Write a Python program to get the smallest number from a list.}
+\begin{lstlisting}[language=Python]
+l=eval(input('Enter a list: '))
+print(min(l))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_16.png}
+
+\subsection*{Q17) Write a Python program to append a list to the second list.}
+\begin{lstlisting}[language=Python]
+l1=eval(input('Enter a list: '))
+l2=eval(input('Enter a list: '))
+l1.extend(l2)
+print(l1)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_17.png}
+
+\subsection*{Q18) Write a Python program to generate and print a list of first five and last five elements where the values are square of numbers between one and 30 (both included).}
+\begin{lstlisting}[language=Python]
+l=[]
+for i in range(1,31):
+    l.append(i**2)
+x=l[:5]+l[-5:]
+print(x)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_18.png}
+
+\subsection*{Q19) Write a Python program to get unique values from a list.}
+\begin{lstlisting}[language=Python]
+l=eval(input('Enter a List: '))
+for i in l:
+    if l.count(i)==1:
+        print(i)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_19.png}
+
+\subsection*{Q20) Write a python program to convert a string to a list.}
+\begin{lstlisting}[language=Python]
+s=input('Enter a string: ')
+l=[]
+l.append(s)
+print(l)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_20.png}
+
+\subsection*{Q21) Write a Python script to concatenate the following dictionaries to create a new one: d1: \{'A':1, 'B':2, 'C': 3\}, d2: \{'D':4\}, Output should be: \{'A':1, 'B':2, 'C':3, 'D':4\}}
+\begin{lstlisting}[language=Python]
+d1=eval(input("Enter a Dictionary: "))
+d2=eval(input("Enter a Dictionary: "))
+d1.update(d2)
+print(d1)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_21.png}
+
+\subsection*{Q22) Write a Python script to check if a given key already exists in a dictionary.}
+\begin{lstlisting}[language=Python]
+d=eval(input('Enter a dictionary: '))
+x=input('Enter a key: ')
+if x in d:
+    print('Exists')
+else:
+    print("Key Does Not Exist")
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_22.png}
+
+\subsection*{Q23) Write a Python script to print a dictionary where the keys are numbers between 1 and 15 (both included) and the values are square of keys.}
+\begin{lstlisting}[language=Python]
+d={}
+for i in range(1,16):
+    d[i]=i**2
+print(d)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_23.png}
+
+\subsection*{Q24) Write a Python program to sort a dictionary by key.}
+\begin{lstlisting}[language=Python]
+d=eval(input('Enter a dictionary: '))
+print(dict(sorted(d.items())))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Review_of_Python_Basics_24.png}
+
+\section{Functions}
+
+\subsection*{Q1) Write a function, calculate\_area(), that takes base and height as input arguments and returns the area of a triangle as an output. The formula used is: Triangle Area = 1/2 * base * height}
+\begin{lstlisting}[language=Python]
+def calculate_area(B,H):
+    A=(1/2)*B*H
+    return A
+b=float(input("Enter the Base of Triangle: "))
+h=float(input("Enter the Height of Triangle: "))
+print("The Area of the given Triangle is",calculate_area(b,h))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_1.png}
+
+\subsection*{Q2) Modify the function given in the previous question to take a third parameter called shape type. Shaped type should be either triangle or rectangle. Based on the shape, it should calculate the area.}
+\begin{lstlisting}[language=Python]
+def calculate_area(Shape_Type,B,H):
+    if Shape_Type=="Rectangle":
+        A=B*H
+    elif Shape_Type=="Triangle":
+        A=(1/2)*B*H
+    return A
+shape=input("Enter the Type of Shape: ")
+if shape.lower() in ("rect","rectangle","r","sqaure","s"):
+    shape="Rectangle"
+elif shape.lower() in ("triangle","t","tri"):
+    shape="Triangle"
+else:
+    print("Shape NOT DEFINED")
+    quit()
+b=float(input("Enter the Dimensions: "))
+h=float(input("Enter the Dimensions: "))
+print("The Area of the given Figure is",calculate_area(shape,b,h))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_2.png}
+
+\subsection*{Q3) Write a function, print\_pattern(), that takes integer number as argument and print the following pattern if the input is 3: *, **, *** If the input is 4, then it should print: *, **, ***, ****.}
+\begin{lstlisting}[language=Python]
+def pattern(N):
+    for i in range(1,N+1):
+        for j in range(i):
+            print("*",end=" ")
+        print()
+n=int(input("Enter a Number: "))
+pattern(n)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_3.png}
+
+\subsection*{Q4) Write a function that takes amount dollars and dollar-to-rupee conversion price and then returns the amount converted to rupees. Create the function in both void and non-void forms.}
+\begin{lstlisting}[language=Python]
+def Void(M):
+    print(M*85.68)
+def Non_Void(M):
+    x=M*85.68
+    return int(x)
+m=float(input("Enter the Money in USD: "))
+Void(m)
+print(Non_Void(m))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_4.png}
+
+\subsection*{Q5) Write a function to calculate the value of a box with appropriate default values for its parameters. Your function should have the following input parameters: Length of box, Width of box, Height of box.}
+\begin{lstlisting}[language=Python]
+def Volume(L,W,H):
+    V=L*W*H
+    return V
+l=float(input("Enter the Length of Box: "))
+w=float(input("Enter the Width of Box: "))
+h=float(input("Enter the Height of Box: "))
+print("The Volume of the given Box is",Volume(l,w,h))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_5.png}
+
+\subsection*{Q6) Write a program to find the greatest common divisor between two numbers.}
+\begin{lstlisting}[language=Python]
+def GCF(N1,N2):
+    l1=[]
+    l2=[]
+    for i in range(1,N1+1):
+        if N1%i==0:
+            l1.append(i)
+    for i in l1:
+        if N2%i==0:
+            l2.append(i)
+    print("The Greatest Common Integer is",max(l2))
+n1=int(input("Enter a Number: "))
+n2=int(input("Enter a Number: "))
+GCF(n1,n2)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_6.png}
+
+\subsection*{Q7) Write a Python function to multiply all the numbers in a list.}
+\begin{lstlisting}[language=Python]
+def Multiply(l1):
+    p=1
+    for i in l1:
+        p*=i
+    return p
+l=eval(input("Enter a Number List: "))
+print("The Product of Elements of given list is",Multiply(l))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_7.png}
+
+\subsection*{Q8) Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number whose factorial is to be calculated as the argument.}
+\begin{lstlisting}[language=Python]
+def Multiply(l1):
+    p=1
+    for i in range(1,l1+1):
+        p*=i
+    return p
+l=eval(input("Enter a Number List: "))
+print("The Factorial of",l,"is",Multiply(l))
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_8.png}
+
+\subsection*{Q9) Write a Python function that takes a number as a parameter and checks whether the number is prime or not.}
+\begin{lstlisting}[language=Python]
+def Prime(l1):
+    a=0
+    for i in range(2,l1):
+        if l1%i==0:
+            a=0
+            break
+        else:
+            a=1
+    if a==1:
+        print("Number is Prime")
+    else:
+        print("Number is NOT Prime")
+l=eval(input("Enter a Number List: "))
+Prime(l)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_9.png}
+
+\subsection*{Q10) Write a Python function that checks whether a passed string is a palindrome or not.}
+\begin{lstlisting}[language=Python]
+def palindrome(x):
+    i=''
+    for j in x:
+        if j.isalpha()==True:
+            i+=j
+    if i==i[:-1]:
+        print("It is a Palindrome")
+    else:
+        print("It is NOT a Palindrome")
+s=input("Enter a Input: ")
+palindrome(s)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_10.png}
+
+\subsection*{Q11) Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated after sorting them alphabetically.}
+\begin{lstlisting}[language=Python]
+def Sorter(s):
+    l1=s.split("-")
+    l1.sort()
+    for i in l1:
+        print(i,end="-")
+S=input("Enter a input: ")
+Sorter(S)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_11.png}
+
+\subsection*{Q12) Write a method in Python to find and display prime numbers from 2 to N. The value of N should be passed as an argument to the method.}
+\begin{lstlisting}[language=Python]
+def P_S(N):
+    for i in range(2,N+1):
+        a=0
+        for j in range(2,i):
+            if j%i==0:
+                a=0
+                break
+            else:
+                a=1
+                break
+        if a==1:
+            print(i,": Number is Prime")
+        else:
+            print(i,": Number is NOT Prime")
+l=eval(input("Enter a Number List: "))
+P_S(l)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Functions_12.png}
+
+\section{Data File Handling}
+
+\subsection*{Q1) File 'sports.dat' contains information in the following format: EventName, Participant. Write a function that read contents from file 'sports.dat' and create a file named 'Athletic.dat', copying only those records from 'sports.dat' in which the event name is 'Athletics'.}
+\begin{lstlisting}[language=Python]
+import pickle
+ch = input("Make a New Sports file? (yes/no): ")
+y = ("yes", "y")
+n = ("no", "n")
+if ch.lower() in y:
+    with open("sports.dat", "wb") as f:
+        while True:
+            l = eval(input("Enter Data (e.g., ('Type','Sport','Participant')): "))
+            pickle.dump(l, f)
+            c = input("Continue? (yes/no): ")
+            if c.lower() in n:
+                break
+def Athletics():
+    with open("sports.dat", "rb") as f:
+        with open("Athletics.dat", "wb") as f2:
+            try:
+                while True:
+                    x = pickle.load(f)
+                    if isinstance(x, (list, tuple)) and len(x)>0 and x[0].lower() == "athletics":
+                        pickle.dump(x, f2)
+            except EOFError:
+                print("File Loading Completed!")
+    with open("Athletics.dat", "rb") as f:
+        try:
+            while True:
+                print(pickle.load(f))
+        except EOFError:
+            print("End of File!!")
+# Athletics()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_1.png}
+
+\subsection*{Q2) Write a program to count the words 'to' and 'the' present in text file 'Poem.txt'.}
+\begin{lstlisting}[language=Python]
+f=open("Poem.txt")
+lines=f.read()
+f.close()
+count=0
+line=lines.split()
+x=line.index("to")
+y=line.index("the")
+for i in range(x,y+1):
+    count+=1
+print(count)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_2.png}
+
+\subsection*{Q3) Write a program to count the number of uppercase alphabets present in text file 'Poem.txt'.}
+\begin{lstlisting}[language=Python]
+f=open("Poem.txt")
+x=f.read()
+f.close()
+count=0
+y="QWERTYUIOPASDFGHJKLZXCVBNM"
+for i in x:
+    if i in y:
+        count+=1
+print(count)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_3.png}
+
+\subsection*{Q4) Write a program that copies one file to another and reads the filenames from the user.}
+\begin{lstlisting}[language=Python]
+b=input("Enter a File Name/Path to read from: ")
+with open(b,"r") as f:
+    MyS=f.read()
+    f.close()
+a=input("Enter a New Name for Location on Desktop: ")
+with open(a,"w") as F:
+    F.writelines(MyS)
+    F.close()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_4.png}
+
+\subsection*{Q5) Write a program that appends the contents of one file to another and takes the filenames from the user.}
+\begin{lstlisting}[language=Python]
+b=input("Enter a File Name/Path to read from: ")
+with open(b,"r") as f:
+    MyS=f.read()
+    f.close()
+a=input("Enter a New Name for Location on Desktop: ")
+with open(a,"a") as F:
+    F.writelines(MyS)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_5.png}
+
+\subsection*{Q6) Write a program that reads characters from the keyboard one by one. All lowercase characters get stored in the file 'LOWER', all uppercase characters get stored in the file 'UPPER' and all the other characters get stored in the file 'OTHERS'.}
+\begin{lstlisting}[language=Python]
+f=open("Poem.txt")
+a=f.read()
+f.close()
+l="asdfghjklqwertyuiopzxcvbnm"
+u="QWERTYUIOPASDFGHJKLZXCVBNM"
+for i in a:
+    if i in l:
+        with open("LOWER.txt", "a") as f:
+            f.write(i)
+            f.close()
+    elif i in u:
+        with open("UPPER.txt", "a") as f:
+            f.write(i)
+            f.close()
+    elif i!=" ":
+        with open("OTHER.txt", "a") as f:
+            f.write(i)
+            f.close()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_6.png}
+
+\subsection*{Q7) Consider binary file 'items.dat' containing records stored in the given format: \{item\_id: [item\_name, amount]\}. Write a function, copy\_new(), that copies all records whose amount is greater than 1000 from 'items.dat' to 'new\_items.dat'.}
+\begin{lstlisting}[language=Python]
+import pickle
+with open("items.dat","wb") as f:
+    d={}
+    c=input("Press Enter to Continue")
+    while c.lower()!='n':
+        x=input("Enter Item ID: ")
+        y=input("Enter Item Name: ")
+        z=int(input("Enter Amount of Item: "))
+        l=[]
+        l.append(y)
+        l.append(z)
+        d[x]=l
+        c=input("Continue? ")
+    pickle.dump(d,f)
+def copy_new():
+    with open("items.dat","rb") as f:
+        try:
+            d=pickle.load(f)
+        except:
+            print("End of File!!")
+    with open("new_items.dat","wb") as f:
+        for i in d:
+            if d[i][1]>=1000:
+                pickle.dump(d[i],f)
+    with open("new_items.dat","rb") as f:
+        try:
+            while True:
+                print(pickle.load(f))
+        except:
+            print("End of File!!")
+copy_new()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_7.png}
+
+\subsection*{Q8) Anant has been asked to display the names of all students who have scored less than 40 for Remedial Classes. Write a user-defined function to display the names of the students from the binary file 'Student.dat' who have less than 40.}
+\begin{lstlisting}[language=Python]
+import pickle
+with open("Students.dat","wb") as f:
+    d={}
+    c=input("Press Enter to Continue")
+    while c.lower()!='n':
+        x=input("Enter Student Name: ")
+        l=int(input("Enter Student Marks: "))
+        d[x]=l
+        c=input("Continue? ")
+    pickle.dump(d,f)
+def copy_new():
+    with open("Students.dat","rb") as f:
+        try:
+            d=pickle.load(f)
+        except:
+            print("End of File!!")
+    with open("Remedial.dat","wb") as f:
+        for i in d:
+            if d[i]<=40:
+                pickle.dump(i,f)
+    with open("Remedial.dat","rb") as f:
+        try:
+            while True:
+                print(pickle.load(f))
+        except:
+            print("End of File!!")
+copy_new()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_8.png}
+
+\subsection*{Q9) Given a binary file, 'STUDENT.dat', containing records of the following type: [S\_Admno, S\_Name, Percentage] Where these three values are: S\_Admno - Admission Number of student (string) S\_Name - Name of student (string) Percentage - percentage obtained by student (float) Write a function in Python that would read the contents of the file 'STUDENT.dat' and that would display the details of those students whose percentage is below 65.}
+\begin{lstlisting}[language=Python]
+import pickle
+with open("items.dat","wb") as f:
+    d={}
+    c=input("Press Enter to Continue")
+    while c.lower()!='n':
+        x=input("Enter Student Admission No.: ")
+        y=input("Enter Student Name: ")
+        z=int(input("Enter Percentage: "))
+        l=[]
+        l.append(y)
+        l.append(z)
+        d[x]=l
+        c=input("Continue? ")
+    pickle.dump(d,f)
+def copy_new():
+    with open("items.dat","rb") as f:
+        try:
+            d=pickle.load(f)
+        except:
+            print("End of File!!")
+    with open("new_items.dat","wb") as f:
+        for i in d:
+            if d[i][1]<=65:
+                D={}
+                D[i]=d[i]
+                pickle.dump(D,f)
+    with open("new_items.dat","rb") as f:
+        try:
+            while True:
+                print(pickle.load(f))
+        except:
+            print("End of File!!")
+copy_new()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_9.png}
+
+\subsection*{Q10) Create CSV file 'Groceries' to store information of different items existing in a shop. The information is to be stored with respect to each item code, name, price, qty. Write a program to accept the data from the user and store it permanently in the CSV file.}
+\begin{lstlisting}[language=Python]
+import csv
+try:
+    with open("Groceries.csv", "r") as f_check:
+        is_empty = f_check.readline() == ''
+except FileNotFoundError:
+    is_empty = True
+with open("Groceries.csv", "a", newline='') as f:
+    writer = csv.writer(f)
+    if is_empty:
+        writer.writerow(["Item Code", "Item Name", "Price", "Quantity"])
+    num_rows = int(input("Enter number of items to add: "))
+    rows = []
+    for _ in range(num_rows):
+        code = input("Enter Item Code: ")
+        name = input("Enter Item Name: ")
+        price = input("Enter Price: ")
+        qty = input("Enter Quantity: ")
+        rows.append([code, name, price, qty])
+    writer.writerows(rows)
+with open("Groceries.csv", "r", newline='') as f:
+    reader = csv.reader(f)
+    next(reader)
+    for row in reader:
+        print(row)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Data_File_Handling_10.png}
+
+\section{Stack Operations}
+
+\subsection*{Q1) Write a program to implement pop and push functions on a stack containing package name as records.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push(item):
+    stack.append(item)
+
+def pop():
+    if not stack:
+        return "Underflow"
+    return stack.pop()
+
+ 
+push("Package1")
+push("Package2")
+print(stack)
+popped_item = pop()
+print(popped_item)
+print(stack)
+\end{lstlisting}
+
+\subsection*{Q2) Write a program to sort a stack into ascending order without using another stack.}
+\begin{lstlisting}[language=Python]
+def sort_stack(stack):
+    if stack:
+        # Remove the top element
+        temp = stack.pop()
+        # Sort the remaining stack
+        sort_stack(stack)
+        # Insert the temp back in sorted position
+        sorted_insert(stack, temp)
+
+def sorted_insert(stack, element):
+    if not stack or stack[-1] <= element:
+        stack.append(element)
+    else:
+        temp = stack.pop()
+        sorted_insert(stack, element)
+        stack.append(temp)
+
+ 
+stack = [3, 1, 2]
+sort_stack(stack)
+print(stack)
+\end{lstlisting}
+
+\subsection*{Q1) Write a program to implement pop and push functions on a stack containing package name as records.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push(item):
+    stack.append(item)
+
+def pop():
+    if not stack:
+        return "Underflow"
+    return stack.pop()
+
+ 
+push("Package1")
+push("Package2")
+print(stack)
+popped_item = pop()
+print(popped_item)
+print(stack)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_1.png}
+
+\subsection*{Q2) Write a program to sort a stack into ascending order without using another stack.}
+\begin{lstlisting}[language=Python]
+def sort_stack(stack):
+    if stack:
+        # Remove the top element
+        temp = stack.pop()
+        # Sort the remaining stack
+        sort_stack(stack)
+        # Insert the temp back in sorted position
+        sorted_insert(stack, temp)
+
+def sorted_insert(stack, element):
+    if not stack or stack[-1] <= element:
+        stack.append(element)
+    else:
+        temp = stack.pop()
+        sorted_insert(stack, element)
+        stack.append(temp)
+
+ 
+stack = [3, 1, 2]
+sort_stack(stack)
+print(stack)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_2.png}
+
+\subsection*{Q3) Write a program to implement pop and push operations on a stack. The push operation should add numbers from a list which have 5 digits or more. The pop operation should print underflow if stack is empty.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push_from_list(lst):
+    for num in lst:
+        if len(str(abs(num))) >= 5:  # Check if the number has 5 or more digits
+            stack.append(num)
+
+def pop():
+    if not stack:
+        return "Underflow"
+    return stack.pop()
+
+ 
+numbers_list = [12345, 1234, 123456, 123, 1234567]
+push_from_list(numbers_list)
+print(stack)
+print(pop())
+print(stack)
+print(pop())
+print(stack)
+print(pop())
+print(stack)
+print(pop())
+print(stack)
+print(pop())
+print(stack)
+print(pop())  # Should print "Underflow"
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_3.png}
+
+\subsection*{Q4) Write a program to implement push and display operations on a stack with hostel number, total students and total rooms as record.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push_hostel_record(hostel_number, total_students, total_rooms):
+    record = {
+        'hostel_number': hostel_number,
+        'total_students': total_students,
+        'total_rooms': total_rooms
+    }
+    stack.append(record)
+
+def display_stack():
+    for record in stack:
+        print(record)
+
+ 
+push_hostel_record(101, 50, 25)
+push_hostel_record(102, 45, 22)
+display_stack()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_4.png}
+
+\subsection*{Q5) Write a program to implement push and display operations on a stack which has book number and name as records.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push_book_record(book_no, book_name):
+    record = {
+        'book_no': book_no,
+        'book_name': book_name
+    }
+    stack.append(record)
+
+def display_stack():
+    for record in stack:
+        print(record)
+
+ 
+push_book_record("B001", "Python Programming")
+push_book_record("B002", "Data Structures")
+display_stack()
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_5.png}
+
+\subsection*{Q6) Write a program to push elements in a stack from a list that are even. Also implement pop function.}
+\begin{lstlisting}[language=Python]
+stack = []
+
+def push_evens_from_list(lst):
+    for num in lst:
+        if num % 2 == 0:
+            stack.append(num)
+
+def pop():
+    if not stack:
+        return "Underflow"
+    return stack.pop()
+
+ 
+numbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+push_evens_from_list(numbers_list)
+print(stack)
+print(pop())
+print(stack)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_6.png}
+
+\subsection*{Q7) Write a program to push student names from a dictionary into a stack who have won more than 3 medals. Also it prints the the no of names pushed and overflow if the no of items exceed 15.}
+\begin{lstlisting}[language=Python]
+stack = []
+max_size = 15
+
+def push_students(dictionary):
+    count = 0
+    for name, medals in dictionary.items():
+        if medals > 3:
+            if len(stack) >= max_size:
+                print("Overflow")
+                return
+            stack.append(name)
+            count += 1
+    print(f"Number of names pushed: {count}")
+
+def pop():
+    if not stack:
+        return "Underflow"
+    return stack.pop()
+
+ 
+students = {
+    "Alice": 4,
+    "Bob": 2,
+    "Charlie": 5,
+    "David": 3,
+    "Eve": 6
+}
+push_students(students)
+print(stack)
+print(pop())
+print(stack)
+\end{lstlisting}
+\includegraphics[width=\linewidth]{images/Stack_Operations_7.png}
+
+\section{Relational Databases and SQL}
+
+\subsection*{Q20) Ms Veda created a table named GAME, containing columns Game\_id, P\_Age, and G\_Name. After creating the table, Category has to be added. Help her to write the command to add the Category column. Thereafter, write the command to insert the following record in the table:}
+
+\textbf{Table: GAME}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Game\_id & P\_Age & G\_Name & Category \\
+\hline
+G42 & 18 & Chess & Senior \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+ALTER TABLE GAME ADD Category VARCHAR(20);
+
+INSERT INTO GAME VALUES ('G42', 18, 'Chess', 'Senior');
+\end{lstlisting}
+
+\subsection*{Q21) Define the following terms:}
+\begin{itemize}
+\item \textbf{(a) Database:} A database is an organized collection of structured data stored electronically in a computer system, typically controlled by a database management system (DBMS).
+
+\item \textbf{(b) Data Inconsistency:} Data inconsistency occurs when the same data exists in different formats or values in different places, leading to conflicting information.
+
+\item \textbf{(c) Primary Key:} A primary key is a column or set of columns that uniquely identifies each row in a table. It cannot contain NULL values and must be unique.
+
+\item \textbf{(d) Candidate Key:} A candidate key is a column or set of columns that can uniquely identify any record in a table. A table can have multiple candidate keys, and one of them is chosen as the primary key.
+
+\item \textbf{(e) Foreign Key:} A foreign key is a column or set of columns in one table that refers to the primary key in another table, establishing a relationship between the two tables.
+\end{itemize}
+
+\subsection*{Q22) Differentiate between Primary key and Unique constraints.}
+\begin{itemize}
+\item \textbf{Primary Key:}
+\begin{itemize}
+\item Cannot contain NULL values
+\item Only one primary key per table
+\item Automatically creates a clustered index
+\item Used to establish relationships with other tables
+\end{itemize}
+
+\item \textbf{Unique Constraint:}
+\begin{itemize}
+\item Can contain one NULL value
+\item Multiple unique constraints per table
+\item Creates a non-clustered index
+\item Ensures uniqueness but doesn't establish relationships
+\end{itemize}
+\end{itemize}
+
+\subsection*{Q26) Based on the given table, write SQL queries for the following:}
+
+\begin{lstlisting}
+ALTER TABLE Projects ADD PRIMARY KEY (P_id);
+
+UPDATE Projects SET language = 'Python' WHERE id = 'P002';
+
+DROP TABLE Projects;
+\end{lstlisting}
+
+\subsection*{Q27) Write SQL commands for (a) to (f) on the basis of relations given below:}
+
+\textbf{Table: BOOKS}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+Book\_ID & Book\_name & Author\_name & Publishers & Price & Type & Qty \\
+\hline
+K0001 & Let Us C & Y. Kanetkar & EPB & 450 & Prog & 15 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+SELECT * FROM BOOKS 
+WHERE Publishers = 'FIRST PUBL' AND Author_name = 'P. Purohit';
+
+SELECT Book_name, Price FROM BOOKS 
+WHERE Publishers = 'FIRST PUBL';
+
+UPDATE BOOKS SET Price = Price * 0.95 
+WHERE Publishers = 'EPB';
+
+SELECT Book_name, Price FROM BOOKS 
+WHERE Qty > 3;
+
+SELECT Type, SUM(Price) AS Total_Cost FROM BOOKS 
+GROUP BY Type;
+
+SELECT * FROM BOOKS 
+WHERE Price = (SELECT MAX(Price) FROM BOOKS);
+\end{lstlisting}
+
+\subsection*{Q28) What are DDL and DML?}
+\begin{itemize}
+\item \textbf{DDL (Data Definition Language):} DDL commands are used to define and modify database structures. Examples include CREATE, ALTER, DROP, and TRUNCATE.
+
+\item \textbf{DML (Data Manipulation Language):} DML commands are used to manipulate data stored in the database. Examples include SELECT, INSERT, UPDATE, and DELETE.
+\end{itemize}
+
+\subsection*{Q29) Differentiate between primary key and candidate key in a relation.}
+\begin{itemize}
+\item \textbf{Primary Key:}
+\begin{itemize}
+\item Selected from candidate keys
+\item Only one per table
+\item Used to establish relationships
+\item Cannot be NULL
+\end{itemize}
+
+\item \textbf{Candidate Key:}
+\begin{itemize}
+\item Set of all possible keys
+\item Can be multiple in a table
+\item Any candidate key can become primary key
+\item Uniquely identifies records
+\end{itemize}
+\end{itemize}
+
+\subsection*{Q30) What do you understand by the terms Cardinality and Degree of a relation in relational database?}
+\begin{itemize}
+\item \textbf{Cardinality:} The number of rows (tuples) in a table.
+\item \textbf{Degree:} The number of columns (attributes) in a table.
+\end{itemize}
+
+\subsection*{Q31) Differentiate between DDL and DML. Mention the two commands for each category.}
+\begin{itemize}
+\item \textbf{DDL (Data Definition Language):}
+\begin{itemize}
+\item Defines database structure
+\item Auto-commit (changes are permanent)
+\item Commands: CREATE, ALTER, DROP, TRUNCATE
+\end{itemize}
+
+\item \textbf{DML (Data Manipulation Language):}
+\begin{itemize}
+\item Manipulates data in tables
+\item Can be rolled back
+\item Commands: SELECT, INSERT, UPDATE, DELETE
+\end{itemize}
+\end{itemize}
+
+\subsection*{Q32) Write SQL Commands for (a) to (h) on the basis of the following table: FURNITURE}
+
+\textbf{Table: FURNITURE}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+NO & ITEM & TYPE & DATEOFSTOCK & PRICE & DISCOUNT \\
+\hline
+1 & WhiteLotus & DoubleBed & 2002-02-23 & 3000 & 25 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+SELECT * FROM FURNITURE WHERE PRICE > 10000;
+
+SELECT ITEM, PRICE FROM FURNITURE 
+WHERE DISCOUNT BETWEEN 10 AND 20;
+
+DELETE FROM FURNITURE WHERE DISCOUNT = 30;
+
+SELECT ITEM, TYPE, PRICE FROM FURNITURE 
+WHERE ITEM LIKE 'B%';
+
+SELECT PRICE FROM FURNITURE WHERE ITEM = 'BabyCot';
+
+SELECT DISTINCT Type FROM Furniture;
+
+SELECT MAX(Price) FROM Furniture 
+WHERE DateOfStock > '2002-02-15';
+\end{lstlisting}
+
+\subsection*{Q32h) Write SQL Commands/output for the following on the basis of the given table GRADUATE:}
+
+\textbf{Table: GRADUATE}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+S.No & NAME & STIPEND & SUBJECT & AVERAGE & RANK \\
+\hline
+1 & KARAN & 400 & PHYSICS & 68 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+SELECT NAME FROM GRADUATE 
+WHERE RANK = 1 
+ORDER BY NAME;
+
+SELECT NAME FROM GRADUATE 
+WHERE AVERAGE > 65;
+
+SELECT NAME FROM GRADUATE 
+WHERE SUBJECT = 'COMPUTER' AND AVERAGE > 60;
+
+SELECT NAME FROM GRADUATE 
+ORDER BY NAME;
+
+SELECT * FROM GRADUATE 
+WHERE NAME LIKE '%i%';
+
+SELECT DISTINCT RANK FROM GRADUATE;
+\end{lstlisting}
+
+\subsection*{Q33a) What is the difference between Candidate key and Alternate key?}
+\begin{itemize}
+\item \textbf{Candidate Key:} All keys that can uniquely identify records in a table.
+\item \textbf{Alternate Key:} Candidate keys that are not chosen as the primary key.
+\end{itemize}
+
+\subsection*{Q33b) What is the degree and cardinality of a table having 10 rows and 5 columns?}
+\begin{itemize}
+\item \textbf{Degree:} 5 (number of columns)
+\item \textbf{Cardinality:} 10 (number of rows)
+\end{itemize}
+
+\subsection*{Q33c) For the given table, do as directed:}
+
+\textbf{Table: STUDENT}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ColumnName & Data type & Size & Constraint \\
+\hline
+ROLLNO & Integer & 4 & Primary Key \\
+SNAME & Varchar & 25 & NOT NULL \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+CREATE TABLE STUDENT (
+    ROLLNO INT(4) PRIMARY KEY,
+    SNAME VARCHAR(25) NOT NULL
+);
+
+ALTER TABLE STUDENT MODIFY SNAME VARCHAR(30);
+
+ALTER TABLE STUDENT DROP COLUMN HOBBY;
+
+INSERT INTO STUDENT VALUES (101, 'Rahul Kumar');
+\end{lstlisting}
+
+\subsection*{Q34) Write the SQL commands to perform the following tasks:}
+
+\begin{lstlisting}
+SELECT MIN(salary), MAX(salary), AVG(salary) 
+FROM employees 
+WHERE designation = 'Manager';
+
+SELECT COUNT(*) FROM employees 
+WHERE designation = 'Clerk';
+
+SELECT name, salary, date_of_joining, designation 
+FROM employees 
+ORDER BY designation;
+
+SELECT COUNT(*) FROM employees 
+WHERE commission IS NULL;
+
+SELECT AVG(salary) FROM employees 
+WHERE salary > 2000 
+GROUP BY DeptID;
+
+SELECT DeptID, COUNT(*) FROM employees 
+GROUP BY DeptID;
+
+SELECT DeptID, MAX(salary) FROM employees 
+GROUP BY DeptID;
+
+SELECT e.name, e.designation, d.department_name 
+FROM employees e 
+JOIN departments d ON e.DeptID = d.DeptID;
+
+SELECT COUNT(*) FROM employees 
+WHERE DeptID = (SELECT DeptID FROM departments 
+WHERE department_name = 'ACCOUNTS');
+\end{lstlisting}
+
+\subsection*{Q34 Additional) Based on Table: PRODUCTS}
+
+\textbf{Table: PRODUCTS}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+PCODE & PNAME & COMPANY & PRICE & STOCK & MANUFACTURE & WARRANTY \\
+\hline
+P001 & TV & BPL & 10000 & 200 & 2018-01-12 & 3 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+SELECT * FROM PRODUCTS 
+WHERE PNAME = 'PC' AND STOCK > 110;
+
+SELECT COMPANY FROM PRODUCTS 
+WHERE WARRANTY > 2;
+
+SELECT SUM(PRICE * STOCK) AS Stock_Value 
+FROM PRODUCTS 
+WHERE COMPANY = 'BPL';
+
+SELECT COMPANY, COUNT(*) AS Product_Count 
+FROM PRODUCTS 
+GROUP BY COMPANY;
+
+SELECT COUNT(*) FROM PRODUCTS 
+WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) < '2020-11-20';
+
+SELECT PNAME FROM PRODUCTS 
+WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) >= CURDATE();
+\end{lstlisting}
+
+\subsection*{Q35) Write SQL queries based on the following tables:}
+
+\textbf{Table: PRODUCT}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+P\_ID & ProductName & Manufacturer & Price & Discount \\
+\hline
+TP01 & Talcum Powder & LAK & 40 & NULL \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Table: CLIENT}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+C\_ID & ClientName & City & P\_ID \\
+\hline
+01 & Cosmetic Shop & Delhi & TP01 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+CREATE TABLE STUDENT (
+    ROLLNO INT PRIMARY KEY,
+    SNAME VARCHAR(25) NOT NULL,
+    HOBBY VARCHAR(20)
+);
+
+ALTER TABLE STUDENT MODIFY SNAME VARCHAR(30);
+
+ALTER TABLE STUDENT DROP COLUMN HOBBY;
+
+INSERT INTO STUDENT VALUES (101, 'Amit Singh', 'Reading');
+\end{lstlisting}
+
+\subsection*{Q36) Write SQL queries based on the following tables:}
+
+\textbf{Table: PRODUCT and CLIENT (as shown above)}
+
+\begin{lstlisting}
+SELECT ProductName, Price FROM PRODUCT 
+WHERE Price BETWEEN 50 AND 150;
+
+SELECT * FROM PRODUCT 
+WHERE Manufacturer IN ('XYZ', 'ABC');
+
+SELECT ProductName, Manufacturer, Price FROM PRODUCT 
+WHERE Discount IS NULL;
+
+SELECT ProductName, Price FROM PRODUCT 
+WHERE ProductName LIKE '%h';
+
+SELECT ClientName, City, C.P_ID, ProductName 
+FROM CLIENT C 
+JOIN PRODUCT P ON C.P_ID = P.P_ID 
+WHERE City = 'Delhi';
+\end{lstlisting}
+
+\textbf{Answer (f):} P\_ID is used as Foreign Key in the CLIENT table.
+
+\subsection*{Q37) Answer the questions based on the table given below:}
+
+\textbf{Table: HOSPITAL}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+S\_No & Name & Age & Department & DateOfAdm & Charges & Sex \\
+\hline
+1 & Arpit & 62 & Surgery & 1998-01-15 & 800 & M \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+SELECT Name FROM HOSPITAL 
+WHERE DateOfAdm > '1998-01-15';
+
+SELECT Name FROM HOSPITAL 
+WHERE Sex = 'F' AND Department = 'ENT';
+
+SELECT Name, DateOfAdm FROM HOSPITAL 
+WHERE AVERAGE > 65;
+
+SELECT Name, Charges, Age FROM HOSPITAL 
+WHERE Sex = 'F' 
+ORDER BY Age;
+
+SELECT COUNT(DISTINCT Charges) FROM HOSPITAL;
+
+SELECT MIN(Age) FROM HOSPITAL 
+WHERE Sex = 'F';
+\end{lstlisting}
+
+\subsection*{Q38) A department store MyStore is considering to maintain their inventory using SQL}
+
+\textbf{Table: STORE}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ItemNo & ItemName & SCode & Quantity \\
+\hline
+2005 & Sharpener Classic & 23 & 60 \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{(a)} ItemNo is best suitable as primary key.
+
+\textbf{(b)} Degree: 4 (number of columns), Cardinality: 1 (number of rows shown)
+
+\begin{lstlisting}
+INSERT INTO STORE (ItemNo, ItemName, SCode) 
+VALUES (2010, 'Note Book', 25);
+\end{lstlisting}
+
+\textbf{(d)} Answer: (ii) DROP TABLE STORE;
+
+\begin{lstlisting}
+DESCRIBE STORE;
+\end{lstlisting}
+
+\subsection*{Q39) Consider the tables Admin and Transport given below:}
+
+\textbf{Table: Admin}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+S\_id & S\_name & Address & S\_type \\
+\hline
+S001 & Sandhya & Rohini & Day Boarder \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Table: Transport}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+S\_id & S\_name & S\_type \\
+\hline
+S002 & TSS10 & Sarai Kale Khan \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{lstlisting}
+SELECT A.S_name, T.S_name AS Stop_Name 
+FROM Admin A 
+JOIN Transport T ON A.S_id = T.S_id;
+
+SELECT COUNT(*) FROM Admin 
+WHERE S_type IS NULL;
+
+SELECT * FROM Admin 
+WHERE S_name LIKE 'V%';
+
+SELECT S_id, Address FROM Admin 
+ORDER BY S_name;
+\end{lstlisting}
+
+\end{document}
