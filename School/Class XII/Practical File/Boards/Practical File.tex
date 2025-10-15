@@ -749,7 +749,7 @@ def pop():
         return "Underflow"
     return stack.pop()
 
- 
+# Example usage
 push("Package1")
 push("Package2")
 print(stack)
@@ -777,7 +777,7 @@ def sorted_insert(stack, element):
         sorted_insert(stack, element)
         stack.append(temp)
 
- 
+# Example usage
 stack = [3, 1, 2]
 sort_stack(stack)
 print(stack)
@@ -795,7 +795,7 @@ def pop():
         return "Underflow"
     return stack.pop()
 
- 
+# Example usage
 push("Package1")
 push("Package2")
 print(stack)
@@ -824,7 +824,7 @@ def sorted_insert(stack, element):
         sorted_insert(stack, element)
         stack.append(temp)
 
- 
+# Example usage
 stack = [3, 1, 2]
 sort_stack(stack)
 print(stack)
@@ -845,7 +845,7 @@ def pop():
         return "Underflow"
     return stack.pop()
 
- 
+# Example usage
 numbers_list = [12345, 1234, 123456, 123, 1234567]
 push_from_list(numbers_list)
 print(stack)
@@ -879,7 +879,7 @@ def display_stack():
     for record in stack:
         print(record)
 
- 
+# Example usage
 push_hostel_record(101, 50, 25)
 push_hostel_record(102, 45, 22)
 display_stack()
@@ -901,7 +901,7 @@ def display_stack():
     for record in stack:
         print(record)
 
- 
+# Example usage
 push_book_record("B001", "Python Programming")
 push_book_record("B002", "Data Structures")
 display_stack()
@@ -922,7 +922,7 @@ def pop():
         return "Underflow"
     return stack.pop()
 
- 
+# Example usage
 numbers_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 push_evens_from_list(numbers_list)
 print(stack)
@@ -952,7 +952,7 @@ def pop():
         return "Underflow"
     return stack.pop()
 
- 
+# Example usage
 students = {
     "Alice": 4,
     "Bob": 2,
@@ -969,485 +969,530 @@ print(stack)
 
 \section{Relational Databases and SQL}
 
-\subsection*{Q20) Ms Veda created a table named GAME, containing columns Game\_id, P\_Age, and G\_Name. After creating the table, Category has to be added. Help her to write the command to add the Category column. Thereafter, write the command to insert the following record in the table:}
+\subsection*{Q10) Give the terms for each of the following:}
+\begin{lstlisting}[language=SQL]
+(a) Database or File
+(b) Table or Relation
+(c) Primary Key
+(d) NULL
+(e) Candidate Key or Alternate Key
+(f) RDBMS (Relational Database Management System)
+\end{lstlisting}
 
-\textbf{Table: GAME}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-Game\_id & P\_Age & G\_Name & Category \\
-\hline
-G42 & 18 & Chess & Senior \\
-\hline
-\end{tabular}
-\end{center}
+\subsection*{Q11) An organization wants to create two tables EMP and DEPENDENT}
+EMPLOYEE(AadhaarNumber, Name, Address, Department, EmployeeID)\\
+DEPENDENT(EmployeeID, DependentName, Relationship)
+\begin{lstlisting}[language=SQL]
+(a) AadhaarNumber and EmployeeID
 
-\begin{lstlisting}
-ALTER TABLE GAME ADD Category VARCHAR(20);
+(b) Tables: EMPLOYEE and DEPENDENT
+    Key: EmployeeID (Foreign Key in DEPENDENT)
 
-INSERT INTO GAME VALUES ('G42', 18, 'Chess', 'Senior');
+(c) Degree of EMPLOYEE: 5
+    Degree of DEPENDENT: 3
+\end{lstlisting}
+
+\subsection*{Q12) What is a data type? Name some data types available in MySQL.}
+\begin{lstlisting}[language=SQL]
+Data type specifies the type of data that can be stored in a column.
+
+MySQL Data Types:
+INT, FLOAT, DOUBLE, CHAR, VARCHAR, TEXT, DATE, 
+DATETIME, TIMESTAMP, BOOLEAN, DECIMAL, BLOB
+\end{lstlisting}
+
+\subsection*{Q13) Differentiate between char and varchar data types.}
+\begin{lstlisting}[language=SQL]
+CHAR:
+- Fixed length
+- Uses full allocated space
+- Faster for fixed-length data
+- Pads with spaces
+
+VARCHAR:
+- Variable length
+- Uses only required space
+- More efficient for variable-length data
+- No padding
+\end{lstlisting}
+
+\subsection*{Q14) Which operator concatenates two strings in a query result?}
+\begin{lstlisting}[language=SQL]
+CONCAT() function or || operator
+\end{lstlisting}
+
+\subsection*{Q15) How would you calculate 13*15 in SQL?}
+\begin{lstlisting}[language=SQL]
+SELECT 13 * 15;
+\end{lstlisting}
+
+\subsection*{Q16) Which keywords eliminate redundant data from a query?}
+\begin{lstlisting}[language=SQL]
+DISTINCT
+\end{lstlisting}
+
+\subsection*{Q17) What is the significance of GROUP BY clause in an SQL query?}
+\begin{lstlisting}[language=SQL]
+GROUP BY clause groups rows with same values in specified columns.
+It is used with aggregate functions like COUNT, SUM, AVG, MAX, MIN.
+\end{lstlisting}
+
+\subsection*{Q18) What is the difference between WHERE and HAVING clause?}
+\begin{lstlisting}[language=SQL]
+WHERE:
+- Filters rows before grouping
+- Cannot use aggregate functions
+- Applied to individual rows
+
+HAVING:
+- Filters groups after grouping
+- Can use aggregate functions
+- Applied to grouped results
+\end{lstlisting}
+
+\subsection*{Q19) Write SQL queries based on table PRODUCT}
+\begin{lstlisting}[language=SQL]
+(a) SELECT * FROM PRODUCT WHERE prod_id > 100;
+
+(b) SELECT * FROM PRODUCT WHERE prod_name = 'Almirah';
+
+(c) SELECT * FROM PRODUCT WHERE price BETWEEN 200 AND 500;
+
+(d) SELECT prod_name FROM PRODUCT 
+    WHERE price < (SELECT AVG(price) FROM PRODUCT);
+
+(e) SELECT COUNT(*) FROM PRODUCT;
+\end{lstlisting}
+
+\subsection*{Q20) Help Ms. Veda add the Category column}
+\begin{lstlisting}[language=SQL]
+ALTER TABLE game ADD Category VARCHAR(20);
 \end{lstlisting}
 
 \subsection*{Q21) Define the following terms:}
-\begin{itemize}
-\item \textbf{(a) Database:} A database is an organized collection of structured data stored electronically in a computer system, typically controlled by a database management system (DBMS).
+\begin{lstlisting}[language=SQL]
+(a) Database: Organized collection of related data
 
-\item \textbf{(b) Data Inconsistency:} Data inconsistency occurs when the same data exists in different formats or values in different places, leading to conflicting information.
+(b) Data Inconsistency: Same data stored differently in 
+    multiple places causing conflicts
 
-\item \textbf{(c) Primary Key:} A primary key is a column or set of columns that uniquely identifies each row in a table. It cannot contain NULL values and must be unique.
+(c) Primary Key: Attribute that uniquely identifies each 
+    record in a table
 
-\item \textbf{(d) Candidate Key:} A candidate key is a column or set of columns that can uniquely identify any record in a table. A table can have multiple candidate keys, and one of them is chosen as the primary key.
+(d) Candidate Key: Attribute that can be used as primary key
 
-\item \textbf{(e) Foreign Key:} A foreign key is a column or set of columns in one table that refers to the primary key in another table, establishing a relationship between the two tables.
-\end{itemize}
+(e) Foreign Key: Attribute that references primary key of 
+    another table
+\end{lstlisting}
 
 \subsection*{Q22) Differentiate between Primary key and Unique constraints.}
-\begin{itemize}
-\item \textbf{Primary Key:}
-\begin{itemize}
-\item Cannot contain NULL values
-\item Only one primary key per table
-\item Automatically creates a clustered index
-\item Used to establish relationships with other tables
-\end{itemize}
+\begin{lstlisting}[language=SQL]
+Primary Key:
+- Only one per table
+- Cannot contain NULL values
+- Creates clustered index
 
-\item \textbf{Unique Constraint:}
-\begin{itemize}
-\item Can contain one NULL value
-\item Multiple unique constraints per table
-\item Creates a non-clustered index
-\item Ensures uniqueness but doesn't establish relationships
-\end{itemize}
-\end{itemize}
-
-\subsection*{Q26) Based on the given table, write SQL queries for the following:}
-
-\begin{lstlisting}
-ALTER TABLE Projects ADD PRIMARY KEY (P_id);
-
-UPDATE Projects SET language = 'Python' WHERE id = 'P002';
-
-DROP TABLE Projects;
+Unique Constraint:
+- Multiple allowed per table
+- Can contain one NULL value
+- Creates non-clustered index
 \end{lstlisting}
 
-\subsection*{Q27) Write SQL commands for (a) to (f) on the basis of relations given below:}
+\subsection*{Q23) Write SQL commands to:}
+\begin{lstlisting}[language=SQL]
+(i) SHOW TABLES FROM Exam;
 
-\textbf{Table: BOOKS}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}
+(ii) DESCRIBE Term1;
+\end{lstlisting}
+
+\subsection*{Q24-25) Consider the following EMP and DEPT tables:}
+
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-Book\_ID & Book\_name & Author\_name & Publishers & Price & Type & Qty \\
+EmpNo & EmpName & City & Designation & DOJ & Sal & Comm & DeptID \\
 \hline
-K0001 & Let Us C & Y. Kanetkar & EPB & 450 & Prog & 15 \\
+8369 & SMITH & Mumbai & CLERK & 1990-12-18 & 800.00 & NULL & 20 \\
+8499 & ANYA & Varanasi & SALESMAN & 1991-02-20 & 1600.00 & 300.00 & 30 \\
+8521 & SETH & Jaipur & SALESMAN & 1991-02-22 & 1250.00 & 500.00 & 30 \\
+8566 & MAHADEVAN & Delhi & MANAGER & 1991-04-02 & 2985.00 & NULL & 20 \\
 \hline
 \end{tabular}
-\end{center}
 
-\begin{lstlisting}
-SELECT * FROM BOOKS 
-WHERE Publishers = 'FIRST PUBL' AND Author_name = 'P. Purohit';
-
-SELECT Book_name, Price FROM BOOKS 
-WHERE Publishers = 'FIRST PUBL';
-
-UPDATE BOOKS SET Price = Price * 0.95 
-WHERE Publishers = 'EPB';
-
-SELECT Book_name, Price FROM BOOKS 
-WHERE Qty > 3;
-
-SELECT Type, SUM(Price) AS Total_Cost FROM BOOKS 
-GROUP BY Type;
-
-SELECT * FROM BOOKS 
-WHERE Price = (SELECT MAX(Price) FROM BOOKS);
-\end{lstlisting}
-
-\subsection*{Q28) What are DDL and DML?}
-\begin{itemize}
-\item \textbf{DDL (Data Definition Language):} DDL commands are used to define and modify database structures. Examples include CREATE, ALTER, DROP, and TRUNCATE.
-
-\item \textbf{DML (Data Manipulation Language):} DML commands are used to manipulate data stored in the database. Examples include SELECT, INSERT, UPDATE, and DELETE.
-\end{itemize}
-
-\subsection*{Q29) Differentiate between primary key and candidate key in a relation.}
-\begin{itemize}
-\item \textbf{Primary Key:}
-\begin{itemize}
-\item Selected from candidate keys
-\item Only one per table
-\item Used to establish relationships
-\item Cannot be NULL
-\end{itemize}
-
-\item \textbf{Candidate Key:}
-\begin{itemize}
-\item Set of all possible keys
-\item Can be multiple in a table
-\item Any candidate key can become primary key
-\item Uniquely identifies records
-\end{itemize}
-\end{itemize}
-
-\subsection*{Q30) What do you understand by the terms Cardinality and Degree of a relation in relational database?}
-\begin{itemize}
-\item \textbf{Cardinality:} The number of rows (tuples) in a table.
-\item \textbf{Degree:} The number of columns (attributes) in a table.
-\end{itemize}
-
-\subsection*{Q31) Differentiate between DDL and DML. Mention the two commands for each category.}
-\begin{itemize}
-\item \textbf{DDL (Data Definition Language):}
-\begin{itemize}
-\item Defines database structure
-\item Auto-commit (changes are permanent)
-\item Commands: CREATE, ALTER, DROP, TRUNCATE
-\end{itemize}
-
-\item \textbf{DML (Data Manipulation Language):}
-\begin{itemize}
-\item Manipulates data in tables
-\item Can be rolled back
-\item Commands: SELECT, INSERT, UPDATE, DELETE
-\end{itemize}
-\end{itemize}
-
-\subsection*{Q32) Write SQL Commands for (a) to (h) on the basis of the following table: FURNITURE}
-
-\textbf{Table: FURNITURE}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-NO & ITEM & TYPE & DATEOFSTOCK & PRICE & DISCOUNT \\
+DeptID & DeptName & MgrID & Location \\
 \hline
-1 & WhiteLotus & DoubleBed & 2002-02-23 & 3000 & 25 \\
+10 & SALES & 8566 & Mumbai \\
+20 & PERSONNEL & 9698 & Delhi \\
+30 & ACCOUNTS & 4578 & Delhi \\
+40 & RESEARCH & 8839 & Bengaluru \\
 \hline
 \end{tabular}
-\end{center}
 
-\begin{lstlisting}
-SELECT * FROM FURNITURE WHERE PRICE > 10000;
+\begin{lstlisting}[language=SQL]
+(a) SELECT MIN(Sal), MAX(Sal), AVG(Sal) FROM EMP 
+    WHERE Designation = 'MANAGER';
 
-SELECT ITEM, PRICE FROM FURNITURE 
-WHERE DISCOUNT BETWEEN 10 AND 20;
+(b) SELECT COUNT(*) FROM EMP WHERE Designation = 'CLERK';
 
-DELETE FROM FURNITURE WHERE DISCOUNT = 30;
+(c) SELECT Designation, EmpName, Sal, DOJ FROM EMP 
+    ORDER BY Designation;
 
-SELECT ITEM, TYPE, PRICE FROM FURNITURE 
-WHERE ITEM LIKE 'B%';
+(d) SELECT COUNT(*) FROM EMP WHERE Comm IS NULL;
 
-SELECT PRICE FROM FURNITURE WHERE ITEM = 'BabyCot';
+(e) SELECT DeptID, AVG(Sal) FROM EMP 
+    GROUP BY DeptID HAVING AVG(Sal) > 2000;
 
-SELECT DISTINCT Type FROM Furniture;
+(f) SELECT DeptID, COUNT(*) FROM EMP GROUP BY DeptID;
 
-SELECT MAX(Price) FROM Furniture 
-WHERE DateOfStock > '2002-02-15';
+(g) SELECT DeptID, MAX(Sal) FROM EMP GROUP BY DeptID;
+
+(h) SELECT E.EmpName, E.Designation, D.DeptName 
+    FROM EMP E, DEPT D WHERE E.DeptID = D.DeptID;
+
+(i) SELECT COUNT(*) FROM EMP E, DEPT D 
+    WHERE E.DeptID = D.DeptID AND D.DeptName = 'ACCOUNTS';
 \end{lstlisting}
 
-\subsection*{Q32h) Write SQL Commands/output for the following on the basis of the given table GRADUATE:}
+\subsection*{Q26) Consider the table PRODUCTS:}
 
-\textbf{Table: GRADUATE}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-S.No & NAME & STIPEND & SUBJECT & AVERAGE & RANK \\
-\hline
-1 & KARAN & 400 & PHYSICS & 68 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{lstlisting}
-SELECT NAME FROM GRADUATE 
-WHERE RANK = 1 
-ORDER BY NAME;
-
-SELECT NAME FROM GRADUATE 
-WHERE AVERAGE > 65;
-
-SELECT NAME FROM GRADUATE 
-WHERE SUBJECT = 'COMPUTER' AND AVERAGE > 60;
-
-SELECT NAME FROM GRADUATE 
-ORDER BY NAME;
-
-SELECT * FROM GRADUATE 
-WHERE NAME LIKE '%i%';
-
-SELECT DISTINCT RANK FROM GRADUATE;
-\end{lstlisting}
-
-\subsection*{Q33a) What is the difference between Candidate key and Alternate key?}
-\begin{itemize}
-\item \textbf{Candidate Key:} All keys that can uniquely identify records in a table.
-\item \textbf{Alternate Key:} Candidate keys that are not chosen as the primary key.
-\end{itemize}
-
-\subsection*{Q33b) What is the degree and cardinality of a table having 10 rows and 5 columns?}
-\begin{itemize}
-\item \textbf{Degree:} 5 (number of columns)
-\item \textbf{Cardinality:} 10 (number of rows)
-\end{itemize}
-
-\subsection*{Q33c) For the given table, do as directed:}
-
-\textbf{Table: STUDENT}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-ColumnName & Data type & Size & Constraint \\
-\hline
-ROLLNO & Integer & 4 & Primary Key \\
-SNAME & Varchar & 25 & NOT NULL \\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{lstlisting}
-CREATE TABLE STUDENT (
-    ROLLNO INT(4) PRIMARY KEY,
-    SNAME VARCHAR(25) NOT NULL
-);
-
-ALTER TABLE STUDENT MODIFY SNAME VARCHAR(30);
-
-ALTER TABLE STUDENT DROP COLUMN HOBBY;
-
-INSERT INTO STUDENT VALUES (101, 'Rahul Kumar');
-\end{lstlisting}
-
-\subsection*{Q34) Write the SQL commands to perform the following tasks:}
-
-\begin{lstlisting}
-SELECT MIN(salary), MAX(salary), AVG(salary) 
-FROM employees 
-WHERE designation = 'Manager';
-
-SELECT COUNT(*) FROM employees 
-WHERE designation = 'Clerk';
-
-SELECT name, salary, date_of_joining, designation 
-FROM employees 
-ORDER BY designation;
-
-SELECT COUNT(*) FROM employees 
-WHERE commission IS NULL;
-
-SELECT AVG(salary) FROM employees 
-WHERE salary > 2000 
-GROUP BY DeptID;
-
-SELECT DeptID, COUNT(*) FROM employees 
-GROUP BY DeptID;
-
-SELECT DeptID, MAX(salary) FROM employees 
-GROUP BY DeptID;
-
-SELECT e.name, e.designation, d.department_name 
-FROM employees e 
-JOIN departments d ON e.DeptID = d.DeptID;
-
-SELECT COUNT(*) FROM employees 
-WHERE DeptID = (SELECT DeptID FROM departments 
-WHERE department_name = 'ACCOUNTS');
-\end{lstlisting}
-
-\subsection*{Q34 Additional) Based on Table: PRODUCTS}
-
-\textbf{Table: PRODUCTS}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|l|l|l|}
 \hline
 PCODE & PNAME & COMPANY & PRICE & STOCK & MANUFACTURE & WARRANTY \\
 \hline
 P001 & TV & BPL & 10000 & 200 & 2018-01-12 & 3 \\
+P002 & TV & SONY & 12000 & 150 & 2017-03-23 & 4 \\
+P003 & PC & LENOVO & 39000 & 100 & 2018-04-09 & 2 \\
+P004 & PC & COMPAQ & 38000 & 120 & 2019-06-20 & 2 \\
+P005 & HANDYCAM & SONY & 18000 & 250 & 2017-03-23 & 3 \\
 \hline
 \end{tabular}
-\end{center}
 
-\begin{lstlisting}
-SELECT * FROM PRODUCTS 
-WHERE PNAME = 'PC' AND STOCK > 110;
+\begin{lstlisting}[language=SQL]
+(a) SELECT * FROM PRODUCTS WHERE PNAME = 'PC' AND STOCK > 110;
 
-SELECT COMPANY FROM PRODUCTS 
-WHERE WARRANTY > 2;
+(b) SELECT DISTINCT COMPANY FROM PRODUCTS WHERE WARRANTY > 2;
 
-SELECT SUM(PRICE * STOCK) AS Stock_Value 
-FROM PRODUCTS 
-WHERE COMPANY = 'BPL';
+(c) SELECT SUM(PRICE * STOCK) FROM PRODUCTS WHERE COMPANY = 'BPL';
 
-SELECT COMPANY, COUNT(*) AS Product_Count 
-FROM PRODUCTS 
-GROUP BY COMPANY;
+(d) SELECT COMPANY, COUNT(*) FROM PRODUCTS GROUP BY COMPANY;
 
-SELECT COUNT(*) FROM PRODUCTS 
-WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) < '2020-11-20';
+(e) SELECT COUNT(*) FROM PRODUCTS 
+    WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) = '2020-11-20';
 
-SELECT PNAME FROM PRODUCTS 
-WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) >= CURDATE();
+(f) SELECT PNAME FROM PRODUCTS 
+    WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) >= CURDATE();
+
+(g) 3
+
+(h) 12000
 \end{lstlisting}
 
-\subsection*{Q35) Write SQL queries based on the following tables:}
+\subsection*{Q27) Write SQL commands based on PROJECTS and BOOKS tables:}
 
-\textbf{Table: PRODUCT}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+P\_Id & Pname & Language & Startdate & Enddate \\
+\hline
+P001 & School Management System & Python & 2023-01-12 & 2023-04-03 \\
+P002 & Hotel Management System & C++ & 2022-02-01 & 2023-02-02 \\
+P003 & Blood Bank & Python & 2023-02-11 & 2023-03-02 \\
+P004 & Payroll Management System & Python & 2023-03-12 & 2023-06-02 \\
+\hline
+\end{tabular}
+
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Book\_ID & Book\_name & Author\_name & Publishers & Price & Type & Qty \\
+\hline
+K0001 & Let us C & Y. Kanetkar & EPB & 450 & Prog & 15 \\
+P0001 & Computer Networks & B. Agarwal & FIRST PUBL & 755 & Comp & 24 \\
+M0001 & Mastering C++ & K.R. Venugopal & EPB & 165 & Prog & 60 \\
+N0002 & VC++ advance & P. Purohit & TDH & 350 & Prog & 45 \\
+K0002 & Programming with Python & Sanjeev & FIRST PUBL & 350 & Prog & 30 \\
+\hline
+\end{tabular}
+
+\begin{lstlisting}[language=SQL]
+SELECT Pname FROM PROJECTS WHERE Language = 'Python';
+
+SELECT Book_name FROM BOOKS WHERE Price BETWEEN 200 AND 500;
+
+SELECT Book_name, Publishers FROM BOOKS WHERE Type = 'Prog';
+
+SELECT COUNT(*) FROM BOOKS WHERE Publishers = 'EPB';
+\end{lstlisting}
+
+\subsection*{Q28) What are DDL and DML?}
+\begin{lstlisting}[language=SQL]
+DDL (Data Definition Language):
+Commands that define database structure
+Examples: CREATE, ALTER, DROP, TRUNCATE
+
+DML (Data Manipulation Language):
+Commands that manipulate data in database
+Examples: SELECT, INSERT, UPDATE, DELETE
+\end{lstlisting}
+
+\subsection*{Q29) Differentiate between primary key and candidate key.}
+\begin{lstlisting}[language=SQL]
+Primary Key:
+- Selected candidate key for unique identification
+- Only one per table
+- Cannot be NULL
+
+Candidate Key:
+- Any attribute that can uniquely identify records
+- Multiple candidate keys possible
+- One becomes primary key, others are alternate keys
+\end{lstlisting}
+
+\subsection*{Q30) What is Cardinality and Degree of a relation?}
+\begin{lstlisting}[language=SQL]
+Cardinality: Number of rows (tuples) in a table
+
+Degree: Number of columns (attributes) in a table
+\end{lstlisting}
+
+\subsection*{Q31) Differentiate between DDL and DML with commands.}
+\begin{lstlisting}[language=SQL]
+DDL (Data Definition Language):
+- Defines structure
+- Auto-commit
+Examples: CREATE, ALTER
+
+DML (Data Manipulation Language):
+- Manipulates data
+- Requires commit
+Examples: INSERT, UPDATE
+\end{lstlisting}
+
+\subsection*{Q32-33) Write SQL Commands based on GRADUATE table:}
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+S.No. & NAME & STIPEND & SUBJECT & AVERAGE & RANK \\
+\hline
+1 & KARAN & 400 & PHYSICS & 68 & 1 \\
+2 & RAJ & 450 & CHEMISTRY & 68 & 1 \\
+3 & DEEP & 300 & MATHS & 62 & 2 \\
+4 & DIVYA & 350 & CHEMISTRY & 63 & 1 \\
+5 & GAURAV & 500 & PHYSICS & 70 & 1 \\
+6 & MANAV & 400 & CHEMISTRY & 55 & 2 \\
+7 & VARUN & 250 & MATHS & 64 & 1 \\
+8 & LIZA & 450 & COMPUTER & 68 & 1 \\
+9 & PUJA & 500 & PHYSICS & 62 & 2 \\
+10 & NISHA & 300 & COMPUTER & 57 & 2 \\
+\hline
+\end{tabular}
+
+\begin{lstlisting}[language=SQL]
+SELECT * FROM GRADUATE WHERE SUBJECT = 'PHYSICS';
+
+SELECT NAME, STIPEND FROM GRADUATE WHERE AVERAGE >= 65;
+
+SELECT SUBJECT, AVG(STIPEND) FROM GRADUATE GROUP BY SUBJECT;
+
+SELECT COUNT(*) FROM GRADUATE WHERE RANK = 1;
+
+SELECT MAX(AVERAGE) FROM GRADUATE WHERE SUBJECT = 'CHEMISTRY';
+
+SELECT NAME FROM GRADUATE WHERE STIPEND BETWEEN 300 AND 450;
+
+SELECT DISTINCT SUBJECT FROM GRADUATE;
+\end{lstlisting}
+
+\subsection*{Q34) Answer the following:}
+\begin{lstlisting}[language=SQL]
+(a) Candidate Key: Any attribute that can uniquely identify records
+    Alternate Key: Candidate keys not selected as primary key
+
+(b) Degree: 5 columns
+    Cardinality: 10 rows
+
+(c) CREATE TABLE STUDENT (
+    ROLLNO INTEGER(4) PRIMARY KEY,
+    SNAME VARCHAR(25) NOT NULL,
+    GENDER CHAR(1) NOT NULL,
+    DOB DATE NOT NULL,
+    FEES INTEGER(4) NOT NULL,
+    HOBBY VARCHAR(15)
+);
+\end{lstlisting}
+
+\subsection*{Q35) Write SQL queries based on PRODUCT and CLIENT tables:}
+
+\begin{tabular}{|l|l|l|l|l|}
 \hline
 P\_ID & ProductName & Manufacturer & Price & Discount \\
 \hline
 TP01 & Talcum Powder & LAK & 40 & NULL \\
+FW05 & Face Wash & ABC & 45 & 5 \\
+BS01 & Bath Soap & ABC & 55 & NULL \\
+SH06 & Shampoo & XYZ & 120 & 10 \\
+FW12 & Face Wash & XYZ & 95 & NULL \\
 \hline
 \end{tabular}
-\end{center}
 
-\textbf{Table: CLIENT}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|}
 \hline
 C\_ID & ClientName & City & P\_ID \\
 \hline
 01 & Cosmetic Shop & Delhi & TP01 \\
+02 & Total Health & Mumbai & FW05 \\
+03 & Live Life & Delhi & BS01 \\
+04 & Pretty Woman & Delhi & SH06 \\
+05 & Dreams & Delhi & FW12 \\
 \hline
 \end{tabular}
-\end{center}
 
-\begin{lstlisting}
-CREATE TABLE STUDENT (
-    ROLLNO INT PRIMARY KEY,
-    SNAME VARCHAR(25) NOT NULL,
-    HOBBY VARCHAR(20)
-);
+\begin{lstlisting}[language=SQL]
+(a) SELECT ProductName, Price FROM PRODUCT 
+    WHERE Price BETWEEN 50 AND 150;
 
-ALTER TABLE STUDENT MODIFY SNAME VARCHAR(30);
+(b) SELECT * FROM PRODUCT 
+    WHERE Manufacturer IN ('XYZ', 'ABC');
 
-ALTER TABLE STUDENT DROP COLUMN HOBBY;
+(c) SELECT ProductName, Manufacturer, Price FROM PRODUCT 
+    WHERE Discount IS NULL;
 
-INSERT INTO STUDENT VALUES (101, 'Amit Singh', 'Reading');
+(d) SELECT ProductName, Price FROM PRODUCT 
+    WHERE ProductName LIKE '%h';
+
+(e) SELECT C.ClientName, C.City, C.P_ID, P.ProductName 
+    FROM CLIENT C, PRODUCT P 
+    WHERE C.P_ID = P.P_ID AND C.City = 'Delhi';
+
+(f) P_ID is used as Foreign Key in CLIENT table
 \end{lstlisting}
 
-\subsection*{Q36) Write SQL queries based on the following tables:}
+\subsection*{Q36) Consider the table ORDERS and write output:}
 
-\textbf{Table: PRODUCT and CLIENT (as shown above)}
-
-\begin{lstlisting}
-SELECT ProductName, Price FROM PRODUCT 
-WHERE Price BETWEEN 50 AND 150;
-
-SELECT * FROM PRODUCT 
-WHERE Manufacturer IN ('XYZ', 'ABC');
-
-SELECT ProductName, Manufacturer, Price FROM PRODUCT 
-WHERE Discount IS NULL;
-
-SELECT ProductName, Price FROM PRODUCT 
-WHERE ProductName LIKE '%h';
-
-SELECT ClientName, City, C.P_ID, ProductName 
-FROM CLIENT C 
-JOIN PRODUCT P ON C.P_ID = P.P_ID 
-WHERE City = 'Delhi';
-\end{lstlisting}
-
-\textbf{Answer (f):} P\_ID is used as Foreign Key in the CLIENT table.
-
-\subsection*{Q37) Answer the questions based on the table given below:}
-
-\textbf{Table: HOSPITAL}
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-S\_No & Name & Age & Department & DateOfAdm & Charges & Sex \\
+ORDNO & ITEM & QTY & RATE & ORDATE \\
 \hline
-1 & Arpit & 62 & Surgery & 1998-01-15 & 800 & M \\
+1001 & RICE & 23 & 120 & 2023-09-10 \\
+1002 & PULSES & 13 & 120 & 2023-10-18 \\
+1003 & RICE & 25 & 110 & 2023-11-17 \\
+1004 & WHEAT & 28 & 65 & 2023-12-25 \\
+1005 & PULSES & 16 & 110 & 2024-01-15 \\
+1006 & WHEAT & 27 & 55 & 2024-04-15 \\
+1007 & WHEAT & 25 & 60 & 2024-04-30 \\
 \hline
 \end{tabular}
-\end{center}
 
-\begin{lstlisting}
-SELECT Name FROM HOSPITAL 
-WHERE DateOfAdm > '1998-01-15';
+\begin{lstlisting}[language=SQL]
+(i) ITEM      SUM(QTY)
+    RICE      48
+    PULSES    29
+    WHEAT     80
 
-SELECT Name FROM HOSPITAL 
-WHERE Sex = 'F' AND Department = 'ENT';
+(ii) ITEM      QTY
+     RICE      25
+     WHEAT     28
 
-SELECT Name, DateOfAdm FROM HOSPITAL 
-WHERE AVERAGE > 65;
-
-SELECT Name, Charges, Age FROM HOSPITAL 
-WHERE Sex = 'F' 
-ORDER BY Age;
-
-SELECT COUNT(DISTINCT Charges) FROM HOSPITAL;
-
-SELECT MIN(Age) FROM HOSPITAL 
-WHERE Sex = 'F';
+(iii) ORDNO    ORDATE
+      1004     2023-12-25
+      1007     2024-04-30
 \end{lstlisting}
 
-\subsection*{Q38) A department store MyStore is considering to maintain their inventory using SQL}
+\subsection*{Q37) Answer based on HOSPITAL table:}
 
-\textbf{Table: STORE}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+S.No. & Name & Age & Department & Dateofadm & Charges & Sex \\
+\hline
+1 & Arpit & 62 & Surgery & 1998-01-21 & 300 & M \\
+2 & Zareena & 22 & ENT & 1997-02-12 & 200 & F \\
+3 & Kareem & 32 & Orthopaedic & 1998-02-19 & 250 & M \\
+4 & Arun & 12 & Surgery & 1998-01-19 & 300 & M \\
+5 & Zubin & 30 & ENT & 1998-01-12 & 200 & M \\
+6 & Ketaki & 16 & ENT & 1998-02-24 & 250 & F \\
+7 & Ankit & 29 & Cardiology & 1998-02-20 & 250 & M \\
+8 & Zareen & 45 & Gynaecology & 1998-02-22 & 800 & F \\
+9 & Kush & 19 & Cardiology & 1998-01-13 & 300 & M \\
+10 & Shilpa & 23 & Nuclear Medicine & 1998-02-21 & 400 & F \\
+\hline
+\end{tabular}
+
+\begin{lstlisting}[language=SQL]
+(a) SELECT Name FROM HOSPITAL WHERE Dateofadm > '1998-01-15';
+
+(b) SELECT Name FROM HOSPITAL 
+    WHERE Sex = 'F' AND Department = 'ENT';
+
+(c) SELECT Name, Dateofadm FROM HOSPITAL ORDER BY Dateofadm;
+
+(d) SELECT Name, Charges, Age FROM HOSPITAL WHERE Sex = 'F';
+
+(e) (i) 5
+    (ii) 16
+\end{lstlisting}
+
+\subsection*{Q38) A department store MyStore maintains inventory:}
+
+\begin{tabular}{|l|l|l|l|}
 \hline
 ItemNo & ItemName & SCode & Quantity \\
 \hline
 2005 & Sharpener Classic & 23 & 60 \\
+2003 & Ball Pen 0.25 & 22 & 50 \\
+2002 & Gel Pen Premium & 21 & 150 \\
+2006 & Gel Pen Classic & 21 & 250 \\
+2001 & Eraser Small & 22 & 220 \\
+2004 & Eraser Big & 22 & 110 \\
+2009 & Ball Pen 0.5 & 21 & 180 \\
 \hline
 \end{tabular}
-\end{center}
 
-\textbf{(a)} ItemNo is best suitable as primary key.
+\begin{lstlisting}[language=SQL]
+(a) ItemNo
 
-\textbf{(b)} Degree: 4 (number of columns), Cardinality: 1 (number of rows shown)
+(b) Degree: 4
+    Cardinality: 7
 
-\begin{lstlisting}
-INSERT INTO STORE (ItemNo, ItemName, SCode) 
-VALUES (2010, 'Note Book', 25);
+(c) INSERT INTO STORE (ItemNo, ItemName, SCode) 
+    VALUES (2010, 'Note Book', 25);
+
+(d) (ii) DROP TABLE STORE;
+
+(e) DESCRIBE STORE;
 \end{lstlisting}
 
-\textbf{(d)} Answer: (ii) DROP TABLE STORE;
+\subsection*{Q39) Consider tables Admin and Transport:}
 
-\begin{lstlisting}
-DESCRIBE STORE;
-\end{lstlisting}
-
-\subsection*{Q39) Consider the tables Admin and Transport given below:}
-
-\textbf{Table: Admin}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-S\_id & S\_name & Address & S\_type \\
+S\_id & S\_name & Address & S-type \\
 \hline
 S001 & Sandhya & Rohini & Day Boarder \\
+S002 & Vedanshi & Rohtak & Day Scholar \\
+S003 & Vibhu & Raj Nagar & NULL \\
+S004 & Atharva & Rampur & Day Boarder \\
 \hline
 \end{tabular}
-\end{center}
 
-\textbf{Table: Transport}
-\begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|l|l|l|}
 \hline
-S\_id & S\_name & S\_type \\
+S\_id & S\_name & S-type \\
 \hline
 S002 & TSS10 & Sarai Kale Khan \\
+S004 & TSS12 & Sainik Vihar \\
+S005 & TSS10 & Kamla Nagar \\
 \hline
 \end{tabular}
-\end{center}
 
-\begin{lstlisting}
-SELECT A.S_name, T.S_name AS Stop_Name 
-FROM Admin A 
-JOIN Transport T ON A.S_id = T.S_id;
+\begin{lstlisting}[language=SQL]
+(i) SELECT A.S_name, T.S_type 
+    FROM Admin A, Transport T 
+    WHERE A.S_id = T.S_id;
 
-SELECT COUNT(*) FROM Admin 
-WHERE S_type IS NULL;
+(ii) SELECT COUNT(*) FROM Admin WHERE S_type IS NULL;
 
-SELECT * FROM Admin 
-WHERE S_name LIKE 'V%';
+(iii) SELECT * FROM Admin WHERE S_name LIKE 'V%';
 
-SELECT S_id, Address FROM Admin 
-ORDER BY S_name;
+(iv) SELECT S_id, Address FROM Admin ORDER BY S_name;
 \end{lstlisting}
 
 \end{document}
