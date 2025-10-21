@@ -1,6 +1,6 @@
 services:
   mysql:
-    image: mysql:8.1          # MySQL 8.1 image
+    image: mysql:9.4          # MySQL 8.1 image
     container_name: MySQL-Docker-1
     restart: unless-stopped
     environment:
