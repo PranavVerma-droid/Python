@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:8.1          # MySQL 8.1 image
+    container_name: MySQL-Docker-1
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 123   # Set your root password here
+      MYSQL_DATABASE: test                # Optional: initial database
+    ports:
+      - "3306:3306"                       # Maps host 3306 to container 3306
+    volumes:
+      - mysql_data:/var/lib/mysql         # Persistent data storage
+    networks:
+      - mysql_net
+
+volumes:
+  mysql_data:
+
+networks:
+  mysql_net:
