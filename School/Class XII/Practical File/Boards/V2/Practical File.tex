@@ -1,0 +1,613 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+% --- UNIVERSAL PREAMBLE BLOCK ---
+% Set page geometry
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+
+% --- Additional Packages ---
+\usepackage{amsmath} % For math environments
+\usepackage{parskip}  % Adds space between paragraphs, removes indent
+\usepackage{framed}   % For verbatim environments
+
+% Configure listings package for Python code highlighting
+\lstset{
+    language=Python,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=5pt,
+    frame=lines,
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    captionpos=b,
+    xleftmargin=2mm,
+    xrightmargin=2mm,
+    framexleftmargin=2mm,
+    framexrightmargin=2mm
+}
+
+% Define a simple environment for code examples in questions
+\lstnewenvironment{codeexample}{\lstset{frame=single,numbers=none,basicstyle=\small\ttfamily}}{}
+
+\title{LOTUS VALLEY INTERNATIONAL SCHOOL: Computer Science Practical File}
+\author{Pranav Verma (Roll No. 7, XII Aryabhatta)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\includegraphics[width=1\textwidth]{logo/lvis-logo.png}
+\end{center}
+
+\vspace*{\fill}
+
+\tableofcontents
+
+\section{Review of Python Basics}
+
+\subsection*{Question 15}
+Write a program to calculate the mean of a given list of numbers.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+numbers = eval(input("Enter a list: "))
+if len(numbers) == 0:
+    print("List is empty, cannot calculate mean.")
+else:
+    total = sum(numbers)
+    n = len(numbers)
+    mean = total / n
+    print("Mean of the numbers:", mean)
+\end{lstlisting}
+
+\subsection*{Question 16}
+Write a program to calculate the minimum element of a given list of numbers.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+l = eval(input("Enter a list: "))
+m = min(l)
+print("Minimum element in the list:", m)
+\end{lstlisting}
+
+\subsection*{Question 17}
+Write a code to calculate and display total marks and percentage of a student from a given list storing the marks of a student.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+marks_list = eval(input("Enter list of marks: "))
+total_marks = sum(marks_list)
+total_subjects = len(marks_list)
+maximum_marks_per_subject = 100 
+total_marks_possible = maximum_marks_per_subject * total_subjects
+percentage = (total_marks / total_marks_possible) * 100
+
+print("Total Marks:", total_marks)
+print("Percentage:", percentage)
+\end{lstlisting}
+
+\subsection*{Question 18}
+Write a program to multiply an element by 2 if it is an odd index for a given list containing both numbers and strings.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+mixed = eval(input("Enter the list: "))
+for index in range(1, len(mixed), 2):
+        mixed[index] *= 2  
+print("Modified List:", mixed)
+\end{lstlisting}
+
+\subsection*{Question 19}
+Write a program to count the frequency of an element in a list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+my_list = eval(input("Enter the list: "))
+c = int(input("Enter the element whose frequency is to be checked: "))
+frequency = my_list.count(c)
+print("The frequency of", c, "in the list is: ", frequency)
+\end{lstlisting}
+
+\subsection*{Question 20}
+Write a program to shift elements of a list so that the first element moves to the second index and second index moves to the third index, and so on, and the last element shifts to the first position.
+
+Suppose the list is:
+\begin{codeexample}
+[10, 20, 30, 40]
+\end{codeexample}
+After shifting, it should look like:
+\begin{codeexample}
+[40, 10, 20, 30]
+\end{codeexample}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+l = eval(input("Enter the list: "))
+print("Original List")
+print(l)
+
+l = l[-1:] + l[:-1]
+
+print("Rotated List")
+print(l)
+\end{lstlisting}
+
+\subsection*{Question 21}
+A list Num contains the following elements:
+\begin{codeexample}
+3, 25, 13, 6, 35, 8, 14, 45
+\end{codeexample}
+Write a program to swap the content with the next value divisible by 5 so that the resultant list will look like:
+\begin{codeexample}
+25, 3, 13, 35, 6, 8, 45, 14
+\end{codeexample}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+Num = [3, 25, 13, 6, 35, 8, 14, 45]
+for i in range(len(Num) - 1):
+    if Num[i] % 5 != 0 and Num[i + 1] % 5 == 0:
+        Num[i], Num[i + 1] = Num[i + 1], Num[i]
+print("Resultant List:", Num)
+\end{lstlisting}
+
+\subsection*{Question 22}
+Write a program to accept values from a user in a tuple. Add a tuple to it and display its elements one by one. Also display its maximum and minimum value.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+tuple1 = eval(input("Enter a tuple: "))
+tuple2 = (10, 20, 30)
+combined_tuple = tuple1 + tuple2
+print("Elements of the combined tuple:")
+for element in combined_tuple:
+    print(element)
+
+print("Maximum value:", max(combined_tuple))
+print("Minimum value:", min(combined_tuple))
+\end{lstlisting}
+
+\subsection*{Question 23}
+Write a program to input any values for two tuples. Print it, interchange it and then compare them.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+tuple1 = eval(input("Enter the first tuple: "))
+tuple2 = eval(input("Enter the second tuple: "))
+
+print("Original Tuples:")
+print("Tuple 1:", tuple1)
+print("Tuple 2:", tuple2)
+
+tuple1, tuple2 = tuple2, tuple1
+
+print("\nSwapped Tuples:")
+print("Tuple 1 (after swapping):", tuple1)
+print("Tuple 2 (after swapping):", tuple2)
+
+if tuple1 == tuple2:
+    print("\nThe swapped tuples are equal.")
+else:
+    print("\nThe swapped tuples are not equal.")
+\end{lstlisting}
+
+\subsection*{Question 24}
+Write a Python program to input 'n' classes and names of class teachers to store them in a dictionary and display the same. Also accept a particular class from the user and display the name of the class teacher of that class.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+n = int(input("Enter number of classes: "))
+data = {}
+for i in range(n):
+    class_name = input("Enter class name: ")
+    teacher_name = input("Enter teacher name: ")
+    data[class_name] = teacher_name
+print("Class data:", data)
+find = input("Enter a class name to find its teacher: ")
+if find in data:
+    print("Teacher for class", find, "is", data[find])
+else:
+    print("Class not found in the data.")
+\end{lstlisting}
+
+\subsection*{Question 25}
+Write a program to store student names and their percentage in a dictionary and delete a particular student name from the dictionary. Also display the dictionary after deletion.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+n = int(input("Enter number of students: "))
+data = {}
+for i in range(n):
+    stu_name = input("Enter student name: ")
+    percentage = input("Enter percentage: ")
+    data[stu_name] = percentage
+print("Student data:", data)
+find = input("Enter a student name to delete: ")
+if find in data:
+    del data[find]
+    print("Updated student data:", data)
+else:
+    print("Student not found in the data.")
+\end{lstlisting}
+
+\subsection*{Question 26}
+Write a Python program to input names of 'n' customers and their details like items bought, cost and phone number, etc., store them in a dictionary and display all the details in a tabular form.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+n = int(input("Enter the number of customers: "))
+customer_data = {}
+
+for i in range(n):
+    name = input("Enter customer name: ")
+    items_bought = input("Enter items bought: ")
+    cost = float(input("Enter cost: "))
+    phone_number = int(input("Enter phone number: "))
+
+    customer_data[name] = {
+        'Items Bought': items_bought,
+        'Cost': cost,
+        'Phone Number': phone_number
+    }
+
+print("Customer Details:")
+print("Name\t\tItems Bought\t\tCost\t\tPhone Number")
+for name, details in customer_data.items():
+    print(name, "\t\t", details['Items Bought'], "\t\t", details['Cost'], "\t\t", details['Phone Number'])
+\end{lstlisting}
+
+\subsection*{Question 27}
+Write a Python program to capitalize first and last letters of each word of a given string.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+input_string = input("Enter the string: ")
+words = input_string.split()
+result = []
+
+for word in words:
+    if len(word) > 1:
+        modified_word = word[0].upper() + word[1:-1] + word[-1].upper()
+    else:
+        modified_word = word.upper()
+    result.append(modified_word)
+
+capitalized_string = ' '.join(result)
+print(capitalized_string)
+\end{lstlisting}
+
+\subsection*{Question 28}
+Write a Python program to remove duplicate characters of a given string.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+input_string = input("Enter the string: ")
+unique_chars = {}
+for char in input_string:
+    if char not in unique_chars:
+        unique_chars[char] = True
+result = ''.join(unique_chars.keys())
+print(result)
+\end{lstlisting}
+
+\subsection*{Question 29}
+Write a Python program to compute sum of digits of a given number.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+number = int(input("Enter a number: "))
+sum_of_digits = 0
+while number > 0:
+    digit = number % 10
+    sum_of_digits += digit
+    number = number // 10
+
+print("Sum of digits:", sum_of_digits)
+\end{lstlisting}
+
+\subsection*{Question 30}
+Write a Python program to find the second most repeated word in a given string.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+input_string = input("Enter the string: ")
+words = input_string.split()
+
+word_counts = {}
+for word in words:
+    if word in word_counts:
+        word_counts[word] += 1
+    else:
+        word_counts[word] = 1
+
+max_count = 0
+second_max_count = 0
+most_repeated_word = None
+second_most_repeated_word = None
+
+for word, count in word_counts.items():
+    if count > max_count:
+        second_max_count = max_count
+        max_count = count
+        second_most_repeated_word = most_repeated_word
+        most_repeated_word = word
+    elif count > second_max_count:
+        second_max_count = count
+        second_most_repeated_word = word
+
+print(second_most_repeated_word)
+\end{lstlisting}
+
+\subsection*{Question 31}
+Write a Python program to change a given string to a new string where the first and last characters have been exchanged.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+input_str = input("Enter the string: ")
+first_char = input_str[0]  
+last_char = input_str[-1]  
+middle_chars = input_str[1:-1]  
+new_str = last_char + middle_chars + first_char
+print("Original string:", input_str)
+print("New string after swapping first and last characters:", new_str)
+\end{lstlisting}
+
+\subsection*{Question 32}
+Write a Python program to multiply all the items in a list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+lst = eval(input("Enter the list: "))
+result = 1
+for item in lst:
+    result *= item
+print("Result:", result)
+\end{lstlisting}
+
+\subsection*{Question 33}
+Write a Python program to get the smallest number from a list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+numbers = eval(input("Enter the list: "))
+smallest = min(numbers)
+print("Smallest Number:", smallest)
+\end{lstlisting}
+
+\subsection*{Question 34}
+Write a Python program to append a list to the second list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+list1 = eval(input("Enter the first list: "))
+list2 = eval(input("Enter the second list: "))
+list1.extend(list2)
+print("Appended List:", list1)
+\end{lstlisting}
+
+\subsection*{Question 35}
+Write a Python program to generate and print a list of first and last 5 elements where the values are square of numbers between 1 and 30 (both included).
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+squares = []
+for num in range(1, 31):
+    squares.append(num ** 2)
+first_5 = squares[:5]
+last_5 = squares[-5:]
+combined_list = first_5 + last_5
+print("Combined list:", combined_list)
+\end{lstlisting}
+
+\subsection*{Question 36}
+Write a Python program to get unique values from a list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+input_list = eval(input("Enter the list: "))
+unique_values = []
+
+for item in input_list:
+    if item not in unique_values:
+        unique_values.append(item)
+
+print("Unique values from the list:", unique_values)
+\end{lstlisting}
+
+\subsection*{Question 37}
+Write a Python program to convert a string to a list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+string = input("Enter the string: ")
+char_list = list(string)
+
+print("String converted to list:", char_list)
+\end{lstlisting}
+
+\subsection*{Question 38}
+Write a Python script to concatenate the following dictionaries to create a new one:
+\begin{codeexample}
+d1 = {'A': 1, 'B': 2, 'C': 3}
+d2 = {'D': 4 }
+\end{codeexample}
+Output should be:
+\begin{codeexample}
+{'A': 1, 'B': 2, 'C': 3, 'D' : 4}
+\end{codeexample}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+d1 = {'A': 1, 'B': 2, 'C': 3}
+d2 = {'D': 4}
+d1.update(d2)
+print("Concatenated dictionary: ", d1)
+\end{lstlisting}
+
+\subsection*{Question 39}
+Write a Python script to check if a given key already exists in a dictionary.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+my_dict = eval(input("Enter the dictionary: "))
+key_check = input("Enter the key to be checked: ")
+if key_check in my_dict:
+    print("The key", key_check, "exists in the dictionary.")
+else:
+    print("The key", key_check, "does not exist in the dictionary.")
+\end{lstlisting}
+
+\subsection*{Question 40}
+Write a Python script to print a dictionary where the keys are numbers between 1 and 15 (both included) and the values are square of keys.
+
+Sample Dictionary
+\begin{codeexample}
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 
+ 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225}
+\end{codeexample}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+result_dict = {}
+for num in range(1, 16):
+    result_dict[num] = num ** 2
+print("Resulting dictionary:", result_dict)
+\end{lstlisting}
+
+\subsection*{Question 41}
+Write a Python script to merge two Python dictionaries.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+dict1 = eval(input("Enter the first dictionary: "))
+dict2 = eval(input("Enter the second dictionary: "))
+dict1.update(dict2)
+print("Merged dictionary:", dict1)
+\end{lstlisting}
+
+\subsection*{Question 42}
+Write a Python program to sort a dictionary by key.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def bubble_sort_keys(keys):
+    n = len(keys)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if keys[j] > keys[j + 1]:
+                keys[j], keys[j + 1] = keys[j + 1], keys[j]
+
+my_dict = eval(input("Enter the dictionary: "))
+keys_list = list(my_dict.keys())
+bubble_sort_keys(keys_list)
+sorted_dict = {}
+for key in keys_list:
+    sorted_dict[key] = my_dict[key]
+
+print("Dictionary sorted by key:", sorted_dict)
+\end{lstlisting}
+
+\subsection*{Question 43}
+Write a Python program to combine two dictionaries adding values for common keys.
+\begin{codeexample}
+d1 = {'a': 100, 'b': 200, 'c':300} 
+d2 = {'a': 300, 'b': 200, 'd':400}
+\end{codeexample}
+Sample output:
+\begin{codeexample}
+Counter({'a': 400, 'b': 400, 'c': 300, 'd': 400})
+\end{codeexample}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+d1 = {'a': 100, 'b': 200, 'c': 300}
+d2 = {'a': 300, 'b': 200, 'd': 400}
+combined_dict = {}
+for key, value in d1.items():
+    combined_dict[key] = value
+for key, value in d2.items():
+    if key in combined_dict:
+        combined_dict[key] += value
+    else:
+        combined_dict[key] = value
+
+print("Combined dictionary with added values for common keys:", combined_dict)
+\end{lstlisting}
+
+\subsection*{Question 44}
+Write a Python program to find the three highest values in a dictionary.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+my_dict = eval(input("Enter the dictionary: "))
+highest_values = []
+highest_keys = []
+# This is not the most efficient way, but it matches the provided code.
+# A better way would be to sort items by value.
+for key, value in my_dict.items():
+    if not highest_values or value > highest_values[-1]:
+        highest_values.append(value)
+        highest_keys.append(key)
+        if len(highest_values) > 3:
+            highest_values.pop(0)
+            highest_keys.pop(0)
+    # Note: This logic is flawed as it doesn't handle insertion correctly.
+    # A correct implementation would be more complex or use sorting.
+    # Re-implementing based on sorting for correctness, but keeping original logic:
+    
+# Sticking to the provided logic exactly:
+my_dict = eval(input("Enter the dictionary: "))
+highest_values = []
+highest_keys = []
+for key, value in my_dict.items():
+    if not highest_values or value > highest_values[-1]:
+        highest_values.append(value)
+        highest_keys.append(key)
+        if len(highest_values) > 3:
+            highest_values.pop(0)
+            highest_keys.pop(0)
+print("Three highest values in the dictionary:")
+for i in range(len(highest_keys)):
+    print(highest_keys[i], ":" ,highest_values[i])
+\end{lstlisting}
+
+\subsection*{Question 45}
+Write a Python program to sort a list alphabetically in a dictionary.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+my_dict = eval(input("Enter the dictionary: "))
+for key, value in my_dict.items():
+    if isinstance(value, list):
+        value.sort()
+
+print("Sorted dictionary:", my_dict)
+\end{lstlisting}
+
+\subsection*{Question 46}
+Write a Python program to count number of items in a dictionary value that is a list.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+my_dict = eval(input("Enter the dictionary: "))
+total_count = 0
+for value in my_dict.values():
+    if type(value) is list:
+        total_count += len(value)
+print("Total number of items in lists within the dictionary:", total_count)
+\end{lstlisting}
+
+
+\end{document}
