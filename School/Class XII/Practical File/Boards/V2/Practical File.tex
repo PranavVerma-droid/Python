@@ -1867,12 +1867,16 @@ FROM EMP
 WHERE Designation = 'MANAGER';
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_20_a.png}
+
 (b)
 \begin{lstlisting}[language=SQL]
 SELECT COUNT(*) AS ClerkCount
 FROM EMP
 WHERE Designation = 'CLERK';
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_20_b.png}
 
 (c)
 \begin{lstlisting}[language=SQL]
@@ -1881,12 +1885,16 @@ FROM EMP
 ORDER BY Designation;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_20_c.png}
+
 (d)
 \begin{lstlisting}[language=SQL]
 SELECT COUNT(*) AS No_comm
 FROM EMP
 WHERE comm is NULL;
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_20_d.png}
 
 (e)
 \begin{lstlisting}[language=SQL]
@@ -1896,12 +1904,16 @@ WHERE E.DeptID = D.DeptID AND E.Sal > 2000
 GROUP BY D.DeptName;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_20_e.png}
+
 (f)
 \begin{lstlisting}[language=SQL]
 SELECT DeptID, COUNT(*) AS EmpCount
 FROM EMP
 GROUP BY DeptID;
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_20_f.png}
 
 (g)
 \begin{lstlisting}[language=SQL]
@@ -1911,12 +1923,16 @@ WHERE E.DeptID = D.DeptID
 GROUP BY D.DeptName;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_20_g.png}
+
 (h)
 \begin{lstlisting}[language=SQL]
 SELECT EMP.EMPNAME, EMP.DESIGNATION, DEPT.DEPTNAME
 FROM EMP, DEPT
 WHERE EMP.DEPTID = DEPT.DEPTID;
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_20_h.png}
 
 (i)
 \begin{lstlisting}[language=SQL]
@@ -1925,6 +1941,8 @@ FROM EMP, DEPT
 WHERE EMP.DEPTID = DEPT.DEPTID
 AND DEPTNAME = 'ACCOUNTS';
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_20_i.png}
 
 \subsection*{Question 21}
 Write SQL commands for (i) to (vi) and write output for (vii) on the basis of the following PRODUCTS relation given below:
@@ -1966,12 +1984,16 @@ FROM PRODUCTS
 WHERE PNAME = 'PC' AND STOCK > 110;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_21_i.png}
+
 (ii)
 \begin{lstlisting}[language=SQL]
 SELECT DISTINCT COMPANY
 FROM PRODUCTS
 WHERE WARRANTY > 2;
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_21_ii.png}
 
 (iii)
 \begin{lstlisting}[language=SQL]
@@ -1980,6 +2002,8 @@ FROM PRODUCTS
 WHERE COMPANY = 'BPL';
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_21_iii.png}
+
 (iv)
 \begin{lstlisting}[language=SQL]
 SELECT COMPANY, COUNT(*) AS ProductCount
@@ -1987,12 +2011,16 @@ FROM PRODUCTS
 GROUP BY COMPANY;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_21_iv.png}
+
 (v)
 \begin{lstlisting}[language=SQL]
 SELECT COUNT(*)
 FROM PRODUCTS
 WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) <= '2020-11-20';
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_21_v.png}
 
 (vi)
 \begin{lstlisting}[language=SQL]
@@ -2006,10 +2034,14 @@ SELECT AVG(PRICE) FROM PRODUCTS;
 SELECT COUNT(DISTINCT COMPANY) FROM PRODUCTS;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_21_vii_a.png}
+
 (b)
 \begin{lstlisting}[language=SQL]
 SELECT MAX(PRICE) FROM PRODUCTS WHERE WARRANTY <= 3;
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_21_vii_b.png}
 
 \subsection*{Question 22}
 Write SQL commands for (i) to (vi) on the basis of relations given below:
@@ -2071,6 +2103,8 @@ WHERE Publishers = 'FIRST PUBL'
 GROUP BY publishers;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_22_ii.png}
+
 (iii)
 \begin{lstlisting}[language=SQL]
 UPDATE BOOKS 
@@ -2085,6 +2119,8 @@ FROM BOOKS b, ISSUED i
 WHERE b.Book_ID = i.Book_ID and i.Qty_Issued > 3;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_22_iv.png}
+
 (v)
 \begin{lstlisting}[language=SQL]
 SELECT Type, SUM(Price * qty) AS Total_Cost
@@ -2092,12 +2128,16 @@ FROM BOOKS
 GROUP BY Type;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_22_v.png}
+
 (vi)
 \begin{lstlisting}[language=SQL]
 SELECT *
 FROM BOOKS
 WHERE Price = (SELECT MAX(Price) FROM BOOKS);
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_22_vi.png}
 
 \subsection*{Question 27}
 Write SQL Commands/output for the following on the basis of the given table:
@@ -2123,9 +2163,6 @@ NO & ITEM & TYPE & DATEOFSTOCK & PRICE & DISCOUNT \\
     \item[(iii)] To delete the record of all items where discount is 30.
     \item[(iv)] To display the price of 'Babycot'.
     \item[(v)] To list item name, type and price of all items whose names start with 'D'.
-    \item[(vi)] SELECT DISTINCT Type FROM Furniture;
-    \item[(vii)] SELECT MAX(PRICE) FROM Furniture WHERE DateofStock > '2002-02-15' ;
-    \item[(viii)] SELECT COUNT(*) FROM Furniture WHERE Discount < 25 ;
 \end{enumerate}
 
 \subsubsection*{Solution}
@@ -2137,12 +2174,16 @@ FROM FURNITURE
 WHERE PRICE > 10000;
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_27_i.png}
+
 (ii)
 \begin{lstlisting}[language=SQL]
 SELECT ITEM, PRICE
 FROM FURNITURE
 WHERE DISCOUNT BETWEEN 10 AND 20;
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/5/5_27_ii.png}
 
 (iii)
 \begin{lstlisting}[language=SQL]
@@ -2156,6 +2197,8 @@ FROM FURNITURE
 WHERE TYPE = 'BabyCot';
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/5/5_27_iv.png}
+
 (v)
 \begin{lstlisting}[language=SQL]
 SELECT ITEM, TYPE, PRICE
@@ -2163,376 +2206,7 @@ FROM FURNITURE
 WHERE ITEM LIKE 'D%';
 \end{lstlisting}
 
-(vi)
-\begin{lstlisting}[language=SQL]
-SELECT DISTINCT Type FROM Furniture;
-\end{lstlisting}
-
-(vii)
-\begin{lstlisting}[language=SQL]
-SELECT MAX(PRICE) FROM Furniture WHERE DateofStock > '2002-02-15' ;
-\end{lstlisting}
-
-(viii)
-\begin{lstlisting}[language=SQL]
-SELECT COUNT(*) FROM Furniture WHERE Discount < 25 ;
-\end{lstlisting}
-
-\subsection*{Question 28}
-Write SQL Commands/output for the following on the basis of the given table GRADUATE:
-
-\textbf{Table: GRADUATE}
-
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
-S.No. & NAME & STIPEND & SUBJECT & AVERAGE & RANK \\
-\hline
-1 & KARAN & 400 & PHYSICS & 68 & 1 \\
-2 & RAJ & 450 & CHEMISTRY & 68 & 1 \\
-3 & DEEP & 300 & MATHS & 62 & 2 \\
-4 & DIVYA & 350 & CHEMISTRY & 63 & 1 \\
-5 & GAURAV & 500 & PHYSICS & 70 & 1 \\
-6 & MANAV & 400 & CHEMISTRY & 55 & 2 \\
-7 & VARUN & 250 & MATHS & 64 & 1 \\
-8 & LIZA & 450 & COMPUTER & 68 & 1 \\
-9 & PUJA & 500 & PHYSICS & 62 & 1 \\
-10 & NISHA & 300 & COMPUTER & 57 & 2 \\
-\hline
-\end{tabular}
-
-\begin{enumerate}
-    \item[(i)] List the names of those students who have obtained rank 1 sorted by NAME.
-    \item[(ii)] Display a list of all those names whose AVERAGE is greater than 65.
-    \item[(iii)] Display the names of those students who have opted COMPUTER as a SUBJECT with an AVERAGE of more than 60.
-    \item[(iv)] List the names of all the students in alphabetical order.
-    \item[(v)] SELECT * FROM GRADUATE WHERE NAME LIKE "\%I\%";
-    \item[(vi)] SELECT DISTINCT RANK FROM GRADUATE;
-\end{enumerate}
-
-\subsubsection*{Solution}
-
-(i)
-\begin{lstlisting}[language=SQL]
-SELECT NAME
-FROM GRADUATE
-WHERE `RANK` = 1
-ORDER BY NAME;
-\end{lstlisting}
-
-(ii)
-\begin{lstlisting}[language=SQL]
-SELECT NAME
-FROM GRADUATE
-WHERE AVERAGE > 65;
-\end{lstlisting}
-
-(iii)
-\begin{lstlisting}[language=SQL]
-SELECT NAME
-FROM GRADUATE
-WHERE SUBJECT = 'COMPUTER' AND AVERAGE > 60;
-\end{lstlisting}
-
-(iv)
-\begin{lstlisting}[language=SQL]
-SELECT NAME
-FROM GRADUATE
-ORDER BY NAME;
-\end{lstlisting}
-
-(v)
-\begin{lstlisting}[language=SQL]
-SELECT * FROM GRADUATE WHERE NAME LIKE "%I%";
-\end{lstlisting}
-
-(vi)
-\begin{lstlisting}[language=SQL]
-SELECT DISTINCT `RANK` FROM GRADUATE;
-\end{lstlisting}
-
-\subsection*{Question 29(c)}
-For the given table, do as directed:
-
-\textbf{Table: STUDENT}
-
-\begin{tabular}{|l|l|l|l|}
-\hline
-ColumnName & Data type & size & Constraint \\
-\hline
-ROLLNO & Integer & 4 & Primary Key \\
-SNAME & Varchar & 25 & Not Null \\
-GENDER & Char & 1 & Not Null \\
-DOB & Date & & Not Null \\
-FEES & Integer & 4 & Not Null \\
-HOBBY & Varchar & 15 & Null \\
-\hline
-\end{tabular}
-
-\begin{enumerate}
-    \item[(i)] Write SQL query to create the table.
-    \item[(ii)] Write SQL query to increase the size of SNAME to hold 30 characters.
-    \item[(iii)] Write SQL query to remove the column HOBBY.
-    \item[(iv)] Write SQL query to insert a row in the table with any values of your choice that can be accommodated there.
-\end{enumerate}
-
-\subsubsection*{Solution}
-
-(i)
-\begin{lstlisting}[language=SQL]
-CREATE TABLE STUDENT(
-    ROLLNO INT(4) PRIMARY KEY,
-    SNAME VARCHAR(25) NOT NULL,
-    GENDER CHAR(1) NOT NULL,
-    DOB DATE NOT NULL,
-    FEES INT(4) NOT NULL,
-    HOBBY VARCHAR(15)
-);
-\end{lstlisting}
-
-(ii)
-\begin{lstlisting}[language=SQL]
-ALTER TABLE STUDENT MODIFY SNAME VARCHAR(30);
-\end{lstlisting}
-
-(iii)
-\begin{lstlisting}[language=SQL]
-ALTER TABLE STUDENT DROP HOBBY;
-\end{lstlisting}
-
-(iv)
-\begin{lstlisting}[language=SQL]
-INSERT INTO STUDENT(ROLLNO, SNAME, GENDER, DOB, FEES, HOBBY)
-VALUES (1, 'ANANYA', 'F', '2000-01-01', 5000, 'COOKING');
-\end{lstlisting}
-
-\subsection*{Question 30}
-Write SQL queries based on the following tables:
-
-\textbf{Table: PRODUCT}
-
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-P\_ID & ProductName & Manufacturer & Price & Discount \\
-\hline
-TP01 & Talcum Powder & LAK & 40 & NULL \\
-FW05 & Face Wash & ABC & 45 & 5 \\
-BS01 & Bath Soap & ABC & 55 & NULL \\
-5H06 & Shampoo & XYZ & 120 & 10 \\
-FW12 & Face Wash & XYZ & 95 & NULL \\
-\hline
-\end{tabular}
-
-\vspace{0.5cm}
-
-\textbf{Table: CLIENT}
-
-\begin{tabular}{|l|l|l|l|}
-\hline
-C\_ID & ClientName & City & P\_ID \\
-\hline
-01 & Cosmetic Shop & Delhi & TP01 \\
-02 & Total Health & Mumbai & FW05 \\
-03 & Live Life & Delhi & BS01 \\
-04 & Pretty Woman & Delhi & 5H06 \\
-05 & Dreams & Delhi & FW12 \\
-\hline
-\end{tabular}
-
-\begin{enumerate}
-    \item[(i)] Write SQL Query to display ProductName and Price for all products whose Price is in the range 50 to 150.
-    \item[(ii)] Write SQL Query to display details of products whose manufacturer is either XYZ or ABC.
-    \item[(iii)] Write SQL query to display ProductName, Manufacturer and Price for all products that are not giving any discount.
-    \item[(iv)] Write SQL query to display ProductName and price for all products whose ProductName ends with 'h'.
-    \item[(v)] Write SQL query to display ClientName, City, P\_ID and ProductName for all clients whose city is Delhi.
-    \item[(vi)] Which column is used as Foreign Key and name the table where it has been used as Foreign key?
-\end{enumerate}
-
-\subsubsection*{Solution}
-
-(i)
-\begin{lstlisting}[language=SQL]
-SELECT ProductName, Price 
-FROM PRODUCT
-WHERE Price BETWEEN 50 AND 150;
-\end{lstlisting}
-
-(ii)
-\begin{lstlisting}[language=SQL]
-SELECT * FROM PRODUCT
-WHERE Manufacturer = 'XYZ' OR Manufacturer = 'ABC';
-\end{lstlisting}
-
-(iii)
-\begin{lstlisting}[language=SQL]
-SELECT ProductName, Manufacturer, Price
-FROM PRODUCT
-WHERE Discount IS NULL;
-\end{lstlisting}
-
-(iv)
-\begin{lstlisting}[language=SQL]
-SELECT ProductName, Price
-FROM PRODUCT
-WHERE ProductName LIKE '%h';
-\end{lstlisting}
-
-(v)
-\begin{lstlisting}[language=SQL]
-SELECT C.ClientName, C.City, P.P_ID, P.ProductName 
-FROM PRODUCT P, CLIENT C 
-WHERE P.P_ID = C.P_ID AND C.CITY = 'DELHI';
-\end{lstlisting}
-
-(vi) The column used as a Foreign Key is P\_ID in the CLIENT table, and it references the P\_ID column in the PRODUCT table.
-
-\subsection*{Question 31}
-Answer the questions based on the table given below:
-
-\textbf{Table: HOSPITAL}
-
-\begin{tabular}{|l|l|l|l|l|l|l|}
-\hline
-S.No. & Name & Age & Department & Dateofadm & Charges & Sex \\
-\hline
-1 & Arpit & 62 & Surgery & 1998-01-21 & 300 & M \\
-2 & Zareena & 22 & ENT & 1997-12-12 & 250 & F \\
-3 & Kareem & 32 & Orthopaedic & 1998-02-19 & 200 & M \\
-4 & Arun & 12 & Surgery & 1998-01-11 & 300 & M \\
-5 & Zubin & 30 & ENT & 1998-01-12 & 250 & M \\
-6 & Ketaki & 16 & ENT & 1998-02-24 & 250 & F \\
-7 & Ankit & 29 & Cardiology & 1998-02-20 & 800 & F \\
-8 & Zareen & 45 & Gynaecology & 1998-02-22 & 300 & F \\
-9 & Kush & 19 & Cardiology & 1998-01-13 & 800 & M \\
-10 & Shilpa & 23 & Nuclear Medicine & 1998-02-21 & 400 & F \\
-\hline
-\end{tabular}
-
-\begin{enumerate}
-    \item[(a)] To list the names of all the patients admitted after 1998-01-15.
-    \item[(b)] To list the names of female patients who are in ENT department.
-    \item[(c)] To list the names of all patients with their date of admission in ascending order.
-    \item[(d)] To display Patient's Name, Charges, Age for only female patients.
-    \item[(e)] Find out the output of the following SQL commands:
-    \begin{itemize}
-        \item SELECT COUNT(DISTINCT Charges) FROM HOSPITAL;
-        \item SELECT MIN(Age) FROM HOSPITAL WHERE Sex = "F";
-    \end{itemize}
-\end{enumerate}
-
-\subsubsection*{Solution}
-
-(a)
-\begin{lstlisting}[language=SQL]
-SELECT NAME
-FROM HOSPITAL
-WHERE DATEOFADM > '1998-01-15';
-\end{lstlisting}
-
-(b)
-\begin{lstlisting}[language=SQL]
-SELECT NAME
-FROM HOSPITAL
-WHERE SEX = 'F' AND DEPARTMENT = 'ENT';
-\end{lstlisting}
-
-(c)
-\begin{lstlisting}[language=SQL]
-SELECT NAME, DATEOFADM
-FROM HOSPITAL
-ORDER BY DATEOFADM;
-\end{lstlisting}
-
-(d)
-\begin{lstlisting}[language=SQL]
-SELECT NAME, CHARGES, AGE
-FROM HOSPITAL
-WHERE SEX = 'F';
-\end{lstlisting}
-
-(e)
-
-1.
-\begin{lstlisting}[language=SQL]
-SELECT COUNT(DISTINCT Charges) FROM HOSPITAL;
-\end{lstlisting}
-
-2.
-\begin{lstlisting}[language=SQL]
-SELECT MIN(Age) FROM HOSPITAL WHERE Sex = "F";
-\end{lstlisting}
-
-\subsection*{Question 32}
-A department store MyStore is considering to maintain their inventory using SQL to store the data. As a database administrator, Abhay has decided that:
-
-\begin{itemize}
-    \item Name of the database --- mystore
-    \item Name of the table --- STORE
-\end{itemize}
-
-The attributes of STORE are as follows:
-
-ItemNo --- numeric
-
-ItemName --- character of size 20
-
-Scode --- numeric
-
-Quantity --- numeric
-
-\vspace{0.5cm}
-
-\textbf{Table: STORE}
-
-\begin{tabular}{|l|l|l|l|}
-\hline
-ItemNo & ItemName & Scode & Quantity \\
-\hline
-2005 & Sharpener Classic & 23 & 60 \\
-2003 & Ball Pen 0.25 & 22 & 50 \\
-2002 & Gel Pen Premium & 21 & 150 \\
-2006 & Gel Pen Classic & 21 & 250 \\
-2001 & Eraser Small & 22 & 220 \\
-2004 & Eraser Big & 22 & 110 \\
-2009 & Ball Pen 0.5 & 21 & 180 \\
-\hline
-\end{tabular}
-
-\begin{enumerate}
-    \item[(a)] Identify the attribute best suitable to be declared as a primary key.
-    \item[(b)] Write the degree and cardinality of the table STORE.
-    \item[(c)] Insert the following data into the attributes ItemNo, ItemName and SCode respectively in the given table STORE.
-
-    ItemNo = 2010, ItemName = "Note Book" and Scode = 25.
-    \item[(d)] Abhay wants to remove the table STORE from the database MyStore. Which command will he use from the following?
-    \begin{itemize}
-        \item DELETE FROM STORE;
-        \item DROP TABLE STORE;
-        \item DROP DATABASE MYSTORE;
-        \item DELETE STORE FROM MYSTORE;
-    \end{itemize}
-    \item[(e)] Now Abhay wants to display the structure of the table STORE, i.e., name of the attributes and their respective data types that he has used in the table. Write the query to display the same.
-\end{enumerate}
-
-\subsubsection*{Solution}
-
-(a) ItemNo attribute is best suitable to be declared as a primary key as it uniquely identifies each item in the inventory.
-
-(b) The degree of the table STORE is 4, and the cardinality of the table STORE is 7.
-
-(c)
-\begin{lstlisting}[language=SQL]
-INSERT INTO STORE(ItemNo, ItemName, Scode)
-VALUES(2010, 'Note Book', 25);
-\end{lstlisting}
-
-(d) DROP TABLE STORE;
-
-Reason --- DROP TABLE command is used to remove/delete a table permanently. The syntax is : DROP TABLE <table\_name>;. Hence, according to this DROP TABLE STORE; is the correct command to remove the STORE table from the database MyStore.
-
-(e)
-\begin{lstlisting}[language=SQL]
-DESCRIBE STORE;
-\end{lstlisting}
+\includegraphics[width=1\textwidth]{images/5/5_27_v.png}
 
 \section{Interfacing Python with SQL}
 
@@ -2557,7 +2231,7 @@ EMPNO & ENAME & DEPT & SALARY \\
 import mysql.connector
 mydb = mysql.connector.connect(host = "localhost",
                                 user = "root",
-                                passwd = "tiger",
+                                passwd = "123",
                                 database = "School")
 mycursor = mydb.cursor()
 mycursor.execute("select * FROM EMPLOYEE ORDER BY SALARY")
@@ -2576,7 +2250,7 @@ Write a program to increase salary of the employee, whose name is "MANOJ KUMAR",
 import mysql.connector
 mydb = mysql.connector.connect(host = "localhost",
                                 user = "root",
-                                passwd = "tiger",
+                                passwd = "123",
                                 database = "School")
 mycursor = mydb.cursor()
 mycursor.execute("UPDATE employee SET salary = salary + 3000 WHERE Ename = 'MANOJ KUMAR'")
@@ -2591,7 +2265,7 @@ Write a program to delete the employee record whose name is read from keyboard a
 import mysql.connector
 mydb = mysql.connector.connect(host = "localhost",
                                 user = "root",
-                                passwd = "tiger",
+                                passwd = "123",
                                 database = "School")
 mycursor = mydb.cursor()
 employee_name = input("Enter the name of the employee to delete: ")
@@ -2607,7 +2281,7 @@ Create a database TESTDB.
 import mysql.connector
 conn = mysql.connector.connect(host = 'localhost', 
                                 user = 'root', 
-                                passwd = 'tiger')
+                                passwd = '123')
 cursor = conn.cursor()
 cursor.execute("CREATE DATABASE TESTDB")
 conn.commit()
@@ -2622,7 +2296,7 @@ Create a table EMPLOYEE with Fields FIRST\_NAME, LAST\_NAME, AGE, GENDER and INC
 import mysql.connector
 mydb = mysql.connector.connect(host = 'localhost', 
                                user = 'root', 
-                               passwd = 'tiger', 
+                               passwd = '123', 
                                database = "kboat_cbse_12")
 mycursor = mydb.cursor()
 mycursor.execute("CREATE table EMPLOYEE (FIRST_NAME VARCHAR(45), LAST_NAME VARCHAR(45), AGE INTEGER, GENDER VARCHAR(10), INCOME FLOAT)")

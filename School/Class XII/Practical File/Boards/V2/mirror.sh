@@ -1,54 +1,10 @@
 #!/bin/bash
 # ====== PASTE ANYTHING BELOW THIS LINE ======
 : <<'CONTENT'
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 1
-Enter a name: Prajwal
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 1
-Enter a name: Amrita
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 1
-Enter a name: Kavya
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 1
-Enter a name: Drishti
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 3
-['Prajwal', 'Amrita', 'Kavya', 'Drishti']
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 2
-Deleted name is: Drishti
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 3
-['Prajwal', 'Amrita', 'Kavya']
-1. Add name
-2. Delete name
-3. Display names
-4. Exit
-Enter the Choice: 4
-Exiting program.
+(4, 'ABHAY', 'FASHION STUDIES', 45000.0)
+(1, 'RAJESH', 'IT', 60000.0)
+(2, 'MANOJ KUMAR', 'HISTORY', 65000.0)
+(3, 'ANUSHA', 'MARKETING', 70000.0)
 CONTENT
 # ====== END PASTE ======
 
