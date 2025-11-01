@@ -995,6 +995,9 @@ while ans == 'y':
 fileout.close()
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_9_1.png}
+\includegraphics[width=1\textwidth]{images/3/3_9_2.png}
+
 \subsection*{Question 14}
 Write a program that reads a text file and creates another file that is identical except that every sequence of consecutive blank spaces is replaced by a single space.
 
@@ -1016,6 +1019,8 @@ with open("input.txt", 'r') as f:
             modified_line = ' '.join(line.split())
             fout.write(modified_line + '\n')
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_14.png}
 
 \subsection*{Question 15}
 A file 'sports.dat' contains information in the following format: EventName, Participant
@@ -1044,6 +1049,8 @@ def filter_records(input_file, output_file):
 
 filter_records('sports.dat', 'Athletic.dat')
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_15.png}
 
 \subsection*{Question 16}
 Write a program to count the words ``to'' and ``the'' present in a text file ``Poem.txt''.
@@ -1076,6 +1083,8 @@ print("count of 'to': ", to_count)
 print("count of 'the': ", the_count)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_16.png}
+
 \subsection*{Question 17}
 Write a program to count the number of uppercase alphabets present in a text file ``Poem.txt''.
 
@@ -1096,6 +1105,8 @@ with open("Poem.txt", 'r') as file:
 
 print(count)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_17.png}
 
 \subsection*{Question 18}
 Write a program that copies one file to another. Have the program read the file names from user.
@@ -1152,6 +1163,8 @@ upper_file.close()
 others_file.close()
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_20.png}
+
 \subsection*{Question 21}
 Write a program to search the names and addresses of persons having age more than 30 in the data list of persons stored in a text file.
 
@@ -1174,6 +1187,8 @@ for line in lines:
         print('Name:', data[0], 'Address:', data[1])
 f.close()        
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_21.png}
 
 \subsection*{Question 22}
 Write a function in Python to count and display the number of lines starting with alphabet 'A' present in a text file ``LINES.TXT'', e.g., the file ``LINES.TXT'' contains the following lines:
@@ -1200,6 +1215,8 @@ def count_lines(file_name):
 count_lines("LINES.TXT")
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_22.png}
+
 \subsection*{Question 26}
 Write a program to accept string/sentences from the user till the user enters ``END''. Save the data in a text file and then display only those sentences which begin with an uppercase alphabet.
 
@@ -1223,6 +1240,8 @@ while True:
 f.close()
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_26.png}
+
 \subsection*{Question 27}
 Write a function to insert a sentence in a text file, assuming that text file is very big and can't fit in computer's memory.
 
@@ -1243,6 +1262,8 @@ def insert_sentence(file_path, sentence):
     file.close()
 insert_sentence("insert.txt", "life's essence glimmers")
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_27.png}
 
 \subsection*{Question 28}
 Write a program to read a file 'Story.txt' and create another file, storing an index of 'Story.txt', telling which line of the file each word appears in. If word appears more than once, then index should show all the line numbers containing the word.
@@ -1279,6 +1300,8 @@ for word, line_numbers in word_index.items():
 index_file.close()
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_28.png}
+
 \subsection*{Question 29}
 Write a program to accept a filename from the user and display all the lines from the file which contain Python comment character '\#'.
 
@@ -1300,6 +1323,8 @@ for line in lines:
         print(line)
 file.close()
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_29.png}
 
 \subsection*{Question 31}
 Write a Python program to display the size of a file after removing EOL characters, leading and trailing white spaces and blank lines.
@@ -1334,6 +1359,8 @@ file.close()
 print("Cleaned file size:", cleaned_size)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_31.png}
+
 \subsection*{Question 32}
 Write a function Remove\_Lowercase() that accepts two file names, and copies all lines that do not start with lowercase letter from the first file into the second file.
 
@@ -1362,6 +1389,8 @@ output_file = 'file2.txt'
 Remove_Lowercase(input_file, output_file)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_32.png}
+
 \subsection*{Question 33}
 Write a program to display all the records in a file along with line/record number.
 
@@ -1385,6 +1414,8 @@ for line in f:
 f.close()
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_33.png}
+
 \subsection*{Question 34}
 Write a method in Python to write multiple line of text contents into a text file ``mylife.txt''.
 
@@ -1398,6 +1429,8 @@ def write_to_file(file_path):
 
 write_to_file("mylife.txt")
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_34.png}
 
 \subsection*{Question 35}
 Write a method in Python to read the content from a text file ``DIARY.TXT'' line by line and display the same on the screen.
@@ -1478,6 +1511,8 @@ def display_students(file_name):
 display_students('student.dat')
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_42.png}
+
 \subsection*{Question 43}
 Following is the structure of each record in a data file named ``PRODUCT.DAT''.
 
@@ -1526,6 +1561,8 @@ New = int(input("Enter the new stock value: "))
 update_stock('PRODUCT.DAT', P_code, New)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_43.png}
+
 \subsection*{Question 44}
 Given a binary file ``STUDENT.DAT'', containing records of the following type:
 
@@ -1569,6 +1606,8 @@ def display_students(filename):
         file.close()
 display_students("STUDENT.DAT")
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_44.png}
 
 \subsection*{Question 50}
 Write a program to enter the following records in a binary file:
@@ -1619,6 +1658,8 @@ with open("item.dat", "rb") as file:
         pass  
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/3/3_50.png}
+
 \subsection*{Question 51}
 Create a CSV file ``Groceries'' to store information of different items existing in a shop. The information is to be stored w.r.t. each item code, name, price, qty. Write a program to accept the data from user and store it permanently in CSV file.
 
@@ -1640,6 +1681,8 @@ with open("Groceries.csv", mode = 'w', newline = '') as file:
         if choice.upper() == 'N':
             break
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/3/3_51.png}
 
 \section{Relational Databases and SQL}
 
