@@ -609,5 +609,271 @@ for value in my_dict.values():
 print("Total number of items in lists within the dictionary:", total_count)
 \end{lstlisting}
 
+\section{Functions}
+
+\subsection*{Question 2}
+Write a function called calculate\_area() that takes base and height as input arguments and returns area of a triangle as an output. The formula used is: Triangle Area = 1/2 * base * height
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def calculate_area(base, height):
+    area = (1/2) * base * height
+    return area
+
+base_value = int(input("Enter the base value: "))
+height_value = int(input("Enter the height value: "))
+triangle_area = calculate_area(base_value, height_value)
+print("Area of the triangle:", triangle_area)
+\end{lstlisting}
+
+\subsection*{Question 3}
+Modify the above function to take a third parameter called shape type. Shape type should be either triangle or rectangle. Based on the shape, it should calculate the area.
+Formula used: Rectangle Area = length * width
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def calculate_area(base, height, shape_type):
+    if shape_type == "triangle":
+        area = (1/2) * base * height
+    elif shape_type == "rectangle":
+        area = base * height
+    else:
+        area = None
+        print("Invalid shape type. Please specify either 'triangle' or 'rectangle'.")
+    return area
+
+shape_type = input("Enter the shape type, triangle or rectangle: ")
+base_value = int(input("Enter the base value: "))
+height_value = int(input("Enter the height value: "))
+area = calculate_area(base_value, height_value, shape_type)
+print("Area of the", shape_type, "is ", area)
+\end{lstlisting}
+
+\subsection*{Question 4}
+Write a function called print\_pattern() that takes integer number as argument and prints the following pattern if the input number is 3.
+
+\begin{verbatim}
+*
+**
+***
+\end{verbatim}
+
+If input is 4, then it should print:
+
+\begin{verbatim}
+*
+**
+***
+****
+\end{verbatim}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def print_pattern(num):
+    for i in range(1, num + 1):
+        print("*" * i)
+        
+num = int(input("Enter a number: "))        
+print("Pattern for input", num, ":")
+print_pattern(num)
+\end{lstlisting}
+
+\subsection*{Question 18}
+Write a function that takes amount-in-dollars and dollar-to-rupee conversion price; it then returns the amount converted to rupees. Create the function in both void and non-void forms.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def convert_dollars_to_rupees(amount_in_dollars, conversion_rate):
+    amount_in_rupees = amount_in_dollars * conversion_rate
+    return amount_in_rupees
+
+def convert_dollars_to_rupees_void(amount_in_dollars, conversion_rate):
+    amount_in_rupees = amount_in_dollars * conversion_rate
+    print("Amount in rupees:", amount_in_rupees)
+
+amount = float(input("Enter amount in dollars "))
+conversion_rate = float(input("Enter conversion rate "))
+
+# Non-void function call
+converted_amount = convert_dollars_to_rupees(amount, conversion_rate)
+print("Converted amount (non-void function):", converted_amount)
+
+# Void function call
+convert_dollars_to_rupees_void(amount, conversion_rate)
+\end{lstlisting}
+
+\subsection*{Question 19}
+Write a function to calculate volume of a box with appropriate default values for its parameters. Your function should have the following input parameters:
+
+\begin{itemize}
+    \item Length of box
+    \item Width of box
+    \item Height of box
+\end{itemize}
+
+Test it by writing a complete program to invoke it.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def calculate_volume(length = 5, width = 3, height = 2):
+    return length * width * height
+
+default_volume = calculate_volume()
+print("Volume of the box with default values:", default_volume)
+
+v = calculate_volume(10, 7, 15)
+print("Volume of the box with default values:", v)
+
+a = calculate_volume(length = 23, height = 6)
+print("Volume of the box with default values:", a)
+
+b = calculate_volume(width = 19)
+print("Volume of the box with default values:", b)
+\end{lstlisting}
+
+\subsection*{Question 20}
+Write a program to display first four multiples of a number using recursion.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def display_multiples(n, count = 1):
+    if count > 4:
+        return
+    print(n * count)
+    display_multiples(n, count + 1)
+
+n = int(input("Enter the number: "))
+display_multiples(n)
+\end{lstlisting}
+
+\subsection*{Question 22}
+Write a recursive function to add the first 'n' terms of the series:
+
+\begin{center}
+1 + 1/2 - 1/3 + 1/4 - 1/5...
+\end{center}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def add_series_terms(n):
+    if n == 1:
+        return 1
+    elif n % 2 == 0:
+        return add_series_terms(n - 1) + 1 / n
+    else:
+        return add_series_terms(n - 1) - 1 / n
+
+n = int(input("Enter the term: "))
+print(add_series_terms(n))
+\end{lstlisting}
+
+\subsection*{Question 23}
+Write a program to find the greatest common divisor between two numbers.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+gcd_value = gcd(num1, num2)
+print("The greatest common divisor of", num1, "and", num2, "is", gcd_value)
+\end{lstlisting}
+
+\subsection*{Question 24}
+Write a Python function to multiply all the numbers in a list.
+
+Sample List: (8, 2, 3, -1, 7)
+
+Expected Output: -336
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def multiply_list(numbers):
+    product = 1
+    for num in numbers:
+        product *= num
+    return product
+
+numbers = eval(input("Enter the list: "))
+product = multiply_list(numbers)
+print("The product of the numbers in the list is", product)
+\end{lstlisting}
+
+\subsection*{Question 25}
+Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number whose factorial is to be calculated as the argument.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def factorial(n):
+    product = 1
+    for i in range(1, n + 1):
+        product *= i
+    return product
+
+n = int(input("Enter a number: "))
+fact = factorial(n)
+print("The factorial of", n, "is", fact)
+\end{lstlisting}
+
+\subsection*{Question 26}
+Write a Python function that takes a number as a parameter and checks whether the number is prime or not.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def is_prime(n):
+    if n <= 1:
+        return False
+    factors = 0
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors += 1
+        if factors > 2:
+            return False
+    return True
+
+num = int(input("Enter a number: "))
+is_prime_num = is_prime(num)
+print("Is", num, "prime?", is_prime_num)
+\end{lstlisting}
+
+\subsection*{Question 27}
+Write a Python function that checks whether a passed string is a palindrome or not.
+
+Note: A palindrome is a word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def is_palindrome(s):
+    s = s.lower()
+    return s == s[::-1]
+
+input_string = input("Enter a string: ")
+if is_palindrome(input_string):
+    print(input_string, "is a palindrome.")
+else:
+    print(input_string, "is not a palindrome.")
+\end{lstlisting}
+
+\subsection*{Question 28}
+Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.
+
+Sample Items: green-red-yellow-black-white
+
+Expected Result: black-green-red-white-yellow
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def sort_words(s):
+    words = s.split('-')
+    words.sort()
+    return '-'.join(words)
+
+input_str = input('Enter a hyphen-separated sequence of words: ')
+print(sort_words(input_str))
+\end{lstlisting}
 
 \end{document}
