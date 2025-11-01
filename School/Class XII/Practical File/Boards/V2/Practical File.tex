@@ -1538,346 +1538,772 @@ with open("Groceries.csv", mode = 'w', newline = '') as file:
             break
 \end{lstlisting}
 
-\section{Data Structures}
+\section{Relational Databases and SQL}
 
-\subsection*{Question 7}
-Write an interactive menu-driven program implementing Stack using list. The list is storing numeric data.
+\subsection*{Question 17}
+Write SQL queries to perform the following based on the table PRODUCT having fields as (prod\_id, prod\_name, quantity, unit\_rate, price, city)
+
+\begin{enumerate}
+    \item[(i)] Display those records from table PRODUCT where prod\_id is more than 100.
+    \item[(ii)] List records from table PRODUCT where prod\_name is 'Almirah'.
+    \item[(iii)] List all those records whose price is between 200 and 500.
+    \item[(iv)] Display the product names whose price is less than the average of price.
+    \item[(v)] Show the total number of records in the table PRODUCT.
+\end{enumerate}
 
 \subsubsection*{Solution}
-\begin{lstlisting}
-def push(num):
-    h = int(input("Enter a number: "))
-    num.append(h)
 
-def pop(num):
-    if len(num) == 0:
-        print("No number to delete")
-    else:
-        print("Deleted number is:", num.pop())
-
-def display(num):
-    print(num)
-
-num = []
-while True:
-    print("1. Add number")
-    print("2. Delete number")
-    print("3. Display numbers")
-    print("4. Exit")
-    op = int(input("Enter the Choice: "))
-    if op == 1:
-        push(num)
-    elif op == 2:
-        pop(num)
-    elif op == 3:
-        display(num)
-    elif op == 4:
-        print("Exiting program.")
-        break
-    else:
-        print("Invalid choice. Please enter a number between 1 and 4.")
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT * FROM PRODUCT
+WHERE prod_id > 100;
 \end{lstlisting}
 
-\subsection*{Question 8}
-Write an interactive menu-driven program to implement Stack using list. The list contains the names of students.
-
-\subsubsection*{Solution}
-\begin{lstlisting}
-def push(student):
-    h = input("Enter a name: ")
-    student.append(h)
-
-def pop(student):
-    if len(student) == 0:
-        print("No name to delete")
-    else:
-        print("Deleted name is:", student.pop())
-
-def display(student):
-    print(student)
-
-student = []
-while True:
-    print("1. Add name")
-    print("2. Delete name")
-    print("3. Display names")
-    print("4. Exit")
-    op = int(input("Enter the Choice: "))
-    if op == 1:
-        push(student)
-    elif op == 2:
-        pop(student)
-    elif op == 3:
-        display(student)
-    elif op == 4:
-        print("Exiting program.")
-        break
-    else:
-        print("Invalid choice. Please enter a number between 1 and 4.")
+(ii)
+\begin{lstlisting}[language=SQL]
+SELECT * FROM PRODUCT
+WHERE prod_name = 'Almirah';
 \end{lstlisting}
 
-\subsection*{Question 10}
-Write a menu-driven Python program using queue to implement movement of shuttlecock in its box.
-
-\subsubsection*{Solution}
-\begin{lstlisting}
-queue = []
-
-def display_queue():
-    if not queue:
-        print("Queue is empty")
-    else:
-        print("Current queue:", queue)
-
-def enqueue(item):
-    queue.append(item)
-
-def dequeue():
-    if queue:
-        removed = queue.pop(0)
-        print("Removed", removed, "from the queue")
-    else:
-        print("Queue is empty, cannot remove")
-
-while True:
-    print("\nMENU:")
-    print("1. Add movement to the queue")
-    print("2. Remove movement from the queue")
-    print("3. Display current queue")
-    print("4. Exit")
-    
-    choice = input("Enter your choice (1-4): ")
-
-    if choice == '1':
-        movement = input("Enter the movement (up/down): ")
-        enqueue(movement)
-        print("Added", movement, "to the queue")
-    elif choice == '2':
-        dequeue()
-    elif choice == '3':
-        display_queue()
-    elif choice == '4':
-        print("Exiting program...")
-        break
-    else:
-        print("Invalid choice, please try again")
+(iii)
+\begin{lstlisting}[language=SQL]
+SELECT * FROM PRODUCT
+WHERE price BETWEEN 200 AND 500;
 \end{lstlisting}
 
-\subsection*{Question 11}
-Give the necessary declaration of a list implemented Stack containing float type numbers. Also, write a user-defined function to pop a number from this Stack.
-
-\subsubsection*{Solution}
-\begin{lstlisting}
-# Declaration for list implemented stack
-Stack = list()
-
-# Function body to pop a number from the stack
-def pop_element(Stack):
-    if not Stack:
-        print("Stack is empty")
-    else:
-        Num = Stack.pop() 
-        print("Value deleted from stack is", Num)
-
-Stack = [1.5, 2.7, 3.2, 4.9]
-print("Initial Stack:", Stack)
-
-pop_element(Stack)
-print("Stack after pop operation:", Stack)
+(iv)
+\begin{lstlisting}[language=SQL]
+SELECT prod_name
+FROM PRODUCT
+WHERE price < (SELECT AVG(price) FROM PRODUCT);
 \end{lstlisting}
 
-\subsection*{Question 12}
-A linear Stack called Directory contains the following information as contacts:
-
-\begin{itemize}
-    \item Pin code of city
-    \item Name of city
-\end{itemize}
-
-Write add(Directory) and delete(Directory) methods in Python to add and remove contacts using append() and pop() operations in Stack.
-
-\subsubsection*{Solution}
-\begin{lstlisting}
-def add(Directory):
-    pincode = int(input("Enter pincode of city: "))
-    cityname = input("Enter the city name: ")
-    contact = [pincode, cityname]
-    Directory.append(contact)
-
-def delete(Directory):
-    if (Directory == []):
-        print("Directory is empty")
-    else:
-        print("Deleted contact:", Directory.pop())
-        
-Directory = []
-add(Directory)
-add(Directory)
-print("Initial Directory Stack:", Directory)
-
-delete(Directory)
-print("Directory Stack after deletion:", Directory)
+(v)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(*) AS total_records FROM PRODUCT;
 \end{lstlisting}
 
-\subsection*{Question 13}
-Write AddClient(Client) and DeleteClient(Client) methods in Python to add a new client and delete a client from a list client name, considering them to act as insert and delete operations of the Queue data structure.
+\subsection*{Question 20}
+Consider the following EMP and DEPT tables:
+
+\textbf{Table: EMP}
+
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+EmpNo & EmpName & City & Designation & DOJ & Sal & Comm & DeptID \\
+\hline
+8369 & SMITH & Mumbai & CLERK & 1990-12-18 & 800.00 & NULL & 20 \\
+8499 & ANYA & Varanasi & SALESMAN & 1991-02-20 & 1600.00 & 300.00 & 30 \\
+8521 & SETH & Jaipur & SALESMAN & 1991-02-22 & 1250.00 & 500.00 & 30 \\
+8566 & MAHADEVAN & Delhi & MANAGER & 1991-04-02 & 2985.00 & NULL & 20 \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{Table: DEPT}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+DeptID & DeptName & MgrID & Location \\
+\hline
+10 & SALES & 8566 & Mumbai \\
+20 & PERSONNEL & 9698 & Delhi \\
+30 & ACCOUNTS & 4578 & Delhi \\
+40 & RESEARCH & 8839 & Bengaluru \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+Write the SQL command to get the following:
+
+\begin{enumerate}
+    \item[(a)] Show the minimum, maximum and average salary of managers.
+    \item[(b)] Count the number of clerks in the organization.
+    \item[(c)] Display the designation-wise list of employees with name, salary and date of joining.
+    \item[(d)] Count the number of employees who are not getting commission.
+    \item[(e)] Show the average salary for all departments having salary > 2000.
+    \item[(f)] List the count of employees grouped by DeptID.
+    \item[(g)] Display the maximum salary of employees in each department.
+    \item[(h)] Display the name of employees along with their designation and department name.
+    \item[(i)] Count the number of employees working in ACCOUNTS department.
+\end{enumerate}
 
 \subsubsection*{Solution}
-\begin{lstlisting}
-def AddClient(client):
-    client_name = input("Enter client name: ")
-    client.append(client_name)
 
-def DeleteClient(client):
-    if client == []:
-        print("Queue is empty")
-    else:
-        print("Deleted client:", client.pop(0))
-
-client = []
-
-AddClient(client)
-AddClient(client)
-AddClient(client)
-print("Initial Client Queue:", client)
-
-DeleteClient(client)
-print("Client Queue after deletion:", client)
+(a)
+\begin{lstlisting}[language=SQL]
+SELECT MIN(Sal) AS MinSalary, MAX(Sal) AS MaxSalary, AVG(Sal) AS AvgSalary
+FROM EMP
+WHERE Designation = 'MANAGER';
 \end{lstlisting}
 
-\subsection*{Question 15}
-Write Addscore(Game) and Delscore(Game) methods in Python to add new Score in the list of score in a game and remove a score from a list of score of a game considering these methods to act as PUSH and POP operation of data structure Stack.
-
-\subsubsection*{Solution}
-\begin{lstlisting}
-def Addscore(Game):
-    score = int(input("Enter the score to add: "))
-    Game.append(score)
-
-def Delscore(Game):
-    if Game == []:
-        print("Game's score list is empty")
-    else: 
-        print("Deleted score:", Game.pop())
-        
-Game = []
-
-Addscore(Game)
-Addscore(Game)
-Addscore(Game)
-print("Initial Game Stack:", Game)
-
-Delscore(Game)
-print("Game Stack after deletion:", Game)
+(b)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(*) AS ClerkCount
+FROM EMP
+WHERE Designation = 'CLERK';
 \end{lstlisting}
 
-\subsection*{Question 16}
-Write a Python program to sort a Stack in ascending order without using an additional Stack.
-
-\subsubsection*{Solution}
-\begin{lstlisting}
-def pushSorted(s, num):
-    if len(s) == 0 or num > s[-1]:
-        s.append(num)
-        return
-    else:
-        t = s.pop()
-        pushSorted(s, num)
-        s.append(t)
-
-def doSort(s):
-    if len(s) != 0:
-        t = s.pop()
-        doSort(s)
-        pushSorted(s, t)
-
-s = []
-s.append(12)
-s.append(5)
-s.append(-3)
-s.append(4)
-s.append(10)
-
-print("Stack before sorting: ")
-print(s)
-
-doSort(s)
-
-print("\nStack after sorting: ")
-print(s)
+(c)
+\begin{lstlisting}[language=SQL]
+SELECT Designation, EmpName, Sal, DOJ
+FROM EMP
+ORDER BY Designation;
 \end{lstlisting}
 
-\subsection*{Question 19}
-Write a program to create a Stack for storing only odd numbers out of all the numbers entered by the user. Display the content of the Stack along with the largest odd number in the Stack.
+(d)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(*) AS No_comm
+FROM EMP
+WHERE comm is NULL;
+\end{lstlisting}
 
-(Hint: Keep popping out the elements from Stack and maintain the largest element retrieved so far in a variable. Repeat till Stack is empty.)
+(e)
+\begin{lstlisting}[language=SQL]
+SELECT D.DeptName, AVG(E.Sal) AS AvgSalary
+FROM EMP E, DEPT D
+WHERE E.DeptID = D.DeptID AND E.Sal > 2000
+GROUP BY D.DeptName;
+\end{lstlisting}
 
-\subsubsection*{Solution}
-\begin{lstlisting}
-def push(stack, item):
-    stack.append(item)
+(f)
+\begin{lstlisting}[language=SQL]
+SELECT DeptID, COUNT(*) AS EmpCount
+FROM EMP
+GROUP BY DeptID;
+\end{lstlisting}
 
-def pop(stack):
-    if stack == []:
-        return None
-    return stack.pop()
+(g)
+\begin{lstlisting}[language=SQL]
+SELECT D.DeptName, MAX(E.Sal) AS MaxSalary
+FROM EMP E, DEPT D
+WHERE E.DeptID = D.DeptID
+GROUP BY D.DeptName;
+\end{lstlisting}
 
-def oddStack(num):
-    if num % 2 == 1:
-        push(stack, num)
+(h)
+\begin{lstlisting}[language=SQL]
+SELECT EMP.EMPNAME, EMP.DESIGNATION, DEPT.DEPTNAME
+FROM EMP, DEPT
+WHERE EMP.DEPTID = DEPT.DEPTID;
+\end{lstlisting}
 
-def GetLargest(stack):
-    elem = pop(stack)
-    large = elem
-    while elem != None:
-        if large < elem:
-            large = elem
-        elem = pop(stack)
-    return large
-
-n = int(input("How many numbers?"))
-stack = []
-for i in range(n):
-    number = int(input("Enter number:"))
-    oddStack(number)
-print("Stack created is", stack)
-bigNum = GetLargest(stack)
-print("Largest number in stack", bigNum)
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(*) AS NUM_EMP
+FROM EMP, DEPT
+WHERE EMP.DEPTID = DEPT.DEPTID
+AND DEPTNAME = 'ACCOUNTS';
 \end{lstlisting}
 
 \subsection*{Question 21}
-Write a program that, depending upon the user's choice, either pushes or pops an element in a Stack. The elements are shifted towards the right so that the top always remains at 0th (zeroth) index.
+Write SQL commands for (i) to (vi) and write output for (vii) on the basis of the following PRODUCTS relation given below:
+
+\textbf{Table: PRODUCTS}
+
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+PCODE & PNAME & COMPANY & PRICE & STOCK & MANUFACTURE & WARRANTY \\
+\hline
+P001 & TV & BPL & 10000 & 200 & 2018-01-12 & 3 \\
+P002 & TV & SONY & 12000 & 150 & 2017-03-23 & 4 \\
+P003 & PC & LENOVO & 39000 & 100 & 2018-04-09 & 2 \\
+P004 & PC & COMPAQ & 38000 & 120 & 2019-06-20 & 2 \\
+P005 & HANDYCAM & SONY & 18000 & 250 & 2017-03-23 & 3 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(i)] To show details of all PCs with stock more than 110.
+    \item[(ii)] To list the company which gives warranty of more than 2 years.
+    \item[(iii)] To find stock value of the BPL company where stock value is the sum of the products of price and stock.
+    \item[(iv)] To show number of products from each company.
+    \item[(v)] To count the number of PRODUCTS which shall be out of warranty on 20-NOV-2020.
+    \item[(vi)] To show the average price of all products.
+    \item[(vii)] Give the output of the following statements:
+    \begin{itemize}
+        \item[(a)] SELECT COUNT(DISTINCT COMPANY) FROM PRODUCTS;
+        \item[(b)] SELECT MAX(PRICE) FROM PRODUCTS WHERE WARRANTY <= 3;
+    \end{itemize}
+\end{enumerate}
 
 \subsubsection*{Solution}
-\begin{lstlisting}
-def push(stack, element):
-    stack.insert(0, element)  
 
-def pop(stack):
-    if stack == []:
-        print("Stack is empty")
-    else:
-        print("Popped element:", stack.pop(0))
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT *
+FROM PRODUCTS
+WHERE PNAME = 'PC' AND STOCK > 110;
+\end{lstlisting}
 
-stack = []
+(ii)
+\begin{lstlisting}[language=SQL]
+SELECT DISTINCT COMPANY
+FROM PRODUCTS
+WHERE WARRANTY > 2;
+\end{lstlisting}
 
-while True:
-    print("STACK OPERATIONS")
-    print("1. Push element")
-    print("2. Pop element")
-    print("3. Exit")
-    choice = input("Enter your choice (1-3): ")
+(iii)
+\begin{lstlisting}[language=SQL]
+SELECT COMPANY, SUM(PRICE * STOCK) AS StockValue 
+FROM PRODUCTS 
+WHERE COMPANY = 'BPL';
+\end{lstlisting}
 
-    if choice == '1':
-        element = input("Enter the element to push: ")
-        push(stack, element)
-    elif choice == '2':
-        pop(stack)
-    elif choice == '3':
-        print("Exiting program")
-        break
-    else:
-        print("Invalid choice. Please enter a valid option.")
+(iv)
+\begin{lstlisting}[language=SQL]
+SELECT COMPANY, COUNT(*) AS ProductCount
+FROM PRODUCTS
+GROUP BY COMPANY;
+\end{lstlisting}
+
+(v)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(*)
+FROM PRODUCTS
+WHERE DATE_ADD(MANUFACTURE, INTERVAL WARRANTY YEAR) <= '2020-11-20';
+\end{lstlisting}
+
+(vi)
+\begin{lstlisting}[language=SQL]
+SELECT AVG(PRICE) FROM PRODUCTS;
+\end{lstlisting}
+
+(vii)
+
+(a)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(DISTINCT COMPANY) FROM PRODUCTS;
+\end{lstlisting}
+
+(b)
+\begin{lstlisting}[language=SQL]
+SELECT MAX(PRICE) FROM PRODUCTS WHERE WARRANTY <= 3;
+\end{lstlisting}
+
+\subsection*{Question 22}
+Write SQL commands for (i) to (vi) on the basis of relations given below:
+
+\textbf{Table: BOOKS}
+
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+Book\_ID & Book\_name & Author\_name & Publishers & Price & Type & qty \\
+\hline
+K0001 & Let us C & Y. Kanetkar & EPB & 450 & Prog & 15 \\
+P0001 & Computer Networks & B. Agarwal & FIRST PUBL & 755 & Comp & 24 \\
+M0001 & Mastering C++ & K.R. Venugopal & EPB & 165 & Prog & 60 \\
+N0002 & VC++ advance & P. Purohit & TDH & 250 & Prog & 45 \\
+K0002 & Programming with Python & Sanjeev & FIRST PUBL & 350 & Prog & 30 \\
+L02 & Computer Science with Python & Sumita Arora & Dhanpat rai & 655 & Prog & 16 \\
+L04 & Computer Science with Python & Preeti Arora & Sultan chand & 550 & Prog & 20 \\
+L05 & Concise Mathematics & R.K.Bansal & Selina & 600 & Maths & 10 \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{Table: ISSUED}
+
+\begin{tabular}{|l|l|}
+\hline
+Book\_ID & Qty\_Issued \\
+\hline
+L02 & 13 \\
+L04 & 5 \\
+L05 & 21 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(i)] To show the books of "FIRST PUBL" Publishers written by P.Purohit.
+    \item[(ii)] To display cost of all the books published for FIRST PUBL.
+    \item[(iii)] Depreciate the price of all books of EPB publishers by 5\%.
+    \item[(iv)] To display the bookname and price of the books, more than 3 copies of which have been issued.
+    \item[(v)] To show total cost of books of each type.
+    \item[(vi)] To show the details of the costliest book.
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT BOOK_NAME
+FROM BOOKS
+WHERE PUBLISHERS = "FIRST PUBL" AND AUTHOR_NAME = "P.PUROHIT";
+\end{lstlisting}
+
+(ii)
+\begin{lstlisting}[language=SQL]
+SELECT SUM(Price * qty) AS Cost
+FROM BOOKS
+WHERE Publishers = 'FIRST PUBL'
+GROUP BY publishers;
+\end{lstlisting}
+
+(iii)
+\begin{lstlisting}[language=SQL]
+UPDATE BOOKS 
+SET Price = Price - (Price * 5/100)  
+WHERE Publishers = 'EPB';
+\end{lstlisting}
+
+(iv)
+\begin{lstlisting}[language=SQL]
+SELECT b.Book_name, b.Price
+FROM BOOKS b, ISSUED i 
+WHERE b.Book_ID = i.Book_ID and i.Qty_Issued > 3;
+\end{lstlisting}
+
+(v)
+\begin{lstlisting}[language=SQL]
+SELECT Type, SUM(Price * qty) AS Total_Cost
+FROM BOOKS
+GROUP BY Type;
+\end{lstlisting}
+
+(vi)
+\begin{lstlisting}[language=SQL]
+SELECT *
+FROM BOOKS
+WHERE Price = (SELECT MAX(Price) FROM BOOKS);
+\end{lstlisting}
+
+\subsection*{Question 27}
+Write SQL Commands/output for the following on the basis of the given table:
+
+\textbf{Table: FURNITURE}
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+NO & ITEM & TYPE & DATEOFSTOCK & PRICE & DISCOUNT \\
+\hline
+1 & White Lotus & DoubleBed & 2002-02-23 & 3000 & 25 \\
+2 & Pinkfeathers & BabyCot & 2002-01-29 & 7000 & 20 \\
+3 & Dolphin & BabyCot & 2002-02-19 & 9500 & 20 \\
+4 & Decent & OfficeTable & 2002-02-01 & 25000 & 30 \\
+5 & Comfortzone & DoubleBed & 2002-02-12 & 25000 & 30 \\
+6 & Donald & BabyCot & 2002-02-24 & 6500 & 15 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(i)] To list the details of furniture whose price is more than 10000.
+    \item[(ii)] To list the Item name and Price of furniture whose discount is between 10 and 20.
+    \item[(iii)] To delete the record of all items where discount is 30.
+    \item[(iv)] To display the price of 'Babycot'.
+    \item[(v)] To list item name, type and price of all items whose names start with 'D'.
+    \item[(vi)] SELECT DISTINCT Type FROM Furniture;
+    \item[(vii)] SELECT MAX(PRICE) FROM Furniture WHERE DateofStock > '2002-02-15' ;
+    \item[(viii)] SELECT COUNT(*) FROM Furniture WHERE Discount < 25 ;
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT *
+FROM FURNITURE
+WHERE PRICE > 10000;
+\end{lstlisting}
+
+(ii)
+\begin{lstlisting}[language=SQL]
+SELECT ITEM, PRICE
+FROM FURNITURE
+WHERE DISCOUNT BETWEEN 10 AND 20;
+\end{lstlisting}
+
+(iii)
+\begin{lstlisting}[language=SQL]
+DELETE FROM FURNITURE WHERE DISCOUNT = 30;
+\end{lstlisting}
+
+(iv)
+\begin{lstlisting}[language=SQL]
+SELECT PRICE
+FROM FURNITURE
+WHERE TYPE = 'BabyCot';
+\end{lstlisting}
+
+(v)
+\begin{lstlisting}[language=SQL]
+SELECT ITEM, TYPE, PRICE
+FROM FURNITURE
+WHERE ITEM LIKE 'D%';
+\end{lstlisting}
+
+(vi)
+\begin{lstlisting}[language=SQL]
+SELECT DISTINCT Type FROM Furniture;
+\end{lstlisting}
+
+(vii)
+\begin{lstlisting}[language=SQL]
+SELECT MAX(PRICE) FROM Furniture WHERE DateofStock > '2002-02-15' ;
+\end{lstlisting}
+
+(viii)
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(*) FROM Furniture WHERE Discount < 25 ;
+\end{lstlisting}
+
+\subsection*{Question 28}
+Write SQL Commands/output for the following on the basis of the given table GRADUATE:
+
+\textbf{Table: GRADUATE}
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+S.No. & NAME & STIPEND & SUBJECT & AVERAGE & RANK \\
+\hline
+1 & KARAN & 400 & PHYSICS & 68 & 1 \\
+2 & RAJ & 450 & CHEMISTRY & 68 & 1 \\
+3 & DEEP & 300 & MATHS & 62 & 2 \\
+4 & DIVYA & 350 & CHEMISTRY & 63 & 1 \\
+5 & GAURAV & 500 & PHYSICS & 70 & 1 \\
+6 & MANAV & 400 & CHEMISTRY & 55 & 2 \\
+7 & VARUN & 250 & MATHS & 64 & 1 \\
+8 & LIZA & 450 & COMPUTER & 68 & 1 \\
+9 & PUJA & 500 & PHYSICS & 62 & 1 \\
+10 & NISHA & 300 & COMPUTER & 57 & 2 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(i)] List the names of those students who have obtained rank 1 sorted by NAME.
+    \item[(ii)] Display a list of all those names whose AVERAGE is greater than 65.
+    \item[(iii)] Display the names of those students who have opted COMPUTER as a SUBJECT with an AVERAGE of more than 60.
+    \item[(iv)] List the names of all the students in alphabetical order.
+    \item[(v)] SELECT * FROM GRADUATE WHERE NAME LIKE "\%I\%";
+    \item[(vi)] SELECT DISTINCT RANK FROM GRADUATE;
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT NAME
+FROM GRADUATE
+WHERE `RANK` = 1
+ORDER BY NAME;
+\end{lstlisting}
+
+(ii)
+\begin{lstlisting}[language=SQL]
+SELECT NAME
+FROM GRADUATE
+WHERE AVERAGE > 65;
+\end{lstlisting}
+
+(iii)
+\begin{lstlisting}[language=SQL]
+SELECT NAME
+FROM GRADUATE
+WHERE SUBJECT = 'COMPUTER' AND AVERAGE > 60;
+\end{lstlisting}
+
+(iv)
+\begin{lstlisting}[language=SQL]
+SELECT NAME
+FROM GRADUATE
+ORDER BY NAME;
+\end{lstlisting}
+
+(v)
+\begin{lstlisting}[language=SQL]
+SELECT * FROM GRADUATE WHERE NAME LIKE "%I%";
+\end{lstlisting}
+
+(vi)
+\begin{lstlisting}[language=SQL]
+SELECT DISTINCT `RANK` FROM GRADUATE;
+\end{lstlisting}
+
+\subsection*{Question 29(c)}
+For the given table, do as directed:
+
+\textbf{Table: STUDENT}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+ColumnName & Data type & size & Constraint \\
+\hline
+ROLLNO & Integer & 4 & Primary Key \\
+SNAME & Varchar & 25 & Not Null \\
+GENDER & Char & 1 & Not Null \\
+DOB & Date & & Not Null \\
+FEES & Integer & 4 & Not Null \\
+HOBBY & Varchar & 15 & Null \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(i)] Write SQL query to create the table.
+    \item[(ii)] Write SQL query to increase the size of SNAME to hold 30 characters.
+    \item[(iii)] Write SQL query to remove the column HOBBY.
+    \item[(iv)] Write SQL query to insert a row in the table with any values of your choice that can be accommodated there.
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(i)
+\begin{lstlisting}[language=SQL]
+CREATE TABLE STUDENT(
+    ROLLNO INT(4) PRIMARY KEY,
+    SNAME VARCHAR(25) NOT NULL,
+    GENDER CHAR(1) NOT NULL,
+    DOB DATE NOT NULL,
+    FEES INT(4) NOT NULL,
+    HOBBY VARCHAR(15)
+);
+\end{lstlisting}
+
+(ii)
+\begin{lstlisting}[language=SQL]
+ALTER TABLE STUDENT MODIFY SNAME VARCHAR(30);
+\end{lstlisting}
+
+(iii)
+\begin{lstlisting}[language=SQL]
+ALTER TABLE STUDENT DROP HOBBY;
+\end{lstlisting}
+
+(iv)
+\begin{lstlisting}[language=SQL]
+INSERT INTO STUDENT(ROLLNO, SNAME, GENDER, DOB, FEES, HOBBY)
+VALUES (1, 'ANANYA', 'F', '2000-01-01', 5000, 'COOKING');
+\end{lstlisting}
+
+\subsection*{Question 30}
+Write SQL queries based on the following tables:
+
+\textbf{Table: PRODUCT}
+
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+P\_ID & ProductName & Manufacturer & Price & Discount \\
+\hline
+TP01 & Talcum Powder & LAK & 40 & NULL \\
+FW05 & Face Wash & ABC & 45 & 5 \\
+BS01 & Bath Soap & ABC & 55 & NULL \\
+5H06 & Shampoo & XYZ & 120 & 10 \\
+FW12 & Face Wash & XYZ & 95 & NULL \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{Table: CLIENT}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+C\_ID & ClientName & City & P\_ID \\
+\hline
+01 & Cosmetic Shop & Delhi & TP01 \\
+02 & Total Health & Mumbai & FW05 \\
+03 & Live Life & Delhi & BS01 \\
+04 & Pretty Woman & Delhi & 5H06 \\
+05 & Dreams & Delhi & FW12 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(i)] Write SQL Query to display ProductName and Price for all products whose Price is in the range 50 to 150.
+    \item[(ii)] Write SQL Query to display details of products whose manufacturer is either XYZ or ABC.
+    \item[(iii)] Write SQL query to display ProductName, Manufacturer and Price for all products that are not giving any discount.
+    \item[(iv)] Write SQL query to display ProductName and price for all products whose ProductName ends with 'h'.
+    \item[(v)] Write SQL query to display ClientName, City, P\_ID and ProductName for all clients whose city is Delhi.
+    \item[(vi)] Which column is used as Foreign Key and name the table where it has been used as Foreign key?
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(i)
+\begin{lstlisting}[language=SQL]
+SELECT ProductName, Price 
+FROM PRODUCT
+WHERE Price BETWEEN 50 AND 150;
+\end{lstlisting}
+
+(ii)
+\begin{lstlisting}[language=SQL]
+SELECT * FROM PRODUCT
+WHERE Manufacturer = 'XYZ' OR Manufacturer = 'ABC';
+\end{lstlisting}
+
+(iii)
+\begin{lstlisting}[language=SQL]
+SELECT ProductName, Manufacturer, Price
+FROM PRODUCT
+WHERE Discount IS NULL;
+\end{lstlisting}
+
+(iv)
+\begin{lstlisting}[language=SQL]
+SELECT ProductName, Price
+FROM PRODUCT
+WHERE ProductName LIKE '%h';
+\end{lstlisting}
+
+(v)
+\begin{lstlisting}[language=SQL]
+SELECT C.ClientName, C.City, P.P_ID, P.ProductName 
+FROM PRODUCT P, CLIENT C 
+WHERE P.P_ID = C.P_ID AND C.CITY = 'DELHI';
+\end{lstlisting}
+
+(vi) The column used as a Foreign Key is P\_ID in the CLIENT table, and it references the P\_ID column in the PRODUCT table.
+
+\subsection*{Question 31}
+Answer the questions based on the table given below:
+
+\textbf{Table: HOSPITAL}
+
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+S.No. & Name & Age & Department & Dateofadm & Charges & Sex \\
+\hline
+1 & Arpit & 62 & Surgery & 1998-01-21 & 300 & M \\
+2 & Zareena & 22 & ENT & 1997-12-12 & 250 & F \\
+3 & Kareem & 32 & Orthopaedic & 1998-02-19 & 200 & M \\
+4 & Arun & 12 & Surgery & 1998-01-11 & 300 & M \\
+5 & Zubin & 30 & ENT & 1998-01-12 & 250 & M \\
+6 & Ketaki & 16 & ENT & 1998-02-24 & 250 & F \\
+7 & Ankit & 29 & Cardiology & 1998-02-20 & 800 & F \\
+8 & Zareen & 45 & Gynaecology & 1998-02-22 & 300 & F \\
+9 & Kush & 19 & Cardiology & 1998-01-13 & 800 & M \\
+10 & Shilpa & 23 & Nuclear Medicine & 1998-02-21 & 400 & F \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(a)] To list the names of all the patients admitted after 1998-01-15.
+    \item[(b)] To list the names of female patients who are in ENT department.
+    \item[(c)] To list the names of all patients with their date of admission in ascending order.
+    \item[(d)] To display Patient's Name, Charges, Age for only female patients.
+    \item[(e)] Find out the output of the following SQL commands:
+    \begin{itemize}
+        \item SELECT COUNT(DISTINCT Charges) FROM HOSPITAL;
+        \item SELECT MIN(Age) FROM HOSPITAL WHERE Sex = "F";
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(a)
+\begin{lstlisting}[language=SQL]
+SELECT NAME
+FROM HOSPITAL
+WHERE DATEOFADM > '1998-01-15';
+\end{lstlisting}
+
+(b)
+\begin{lstlisting}[language=SQL]
+SELECT NAME
+FROM HOSPITAL
+WHERE SEX = 'F' AND DEPARTMENT = 'ENT';
+\end{lstlisting}
+
+(c)
+\begin{lstlisting}[language=SQL]
+SELECT NAME, DATEOFADM
+FROM HOSPITAL
+ORDER BY DATEOFADM;
+\end{lstlisting}
+
+(d)
+\begin{lstlisting}[language=SQL]
+SELECT NAME, CHARGES, AGE
+FROM HOSPITAL
+WHERE SEX = 'F';
+\end{lstlisting}
+
+(e)
+
+1.
+\begin{lstlisting}[language=SQL]
+SELECT COUNT(DISTINCT Charges) FROM HOSPITAL;
+\end{lstlisting}
+
+2.
+\begin{lstlisting}[language=SQL]
+SELECT MIN(Age) FROM HOSPITAL WHERE Sex = "F";
+\end{lstlisting}
+
+\subsection*{Question 32}
+A department store MyStore is considering to maintain their inventory using SQL to store the data. As a database administrator, Abhay has decided that:
+
+\begin{itemize}
+    \item Name of the database --- mystore
+    \item Name of the table --- STORE
+\end{itemize}
+
+The attributes of STORE are as follows:
+
+ItemNo --- numeric
+
+ItemName --- character of size 20
+
+Scode --- numeric
+
+Quantity --- numeric
+
+\vspace{0.5cm}
+
+\textbf{Table: STORE}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+ItemNo & ItemName & Scode & Quantity \\
+\hline
+2005 & Sharpener Classic & 23 & 60 \\
+2003 & Ball Pen 0.25 & 22 & 50 \\
+2002 & Gel Pen Premium & 21 & 150 \\
+2006 & Gel Pen Classic & 21 & 250 \\
+2001 & Eraser Small & 22 & 220 \\
+2004 & Eraser Big & 22 & 110 \\
+2009 & Ball Pen 0.5 & 21 & 180 \\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+    \item[(a)] Identify the attribute best suitable to be declared as a primary key.
+    \item[(b)] Write the degree and cardinality of the table STORE.
+    \item[(c)] Insert the following data into the attributes ItemNo, ItemName and SCode respectively in the given table STORE.
+
+    ItemNo = 2010, ItemName = "Note Book" and Scode = 25.
+    \item[(d)] Abhay wants to remove the table STORE from the database MyStore. Which command will he use from the following?
+    \begin{itemize}
+        \item DELETE FROM STORE;
+        \item DROP TABLE STORE;
+        \item DROP DATABASE MYSTORE;
+        \item DELETE STORE FROM MYSTORE;
+    \end{itemize}
+    \item[(e)] Now Abhay wants to display the structure of the table STORE, i.e., name of the attributes and their respective data types that he has used in the table. Write the query to display the same.
+\end{enumerate}
+
+\subsubsection*{Solution}
+
+(a) ItemNo attribute is best suitable to be declared as a primary key as it uniquely identifies each item in the inventory.
+
+(b) The degree of the table STORE is 4, and the cardinality of the table STORE is 7.
+
+(c)
+\begin{lstlisting}[language=SQL]
+INSERT INTO STORE(ItemNo, ItemName, Scode)
+VALUES(2010, 'Note Book', 25);
+\end{lstlisting}
+
+(d) DROP TABLE STORE;
+
+Reason --- DROP TABLE command is used to remove/delete a table permanently. The syntax is : DROP TABLE <table\_name>;. Hence, according to this DROP TABLE STORE; is the correct command to remove the STORE table from the database MyStore.
+
+(e)
+\begin{lstlisting}[language=SQL]
+DESCRIBE STORE;
 \end{lstlisting}
 
 \end{document}
