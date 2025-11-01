@@ -1,5 +1,9 @@
 \documentclass[11pt, a4paper]{article}
 
+% THIS IS NOT THE FINAL PRACTICAL FILE.
+% THIS IS ONLY USED TO PRODUCE THE PRACTICAL FILE CONTENT WITHOUT THE SCREENSHOTS,
+% WHICH CAN BE FURTHER USED BY `pandoc' TO CONVERT TO A WORD DOC TO ADD SCREENSHOTS.
+
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -72,6 +76,8 @@ else:
     print("Mean of the numbers:", mean)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_15.png}
+
 \subsection*{Question 16}
 Write a program to calculate the minimum element of a given list of numbers.
 
@@ -81,6 +87,8 @@ l = eval(input("Enter a list: "))
 m = min(l)
 print("Minimum element in the list:", m)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_16.png}
 
 \subsection*{Question 17}
 Write a code to calculate and display total marks and percentage of a student from a given list storing the marks of a student.
@@ -98,6 +106,8 @@ print("Total Marks:", total_marks)
 print("Percentage:", percentage)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_17.png}
+
 \subsection*{Question 18}
 Write a program to multiply an element by 2 if it is an odd index for a given list containing both numbers and strings.
 
@@ -109,6 +119,8 @@ for index in range(1, len(mixed), 2):
 print("Modified List:", mixed)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_18.png}
+
 \subsection*{Question 19}
 Write a program to count the frequency of an element in a list.
 
@@ -119,6 +131,8 @@ c = int(input("Enter the element whose frequency is to be checked: "))
 frequency = my_list.count(c)
 print("The frequency of", c, "in the list is: ", frequency)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_19.png}
 
 \subsection*{Question 20}
 Write a program to shift elements of a list so that the first element moves to the second index and second index moves to the third index, and so on, and the last element shifts to the first position.
@@ -144,6 +158,8 @@ print("Rotated List")
 print(l)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_20.png}
+
 \subsection*{Question 21}
 A list Num contains the following elements:
 \begin{codeexample}
@@ -163,6 +179,9 @@ for i in range(len(Num) - 1):
 print("Resultant List:", Num)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_21.png}
+
+
 \subsection*{Question 22}
 Write a program to accept values from a user in a tuple. Add a tuple to it and display its elements one by one. Also display its maximum and minimum value.
 
@@ -178,6 +197,8 @@ for element in combined_tuple:
 print("Maximum value:", max(combined_tuple))
 print("Minimum value:", min(combined_tuple))
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_22.png}
 
 \subsection*{Question 23}
 Write a program to input any values for two tuples. Print it, interchange it and then compare them.
@@ -203,6 +224,8 @@ else:
     print("\nThe swapped tuples are not equal.")
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_23.png}
+
 \subsection*{Question 24}
 Write a Python program to input 'n' classes and names of class teachers to store them in a dictionary and display the same. Also accept a particular class from the user and display the name of the class teacher of that class.
 
@@ -221,6 +244,8 @@ if find in data:
 else:
     print("Class not found in the data.")
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_24.png}
 
 \subsection*{Question 25}
 Write a program to store student names and their percentage in a dictionary and delete a particular student name from the dictionary. Also display the dictionary after deletion.
@@ -241,6 +266,8 @@ if find in data:
 else:
     print("Student not found in the data.")
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_25.png}
 
 \subsection*{Question 26}
 Write a Python program to input names of 'n' customers and their details like items bought, cost and phone number, etc., store them in a dictionary and display all the details in a tabular form.
@@ -268,6 +295,8 @@ for name, details in customer_data.items():
     print(name, "\t\t", details['Items Bought'], "\t\t", details['Cost'], "\t\t", details['Phone Number'])
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_26.png}
+
 \subsection*{Question 27}
 Write a Python program to capitalize first and last letters of each word of a given string.
 
@@ -288,6 +317,8 @@ capitalized_string = ' '.join(result)
 print(capitalized_string)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_27.png}
+
 \subsection*{Question 28}
 Write a Python program to remove duplicate characters of a given string.
 
@@ -301,6 +332,8 @@ for char in input_string:
 result = ''.join(unique_chars.keys())
 print(result)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_28.png}
 
 \subsection*{Question 29}
 Write a Python program to compute sum of digits of a given number.
@@ -316,6 +349,8 @@ while number > 0:
 
 print("Sum of digits:", sum_of_digits)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_29.png}
 
 \subsection*{Question 30}
 Write a Python program to find the second most repeated word in a given string.
@@ -350,6 +385,8 @@ for word, count in word_counts.items():
 print(second_most_repeated_word)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_30.png}
+
 \subsection*{Question 31}
 Write a Python program to change a given string to a new string where the first and last characters have been exchanged.
 
@@ -364,6 +401,8 @@ print("Original string:", input_str)
 print("New string after swapping first and last characters:", new_str)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_31.png}
+
 \subsection*{Question 32}
 Write a Python program to multiply all the items in a list.
 
@@ -376,6 +415,8 @@ for item in lst:
 print("Result:", result)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_32.png}
+
 \subsection*{Question 33}
 Write a Python program to get the smallest number from a list.
 
@@ -385,6 +426,8 @@ numbers = eval(input("Enter the list: "))
 smallest = min(numbers)
 print("Smallest Number:", smallest)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_33.png}
 
 \subsection*{Question 34}
 Write a Python program to append a list to the second list.
@@ -396,6 +439,8 @@ list2 = eval(input("Enter the second list: "))
 list1.extend(list2)
 print("Appended List:", list1)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_34.png}
 
 \subsection*{Question 35}
 Write a Python program to generate and print a list of first and last 5 elements where the values are square of numbers between 1 and 30 (both included).
@@ -410,6 +455,8 @@ last_5 = squares[-5:]
 combined_list = first_5 + last_5
 print("Combined list:", combined_list)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_35.png}
 
 \subsection*{Question 36}
 Write a Python program to get unique values from a list.
@@ -426,6 +473,8 @@ for item in input_list:
 print("Unique values from the list:", unique_values)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_36.png}
+
 \subsection*{Question 37}
 Write a Python program to convert a string to a list.
 
@@ -436,6 +485,8 @@ char_list = list(string)
 
 print("String converted to list:", char_list)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_37.png}
 
 \subsection*{Question 38}
 Write a Python script to concatenate the following dictionaries to create a new one:
@@ -456,6 +507,8 @@ d1.update(d2)
 print("Concatenated dictionary: ", d1)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_38.png}
+
 \subsection*{Question 39}
 Write a Python script to check if a given key already exists in a dictionary.
 
@@ -468,6 +521,8 @@ if key_check in my_dict:
 else:
     print("The key", key_check, "does not exist in the dictionary.")
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_39.png}
 
 \subsection*{Question 40}
 Write a Python script to print a dictionary where the keys are numbers between 1 and 15 (both included) and the values are square of keys.
@@ -486,6 +541,8 @@ for num in range(1, 16):
 print("Resulting dictionary:", result_dict)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_40.png}
+
 \subsection*{Question 41}
 Write a Python script to merge two Python dictionaries.
 
@@ -496,6 +553,8 @@ dict2 = eval(input("Enter the second dictionary: "))
 dict1.update(dict2)
 print("Merged dictionary:", dict1)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_41.png}
 
 \subsection*{Question 42}
 Write a Python program to sort a dictionary by key.
@@ -518,6 +577,8 @@ for key in keys_list:
 
 print("Dictionary sorted by key:", sorted_dict)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_42.png}
 
 \subsection*{Question 43}
 Write a Python program to combine two dictionaries adding values for common keys.
@@ -546,6 +607,8 @@ for key, value in d2.items():
 print("Combined dictionary with added values for common keys:", combined_dict)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_43.png}
+
 \subsection*{Question 44}
 Write a Python program to find the three highest values in a dictionary.
 
@@ -554,8 +617,6 @@ Write a Python program to find the three highest values in a dictionary.
 my_dict = eval(input("Enter the dictionary: "))
 highest_values = []
 highest_keys = []
-# This is not the most efficient way, but it matches the provided code.
-# A better way would be to sort items by value.
 for key, value in my_dict.items():
     if not highest_values or value > highest_values[-1]:
         highest_values.append(value)
@@ -563,11 +624,7 @@ for key, value in my_dict.items():
         if len(highest_values) > 3:
             highest_values.pop(0)
             highest_keys.pop(0)
-    # Note: This logic is flawed as it doesn't handle insertion correctly.
-    # A correct implementation would be more complex or use sorting.
-    # Re-implementing based on sorting for correctness, but keeping original logic:
-    
-# Sticking to the provided logic exactly:
+
 my_dict = eval(input("Enter the dictionary: "))
 highest_values = []
 highest_keys = []
@@ -583,6 +640,8 @@ for i in range(len(highest_keys)):
     print(highest_keys[i], ":" ,highest_values[i])
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_44.png}
+
 \subsection*{Question 45}
 Write a Python program to sort a list alphabetically in a dictionary.
 
@@ -596,6 +655,8 @@ for key, value in my_dict.items():
 print("Sorted dictionary:", my_dict)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/1/1_45.png}
+
 \subsection*{Question 46}
 Write a Python program to count number of items in a dictionary value that is a list.
 
@@ -608,6 +669,8 @@ for value in my_dict.values():
         total_count += len(value)
 print("Total number of items in lists within the dictionary:", total_count)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/1/1_46.png}
 
 \section{Functions}
 
@@ -625,6 +688,8 @@ height_value = int(input("Enter the height value: "))
 triangle_area = calculate_area(base_value, height_value)
 print("Area of the triangle:", triangle_area)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/2/2_2.png}
 
 \subsection*{Question 3}
 Modify the above function to take a third parameter called shape type. Shape type should be either triangle or rectangle. Based on the shape, it should calculate the area.
@@ -648,6 +713,8 @@ height_value = int(input("Enter the height value: "))
 area = calculate_area(base_value, height_value, shape_type)
 print("Area of the", shape_type, "is ", area)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/2/2_3.png}
 
 \subsection*{Question 4}
 Write a function called print\_pattern() that takes integer number as argument and prints the following pattern if the input number is 3.
@@ -678,8 +745,24 @@ print("Pattern for input", num, ":")
 print_pattern(num)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_4.png}
+
 \subsection*{Question 18}
-Write a function that takes amount-in-dollars and dollar-to-rupee conversion price; it then returns the amount converted to rupees. Create the function in both void and non-void forms.
+Write a Python program to convert the following list of dollars to rupees using functions. Also, use a void function to display the converted amount.
+
+Given:
+\begin{codeexample}
+dollars = [10, 20, 30, 40]
+conversion_rate = 74.5
+\end{codeexample}
+
+Expected Output:
+\begin{codeexample}
+Rs. 745.0
+Rs. 1490.0
+Rs. 2235.0
+Rs. 2980.0
+\end{codeexample}
 
 \subsubsection*{Solution}
 \begin{lstlisting}
@@ -702,8 +785,10 @@ print("Converted amount (non-void function):", converted_amount)
 convert_dollars_to_rupees_void(amount, conversion_rate)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_18.png}
+
 \subsection*{Question 19}
-Write a function to calculate volume of a box with appropriate default values for its parameters. Your function should have the following input parameters:
+Write a Python program to calculate volume of a box with appropriate default values for its parameters. Your function should have the following input parameters:
 
 \begin{itemize}
     \item Length of box
@@ -731,6 +816,8 @@ b = calculate_volume(width = 19)
 print("Volume of the box with default values:", b)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_19.png}
+
 \subsection*{Question 20}
 Write a program to display first four multiples of a number using recursion.
 
@@ -745,6 +832,8 @@ def display_multiples(n, count = 1):
 n = int(input("Enter the number: "))
 display_multiples(n)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/2/2_20.png}
 
 \subsection*{Question 22}
 Write a recursive function to add the first 'n' terms of the series:
@@ -767,6 +856,8 @@ n = int(input("Enter the term: "))
 print(add_series_terms(n))
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_22.png}
+
 \subsection*{Question 23}
 Write a program to find the greatest common divisor between two numbers.
 
@@ -783,8 +874,10 @@ gcd_value = gcd(num1, num2)
 print("The greatest common divisor of", num1, "and", num2, "is", gcd_value)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_23.png}
+
 \subsection*{Question 24}
-Write a Python function to multiply all the numbers in a list.
+Write a Python program to multiply all the numbers in a list.
 
 Sample List: (8, 2, 3, -1, 7)
 
@@ -803,6 +896,8 @@ product = multiply_list(numbers)
 print("The product of the numbers in the list is", product)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_24.png}
+
 \subsection*{Question 25}
 Write a Python function to calculate the factorial of a number (a non-negative integer). The function accepts the number whose factorial is to be calculated as the argument.
 
@@ -818,6 +913,8 @@ n = int(input("Enter a number: "))
 fact = factorial(n)
 print("The factorial of", n, "is", fact)
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/2/2_25.png}
 
 \subsection*{Question 26}
 Write a Python function that takes a number as a parameter and checks whether the number is prime or not.
@@ -840,6 +937,8 @@ is_prime_num = is_prime(num)
 print("Is", num, "prime?", is_prime_num)
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_26.png}
+
 \subsection*{Question 27}
 Write a Python function that checks whether a passed string is a palindrome or not.
 
@@ -858,6 +957,8 @@ else:
     print(input_string, "is not a palindrome.")
 \end{lstlisting}
 
+\includegraphics[width=1\textwidth]{images/2/2_27.png}
+
 \subsection*{Question 28}
 Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.
 
@@ -875,6 +976,8 @@ def sort_words(s):
 input_str = input('Enter a hyphen-separated sequence of words: ')
 print(sort_words(input_str))
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/2/2_28.png}
 
 \section{File Handling}
 
@@ -2304,6 +2407,103 @@ Reason --- DROP TABLE command is used to remove/delete a table permanently. The 
 (e)
 \begin{lstlisting}[language=SQL]
 DESCRIBE STORE;
+\end{lstlisting}
+
+\section{Interfacing Python with SQL}
+
+\subsection*{Question 11}
+Write a program to display all records in ascending order of their salary from table employee.
+
+\textbf{Table: EMPLOYEE}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+EMPNO & ENAME & DEPT & SALARY \\
+\hline
+1 & RAJESH & IT & 60000 \\
+2 & MANOJ KUMAR & HISTORY & 65000 \\
+3 & ANUSHA & MARKETING & 70000 \\
+4 & ABHAY & FASHION STUDIES & 45000 \\
+\hline
+\end{tabular}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import mysql.connector
+mydb = mysql.connector.connect(host = "localhost",
+                                user = "root",
+                                passwd = "tiger",
+                                database = "School")
+mycursor = mydb.cursor()
+mycursor.execute("select * FROM EMPLOYEE ORDER BY SALARY")
+myrecords = mycursor.fetchall()
+for row in myrecords:
+    print(row)
+mycursor.close()    
+mydb.close()
+\end{lstlisting}
+
+\subsection*{Question 12}
+Write a program to increase salary of the employee, whose name is "MANOJ KUMAR", by 3000.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import mysql.connector
+mydb = mysql.connector.connect(host = "localhost",
+                                user = "root",
+                                passwd = "tiger",
+                                database = "School")
+mycursor = mydb.cursor()
+mycursor.execute("UPDATE employee SET salary = salary + 3000 WHERE Ename = 'MANOJ KUMAR'")
+mydb.commit()
+\end{lstlisting}
+
+\subsection*{Question 13}
+Write a program to delete the employee record whose name is read from keyboard at execution time.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import mysql.connector
+mydb = mysql.connector.connect(host = "localhost",
+                                user = "root",
+                                passwd = "tiger",
+                                database = "School")
+mycursor = mydb.cursor()
+employee_name = input("Enter the name of the employee to delete: ")
+mycursor.execute("DELETE FROM employee WHERE ENAME = %s", (employee_name,))
+print(mycursor.rowcount, "Record Deleted")
+\end{lstlisting}
+
+\subsection*{Question 14}
+Create a database TESTDB.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import mysql.connector
+conn = mysql.connector.connect(host = 'localhost', 
+                                user = 'root', 
+                                passwd = 'tiger')
+cursor = conn.cursor()
+cursor.execute("CREATE DATABASE TESTDB")
+conn.commit()
+conn.close()
+\end{lstlisting}
+
+\subsection*{Question 15}
+Create a table EMPLOYEE with Fields FIRST\_NAME, LAST\_NAME, AGE, GENDER and INCOME.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import mysql.connector
+mydb = mysql.connector.connect(host = 'localhost', 
+                               user = 'root', 
+                               passwd = 'tiger', 
+                               database = "kboat_cbse_12")
+mycursor = mydb.cursor()
+mycursor.execute("CREATE table EMPLOYEE (FIRST_NAME VARCHAR(45), LAST_NAME VARCHAR(45), AGE INTEGER, GENDER VARCHAR(10), INCOME FLOAT)")
+mydb.commit()
+mycursor.close()
+mydb.close()
 \end{lstlisting}
 
 \end{document}
