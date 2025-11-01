@@ -876,4 +876,666 @@ input_str = input('Enter a hyphen-separated sequence of words: ')
 print(sort_words(input_str))
 \end{lstlisting}
 
+\section{File Handling}
+
+\subsection*{Question 9}
+Write a code snippet that will create an object called fileout for writing; associate it with the filename 'STRS'. The code should keep on writing strings to it as long as the user wants.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+fileout = open('STRS.txt', 'w')
+ans = 'y'
+while ans == 'y':
+    string = input("Enter a string: ")
+    fileout.write(string + "\n")  
+    ans = input("Want to enter more strings?(y/n)...")   
+fileout.close()
+\end{lstlisting}
+
+\subsection*{Question 14}
+Write a program that reads a text file and creates another file that is identical except that every sequence of consecutive blank spaces is replaced by a single space.
+
+\subsubsection*{Solution}
+Let the file ``input.txt'' include the following sample text:
+
+\begin{verbatim}
+In   the beginning  there  was    chaos.
+Out of  the chaos  came order.
+The universe  began to take shape.
+Stars  formed  and galaxies were  born.
+Life   emerged  in the  vast  expanse.
+\end{verbatim}
+
+\begin{lstlisting}
+with open("input.txt", 'r') as f:
+    with open("output.txt", 'w') as fout:
+        for line in f:
+            modified_line = ' '.join(line.split())
+            fout.write(modified_line + '\n')
+\end{lstlisting}
+
+\subsection*{Question 15}
+A file 'sports.dat' contains information in the following format: EventName, Participant
+
+Write a function that would read contents from file 'sports.dat' and create a file named 'Athletic.dat' copying only those records from 'sports.dat' where the event name is ``Athletics''.
+
+\subsubsection*{Solution}
+Let the file ``sports.dat'' include the following sample records:
+
+\begin{verbatim}
+Athletics - Rahul
+Swimming - Tanvi
+Athletics - Akash
+Cycling - Kabir
+Athletics - Riya
+\end{verbatim}
+
+\begin{lstlisting}
+def filter_records(input_file, output_file):
+    with open(input_file, 'r') as f_in:
+        with open(output_file, 'w') as f_out:
+            for line in f_in:
+                event, participant = line.strip().split(' - ')
+                if event == 'Athletics':
+                    f_out.write(line)
+
+filter_records('sports.dat', 'Athletic.dat')
+\end{lstlisting}
+
+\subsection*{Question 16}
+Write a program to count the words ``to'' and ``the'' present in a text file ``Poem.txt''.
+
+\subsubsection*{Solution}
+Let the file ``Poem.txt'' include the following sample text:
+
+\begin{verbatim}
+To be or not to be, that is the question.
+The quick brown fox jumps over the lazy dog.
+To infinity and beyond!
+The sun sets in the west.
+To be successful, one must work hard.
+\end{verbatim}
+
+\begin{lstlisting}
+to_count = 0
+the_count = 0
+
+with open("Poem.txt", 'r') as file:
+    for line in file:
+        words = line.split()
+        for word in words:
+            if word.lower() == 'to':
+                to_count += 1
+            elif word.lower() == 'the':
+                the_count += 1
+
+print("count of 'to': ", to_count)
+print("count of 'the': ", the_count)
+\end{lstlisting}
+
+\subsection*{Question 17}
+Write a program to count the number of uppercase alphabets present in a text file ``Poem.txt''.
+
+\subsubsection*{Solution}
+Let the file ``Poem.txt'' include the following sample text:
+
+\begin{verbatim}
+PYTHON is a Popular Programming Language.
+\end{verbatim}
+
+\begin{lstlisting}
+with open("Poem.txt", 'r') as file:
+    text = file.read()
+    count = 0
+    for char in text:
+        if char.isupper():
+            count += 1
+
+print(count)
+\end{lstlisting}
+
+\subsection*{Question 18}
+Write a program that copies one file to another. Have the program read the file names from user.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def copy_file(file1, file2):
+    with open(file1, 'r') as source:
+        with open(file2, 'w') as destination:
+            destination.write(source.read())
+    
+source_file = input("Enter the name of the source file: ")
+destination_file = input("Enter the name of the destination file: ")
+
+copy_file(source_file, destination_file)
+\end{lstlisting}
+
+\subsection*{Question 19}
+Write a program that appends the contents of one file to another. Have the program take the file names from the user.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def append_file(f1, f2):
+    with open(f1, 'r') as source:
+        with open(f2, 'a') as destination:
+            destination.write(source.read())
+    
+source_file = input("Enter the name of the source file: ")
+destination_file = input("Enter the name of the destination file: ")
+
+append_file(source_file, destination_file)
+\end{lstlisting}
+
+\subsection*{Question 20}
+Write a program that reads characters from the keyboard one by one. All lower case characters get stored inside the file 'LOWER', all upper case characters get stored inside the file 'UPPER' and all other characters get stored inside file 'OTHERS'.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+lower_file = open("LOWER.txt", 'w')
+upper_file = open("UPPER.txt", 'w')
+others_file = open("OTHERS.txt", 'w')
+ans = 'y'
+while ans == 'y':
+    char = input("Enter a character: ")
+    if char.islower():
+        lower_file.write(char + "\n")
+    elif char.isupper():
+        upper_file.write(char + "\n")
+    else:
+        others_file.write(char + "\n")
+    ans = input("Want to enter a character? (y/n): ")
+lower_file.close()
+upper_file.close()
+others_file.close()
+\end{lstlisting}
+
+\subsection*{Question 21}
+Write a program to search the names and addresses of persons having age more than 30 in the data list of persons stored in a text file.
+
+\subsubsection*{Solution}
+Let the file ``Persons.txt'' include the following sample text:
+
+\begin{verbatim}
+Samyukta, Mumbai, 35
+Anubhav, Chennai, 28
+Aniket, Hyderabad, 42
+Sarth, Bangalore, 31
+\end{verbatim}
+
+\begin{lstlisting}
+f = open('Persons.txt', 'r')
+lines = f.readlines()
+for line in lines:
+    data = line.strip().split(',')
+    if len(data) >= 3 and int(data[2]) > 30:
+        print('Name:', data[0], 'Address:', data[1])
+f.close()        
+\end{lstlisting}
+
+\subsection*{Question 22}
+Write a function in Python to count and display the number of lines starting with alphabet 'A' present in a text file ``LINES.TXT'', e.g., the file ``LINES.TXT'' contains the following lines:
+
+\begin{verbatim}
+A boy is playing there. 
+There is a playground.
+An aeroplane is in the sky.
+A cricket match is being played.
+\end{verbatim}
+
+The function should display the output as 3.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def count_lines(file_name):
+    count = 0
+    with open(file_name, 'r') as file:
+        for line in file:
+            if line.strip().startswith('A'):
+                count += 1
+    print(count)
+
+count_lines("LINES.TXT")
+\end{lstlisting}
+
+\subsection*{Question 26}
+Write a program to accept string/sentences from the user till the user enters ``END''. Save the data in a text file and then display only those sentences which begin with an uppercase alphabet.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+f = open("new.txt", "w")
+while True:
+    st = input("Enter next line:")
+    if st == "END":
+        break
+    f.write(st + '\n')
+f.close()
+
+f = open("new.txt", "r")
+while True:
+    st = f.readline()
+    if not st:
+        break
+    if st[0].isupper():
+        print(st)
+f.close()
+\end{lstlisting}
+
+\subsection*{Question 27}
+Write a function to insert a sentence in a text file, assuming that text file is very big and can't fit in computer's memory.
+
+\subsubsection*{Solution}
+Let the file ``insert.txt'' include the following sample text:
+
+\begin{verbatim}
+Bees hum
+leaves rustle
+Waves crash
+nature's voice whispers
+\end{verbatim}
+
+\begin{lstlisting}
+def insert_sentence(file_path, sentence):
+    file = open(file_path, 'a')
+    file.write(sentence + '\n')
+    file.close()
+insert_sentence("insert.txt", "life's essence glimmers")
+\end{lstlisting}
+
+\subsection*{Question 28}
+Write a program to read a file 'Story.txt' and create another file, storing an index of 'Story.txt', telling which line of the file each word appears in. If word appears more than once, then index should show all the line numbers containing the word.
+
+\subsubsection*{Solution}
+Let the file ``Story.txt'' include the following sample text:
+
+\begin{verbatim}
+The cat sleeps
+The dog barks
+The cat jumps
+The sun shines
+\end{verbatim}
+
+\begin{lstlisting}
+word_index = {}
+file = open('Story.txt', 'r')
+line_number = 1
+lines = file.readlines()
+for line in lines:
+    words = line.strip().split()
+    for word in words:
+        if word in word_index:
+            word_index[word].append(str(line_number))
+        else:
+            word_index[word] = [str(line_number)]
+    line_number += 1
+file.close()
+
+index_file = open('index.txt', 'w')
+for word, line_numbers in word_index.items():
+    line_numbers_str = ", ".join(line_numbers)
+    index_file.write(word + ":" + line_numbers_str + "\n")
+index_file.close()
+\end{lstlisting}
+
+\subsection*{Question 29}
+Write a program to accept a filename from the user and display all the lines from the file which contain Python comment character '\#'.
+
+\subsubsection*{Solution}
+Let the file ``notes.txt'' include the following sample text:
+
+\begin{verbatim}
+Welcome to the Garden of Dreams 
+#where the ordinary becomes extraordinary
+#the impossible becomes possible.
+\end{verbatim}
+
+\begin{lstlisting}
+file_name = input("Enter the filename: ")
+file = open(file_name, 'r')
+lines = file.readlines()
+for line in lines:
+    if '#' in line:
+        print(line)
+file.close()
+\end{lstlisting}
+
+\subsection*{Question 31}
+Write a Python program to display the size of a file after removing EOL characters, leading and trailing white spaces and blank lines.
+
+\subsubsection*{Solution}
+Let the file ``sample.txt'' include the following sample text:
+
+\begin{verbatim}
+  The sky is blue\n 
+  
+  Clouds float gently in the sky.   
+  
+  Birds sing sweet melodies.   
+\end{verbatim}
+
+\begin{lstlisting}
+file = open('sample.txt', 'r')
+lines = file.readlines()
+original_size = 0
+for line in lines:
+    original_size += len(line)
+print("Original file size:", original_size)
+file.close()
+
+file = open('sample.txt', 'r')
+cleaned_size = 0
+for line in file:
+    cleaned_line = line.strip()
+    if cleaned_line:
+        cleaned_size += len(cleaned_line)
+file.close()
+print("Cleaned file size:", cleaned_size)
+\end{lstlisting}
+
+\subsection*{Question 32}
+Write a function Remove\_Lowercase() that accepts two file names, and copies all lines that do not start with lowercase letter from the first file into the second file.
+
+\subsubsection*{Solution}
+Let the file ``file1.txt'' include the following sample text:
+
+\begin{verbatim}
+Dew on petals, morning's gift.
+silent moon, silver glow.
+Winds whisper, secrets shared.
+rain's embrace, earth's renewal.
+\end{verbatim}
+
+\begin{lstlisting}
+def Remove_Lowercase(input_file, output_file):
+    input_file = open(input_file, 'r')
+    output_file = open(output_file, 'w')
+    for line in input_file:
+        if line.strip() and line[0].isupper():
+            output_file.write(line)
+    input_file.close()
+    output_file.close()
+
+input_file = 'file1.txt'
+output_file = 'file2.txt'
+Remove_Lowercase(input_file, output_file)
+\end{lstlisting}
+
+\subsection*{Question 33}
+Write a program to display all the records in a file along with line/record number.
+
+\subsubsection*{Solution}
+Let the file ``f1.txt'' include the following sample text:
+
+\begin{verbatim}
+Soft whispers of the wind.
+A melody in the trees.
+Sun-kissed petals dance.
+A garden's quiet song.
+\end{verbatim}
+
+\begin{lstlisting}
+file_name = 'f1.txt'
+line_number = 1
+f = open(file_name, 'r')
+for line in f:
+    print("Line", line_number, ":", line.strip())
+    line_number += 1
+f.close()
+\end{lstlisting}
+
+\subsection*{Question 34}
+Write a method in Python to write multiple line of text contents into a text file ``mylife.txt''.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def write_to_file(file_path):
+    lines_to_write = ["The sun sets over the horizon.", "Birds chirp in the morning.", "Raindrops patter on the roof.", "Leaves rustle in the breeze."]
+    with open(file_path, "w") as file:
+        for line in lines_to_write:
+            file.write(line + '\n')  
+
+write_to_file("mylife.txt")
+\end{lstlisting}
+
+\subsection*{Question 35}
+Write a method in Python to read the content from a text file ``DIARY.TXT'' line by line and display the same on the screen.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def diary_content(f):
+    myfile = open(f, "r")
+    str = " "
+    while str:
+        str = myfile.readline()
+        print(str, end = '')
+    myfile.close()
+
+diary_content("DIARY.TXT")
+\end{lstlisting}
+
+\subsection*{Question 36}
+Write appropriate statements to do the following:
+
+(a) To open a file named ``RESULT.DAT'' for output.
+
+(b) To go to the end of the file at any time.
+
+\subsubsection*{Solution}
+(a) To open a file named ``RESULT.DAT'' for output:
+\begin{lstlisting}
+file = open("RESULT.DAT")
+\end{lstlisting}
+
+(b) To go to the end of the file at any time:
+\begin{lstlisting}
+file.seek(0, 2)
+\end{lstlisting}
+
+\subsection*{Question 37}
+Write a program to add two more employees' details (empno, ename, salary, designation) to the file ``emp.txt'' already stored in disk.
+
+\subsubsection*{Solution}
+Let the file ``emp.txt'' include the following sample text:
+
+\begin{verbatim}
+1001, Ankit Singh, 50000, Manager
+1002, Neha Patel, 45000, Developer
+\end{verbatim}
+
+\begin{lstlisting}
+file = open("emp.txt", "a")
+file.write("1003, Manoj Tiwari, 48000, Analyst\n")
+file.write("1004, Aarti Gupta, 52000, Engineer\n")
+\end{lstlisting}
+
+\subsection*{Question 42}
+Anant has been asked to display all the students who have scored less than 40 for Remedial Classes. Write a user-defined function to display all those students who have scored less than 40 from the binary file ``Student.dat''.
+
+\subsubsection*{Solution}
+Let the file ``Student.dat'' include the following sample data:
+
+\begin{verbatim}
+Radhika 80
+Shaurya 35
+Sonia 38
+Anirudh 45
+\end{verbatim}
+
+\begin{lstlisting}
+import pickle
+
+def display_students(file_name):
+        file = open(file_name, 'rb')
+        students = pickle.load(file) 
+        for student in students:
+            name = student[0]
+            score = student[1]
+            if score < 40:
+                print(name)
+        file.close()
+display_students('student.dat')
+\end{lstlisting}
+
+\subsection*{Question 43}
+Following is the structure of each record in a data file named ``PRODUCT.DAT''.
+
+\begin{verbatim}
+{"prod_code": value, "prod_desc": value, "stock": value}
+\end{verbatim}
+
+The values for prod\_code and prod\_desc are strings and the value for stock is an integer.
+
+Write a function in Python to update the file with a new value of stock. The stock and the product\_code, whose stock is to be updated, are to be inputted during the execution of the function.
+
+\subsubsection*{Solution}
+Let the file ``PRODUCT.dat'' include the following sample data:
+
+\begin{verbatim}
+{'prod_code': 'AB', 'prod_desc': 'Books', 'stock': 50}
+{'prod_code': 'AC', 'prod_desc': 'Pens', 'stock': 75}
+{'prod_code': 'AD', 'prod_desc': 'Pencils', 'stock': 30}
+\end{verbatim}
+
+\begin{lstlisting}
+import pickle
+
+def update_stock(file_name, product_code, new_stock):
+    products = [] 
+    f = open(file_name, 'rb')
+    while True:
+        try:
+            product = pickle.load(f)
+            products.append(product)
+        except EOFError:
+            break
+    f.close()               
+    updated = False
+    for product in products:
+        if product['prod_code'] == product_code:
+            product['stock'] = new_stock
+            updated = True
+            break  
+    f = open(file_name, 'wb')
+    for product in products:
+       pickle.dump(product, f)
+    f.close()
+P_code = input("Enter the product code: ")
+New = int(input("Enter the new stock value: "))
+update_stock('PRODUCT.DAT', P_code, New)
+\end{lstlisting}
+
+\subsection*{Question 44}
+Given a binary file ``STUDENT.DAT'', containing records of the following type:
+
+\begin{verbatim}
+[S_Admno, S_Name, Percentage]
+\end{verbatim}
+
+Where these three values are:
+
+S\_Admno --- Admission Number of student (string)
+
+S\_Name --- Name of student (string)
+
+Percentage --- Marks percentage of student (float)
+
+Write a function in Python that would read contents of the file ``STUDENT.DAT'' and display the details of those students whose percentage is above 75.
+
+\subsubsection*{Solution}
+Let the file ``STUDENT.dat'' include the following sample data:
+
+\begin{verbatim}
+[['101', 'Aishwarya', 97.0], 
+['102', 'Sakshi', 85.0], 
+['103', 'Prateek', 70.0]]
+\end{verbatim}
+
+\begin{lstlisting}
+import pickle
+
+def display_students(filename):
+        file = open(filename, 'rb')
+        student_records = pickle.load(file)
+        above_75 = []
+        for student in student_records:
+            if student[2] > 75.0:
+                above_75.append(student)
+        if above_75:
+            print("Students with percentage above 75:")
+            for student in above_75:
+                print("Admission Number:", student[0], "Name:", student[1], "Percentage:", student[2])
+        file.close()
+display_students("STUDENT.DAT")
+\end{lstlisting}
+
+\subsection*{Question 50}
+Write a program to enter the following records in a binary file:
+
+\begin{itemize}
+    \item Item No --- integer
+    \item Item\_Name --- string
+    \item Qty --- integer
+    \item Price --- float
+\end{itemize}
+
+Number of records to be entered should be accepted from the user. Read the file to display the records in the following format:
+
+\begin{verbatim}
+Item No:
+Item Name:
+Quantity:
+Price per item:
+Amount: (to be calculated as Price * Qty)
+\end{verbatim}
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import pickle
+
+with open("item.dat", 'wb') as itemfile:
+    n = int(input("How many records to be entered? "))
+    for i in range(n):
+        ino = int(input("Enter item no: "))
+        iname = input("Enter item name: ")
+        qty = int(input("Enter quantity: "))
+        price = float(input("Enter price: "))
+        item = {"Item no": ino, "Item Name": iname, "Qty": qty, "Price": price}
+        pickle.dump(item, itemfile)
+    print("Successfully written item data")
+
+
+with open("item.dat", "rb") as file:
+    try:
+        while True:
+            item = pickle.load(file)
+            print("\nItem No:", item["Item no"])
+            print("Item Name:", item["Item Name"])
+            print("Quantity:", item["Qty"])
+            print("Price per item:", item["Price"])
+            print("Amount:", item["Qty"] * item["Price"])
+    except EOFError:
+        pass  
+\end{lstlisting}
+
+\subsection*{Question 51}
+Create a CSV file ``Groceries'' to store information of different items existing in a shop. The information is to be stored w.r.t. each item code, name, price, qty. Write a program to accept the data from user and store it permanently in CSV file.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+import csv
+
+with open("Groceries.csv", mode = 'w', newline = '') as file:
+    writer = csv.writer(file)
+    
+    while True:
+        item_code = int(input("Enter Item Code: "))        
+        name = input("Enter Name of the Item: ")
+        price = float(input("Enter Price: "))
+        quantity = int(input("Enter Quantity: "))
+        
+        writer.writerow([item_code, name, price, quantity])
+        choice = input("Wish to enter more records (Y/N)?: ")
+        if choice.upper() == 'N':
+            break
+\end{lstlisting}
+
 \end{document}
