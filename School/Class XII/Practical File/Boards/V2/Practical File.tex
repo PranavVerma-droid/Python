@@ -17,6 +17,7 @@
 \usepackage{amsmath} % For math environments
 \usepackage{parskip}  % Adds space between paragraphs, removes indent
 \usepackage{framed}   % For verbatim environments
+\usepackage{fancyhdr} % For Headers.
 
 % Configure listings package for Python code highlighting
 \lstset{
@@ -40,12 +41,19 @@
     framexrightmargin=2mm
 }
 
-% Define a simple environment for code examples in questions
-\lstnewenvironment{codeexample}{\lstset{frame=single,numbers=none,basicstyle=\small\ttfamily}}{}
+\lstnewenvironment{codeexample}
+{\lstset{frame=single,numbers=none,basicstyle=\small\ttfamily}}{}
 
-\title{LOTUS VALLEY INTERNATIONAL SCHOOL: Computer Science Practical File}
-\author{Pranav Verma (Roll No. 7, XII Aryabhatta)}
+\title{LOTUS VALLEY INTERNATIONAL SCHOOL \\ 
+    \large Computer Science Practical File}
+\author{Pranav Verma \\ Roll No. 7, XII Aryabhatta}
 \date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Pranav Verma}
+\fancyhead[R]{CS Practical File: Page \thepage}
+\renewcommand{\headrulewidth}{0.5pt}
 
 \begin{document}
 
@@ -2241,6 +2249,8 @@ for row in myrecords:
 mycursor.close()    
 mydb.close()
 \end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/6/6_11.png}
 
 \subsection*{Question 12}
 Write a program to increase salary of the employee, whose name is "MANOJ KUMAR", by 3000.
