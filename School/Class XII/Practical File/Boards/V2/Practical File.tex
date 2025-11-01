@@ -1538,4 +1538,346 @@ with open("Groceries.csv", mode = 'w', newline = '') as file:
             break
 \end{lstlisting}
 
+\section{Data Structures}
+
+\subsection*{Question 7}
+Write an interactive menu-driven program implementing Stack using list. The list is storing numeric data.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def push(num):
+    h = int(input("Enter a number: "))
+    num.append(h)
+
+def pop(num):
+    if len(num) == 0:
+        print("No number to delete")
+    else:
+        print("Deleted number is:", num.pop())
+
+def display(num):
+    print(num)
+
+num = []
+while True:
+    print("1. Add number")
+    print("2. Delete number")
+    print("3. Display numbers")
+    print("4. Exit")
+    op = int(input("Enter the Choice: "))
+    if op == 1:
+        push(num)
+    elif op == 2:
+        pop(num)
+    elif op == 3:
+        display(num)
+    elif op == 4:
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+\end{lstlisting}
+
+\subsection*{Question 8}
+Write an interactive menu-driven program to implement Stack using list. The list contains the names of students.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def push(student):
+    h = input("Enter a name: ")
+    student.append(h)
+
+def pop(student):
+    if len(student) == 0:
+        print("No name to delete")
+    else:
+        print("Deleted name is:", student.pop())
+
+def display(student):
+    print(student)
+
+student = []
+while True:
+    print("1. Add name")
+    print("2. Delete name")
+    print("3. Display names")
+    print("4. Exit")
+    op = int(input("Enter the Choice: "))
+    if op == 1:
+        push(student)
+    elif op == 2:
+        pop(student)
+    elif op == 3:
+        display(student)
+    elif op == 4:
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+\end{lstlisting}
+
+\subsection*{Question 10}
+Write a menu-driven Python program using queue to implement movement of shuttlecock in its box.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+queue = []
+
+def display_queue():
+    if not queue:
+        print("Queue is empty")
+    else:
+        print("Current queue:", queue)
+
+def enqueue(item):
+    queue.append(item)
+
+def dequeue():
+    if queue:
+        removed = queue.pop(0)
+        print("Removed", removed, "from the queue")
+    else:
+        print("Queue is empty, cannot remove")
+
+while True:
+    print("\nMENU:")
+    print("1. Add movement to the queue")
+    print("2. Remove movement from the queue")
+    print("3. Display current queue")
+    print("4. Exit")
+    
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == '1':
+        movement = input("Enter the movement (up/down): ")
+        enqueue(movement)
+        print("Added", movement, "to the queue")
+    elif choice == '2':
+        dequeue()
+    elif choice == '3':
+        display_queue()
+    elif choice == '4':
+        print("Exiting program...")
+        break
+    else:
+        print("Invalid choice, please try again")
+\end{lstlisting}
+
+\subsection*{Question 11}
+Give the necessary declaration of a list implemented Stack containing float type numbers. Also, write a user-defined function to pop a number from this Stack.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+# Declaration for list implemented stack
+Stack = list()
+
+# Function body to pop a number from the stack
+def pop_element(Stack):
+    if not Stack:
+        print("Stack is empty")
+    else:
+        Num = Stack.pop() 
+        print("Value deleted from stack is", Num)
+
+Stack = [1.5, 2.7, 3.2, 4.9]
+print("Initial Stack:", Stack)
+
+pop_element(Stack)
+print("Stack after pop operation:", Stack)
+\end{lstlisting}
+
+\subsection*{Question 12}
+A linear Stack called Directory contains the following information as contacts:
+
+\begin{itemize}
+    \item Pin code of city
+    \item Name of city
+\end{itemize}
+
+Write add(Directory) and delete(Directory) methods in Python to add and remove contacts using append() and pop() operations in Stack.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def add(Directory):
+    pincode = int(input("Enter pincode of city: "))
+    cityname = input("Enter the city name: ")
+    contact = [pincode, cityname]
+    Directory.append(contact)
+
+def delete(Directory):
+    if (Directory == []):
+        print("Directory is empty")
+    else:
+        print("Deleted contact:", Directory.pop())
+        
+Directory = []
+add(Directory)
+add(Directory)
+print("Initial Directory Stack:", Directory)
+
+delete(Directory)
+print("Directory Stack after deletion:", Directory)
+\end{lstlisting}
+
+\subsection*{Question 13}
+Write AddClient(Client) and DeleteClient(Client) methods in Python to add a new client and delete a client from a list client name, considering them to act as insert and delete operations of the Queue data structure.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def AddClient(client):
+    client_name = input("Enter client name: ")
+    client.append(client_name)
+
+def DeleteClient(client):
+    if client == []:
+        print("Queue is empty")
+    else:
+        print("Deleted client:", client.pop(0))
+
+client = []
+
+AddClient(client)
+AddClient(client)
+AddClient(client)
+print("Initial Client Queue:", client)
+
+DeleteClient(client)
+print("Client Queue after deletion:", client)
+\end{lstlisting}
+
+\subsection*{Question 15}
+Write Addscore(Game) and Delscore(Game) methods in Python to add new Score in the list of score in a game and remove a score from a list of score of a game considering these methods to act as PUSH and POP operation of data structure Stack.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def Addscore(Game):
+    score = int(input("Enter the score to add: "))
+    Game.append(score)
+
+def Delscore(Game):
+    if Game == []:
+        print("Game's score list is empty")
+    else: 
+        print("Deleted score:", Game.pop())
+        
+Game = []
+
+Addscore(Game)
+Addscore(Game)
+Addscore(Game)
+print("Initial Game Stack:", Game)
+
+Delscore(Game)
+print("Game Stack after deletion:", Game)
+\end{lstlisting}
+
+\subsection*{Question 16}
+Write a Python program to sort a Stack in ascending order without using an additional Stack.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def pushSorted(s, num):
+    if len(s) == 0 or num > s[-1]:
+        s.append(num)
+        return
+    else:
+        t = s.pop()
+        pushSorted(s, num)
+        s.append(t)
+
+def doSort(s):
+    if len(s) != 0:
+        t = s.pop()
+        doSort(s)
+        pushSorted(s, t)
+
+s = []
+s.append(12)
+s.append(5)
+s.append(-3)
+s.append(4)
+s.append(10)
+
+print("Stack before sorting: ")
+print(s)
+
+doSort(s)
+
+print("\nStack after sorting: ")
+print(s)
+\end{lstlisting}
+
+\subsection*{Question 19}
+Write a program to create a Stack for storing only odd numbers out of all the numbers entered by the user. Display the content of the Stack along with the largest odd number in the Stack.
+
+(Hint: Keep popping out the elements from Stack and maintain the largest element retrieved so far in a variable. Repeat till Stack is empty.)
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def push(stack, item):
+    stack.append(item)
+
+def pop(stack):
+    if stack == []:
+        return None
+    return stack.pop()
+
+def oddStack(num):
+    if num % 2 == 1:
+        push(stack, num)
+
+def GetLargest(stack):
+    elem = pop(stack)
+    large = elem
+    while elem != None:
+        if large < elem:
+            large = elem
+        elem = pop(stack)
+    return large
+
+n = int(input("How many numbers?"))
+stack = []
+for i in range(n):
+    number = int(input("Enter number:"))
+    oddStack(number)
+print("Stack created is", stack)
+bigNum = GetLargest(stack)
+print("Largest number in stack", bigNum)
+\end{lstlisting}
+
+\subsection*{Question 21}
+Write a program that, depending upon the user's choice, either pushes or pops an element in a Stack. The elements are shifted towards the right so that the top always remains at 0th (zeroth) index.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def push(stack, element):
+    stack.insert(0, element)  
+
+def pop(stack):
+    if stack == []:
+        print("Stack is empty")
+    else:
+        print("Popped element:", stack.pop(0))
+
+stack = []
+
+while True:
+    print("STACK OPERATIONS")
+    print("1. Push element")
+    print("2. Pop element")
+    print("3. Exit")
+    choice = input("Enter your choice (1-3): ")
+
+    if choice == '1':
+        element = input("Enter the element to push: ")
+        push(stack, element)
+    elif choice == '2':
+        pop(stack)
+    elif choice == '3':
+        print("Exiting program")
+        break
+    else:
+        print("Invalid choice. Please enter a valid option.")
+\end{lstlisting}
+
 \end{document}
