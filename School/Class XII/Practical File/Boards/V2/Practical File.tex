@@ -1684,6 +1684,88 @@ with open("Groceries.csv", mode = 'w', newline = '') as file:
 
 \includegraphics[width=1\textwidth]{images/3/3_51.png}
 
+\section{Data Structures}
+
+\subsection*{Question 7}
+Write an interactive menu-driven program implementing Stack using list. The list is storing numeric data.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def push(num):
+    h = int(input("Enter a number: "))
+    num.append(h)
+
+def pop(num):
+    if len(num) == 0:
+        print("No number to delete")
+    else:
+        print("Deleted number is:", num.pop())
+
+def display(num):
+    print(num)
+
+num = []
+while True:
+    print("1. Add number")
+    print("2. Delete number")
+    print("3. Display numbers")
+    print("4. Exit")
+    op = int(input("Enter the Choice: "))
+    if op == 1:
+        push(num)
+    elif op == 2:
+        pop(num)
+    elif op == 3:
+        display(num)
+    elif op == 4:
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+\end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/4/4_7.png}
+
+\subsection*{Question 8}
+Write an interactive menu-driven program to implement Stack using list. The list contains the names of students.
+
+\subsubsection*{Solution}
+\begin{lstlisting}
+def push(student):
+    h = input("Enter a name: ")
+    student.append(h)
+
+def pop(student):
+    if len(student) == 0:
+        print("No name to delete")
+    else:
+        print("Deleted name is:", student.pop())
+
+def display(student):
+    print(student)
+
+student = []
+while True:
+    print("1. Add name")
+    print("2. Delete name")
+    print("3. Display names")
+    print("4. Exit")
+    op = int(input("Enter the Choice: "))
+    if op == 1:
+        push(student)
+    elif op == 2:
+        pop(student)
+    elif op == 3:
+        display(student)
+    elif op == 4:
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+\end{lstlisting}
+
+\includegraphics[width=1\textwidth]{images/4/4_8.png}
+
 \section{Relational Databases and SQL}
 
 \subsection*{Question 17}
