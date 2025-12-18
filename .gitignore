@@ -4,7 +4,7 @@ Projects/Games/combat/__pycache__
 **/.ipynb_checkpoints/
 .vscode
 *.gz
-venv/
+.venv/
 
 *.acn
 *.acr
