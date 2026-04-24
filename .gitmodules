@@ -4,3 +4,6 @@
 [submodule "School/Class XII/Project Code"]
     path = School/Class XII/Project Code
     url = git@github.com:PranavVerma-droid/Donation-Tracker.git
+[submodule "AI and ML/Self AI/Shakespeare GPT"]
+	path = AI and ML/Self AI/Shakespeare GPT
+	url = https://github.com/PranavVerma-droid/GPT
